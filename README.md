@@ -28,7 +28,6 @@ This repository serves as a hub for students to access lecture notes, laboratory
 | Title / Module | Description | File Format | Direct Access |
 | :--- | :--- | :---: | :---: |
 | 📖 **جزوه جامع کارگاه کامپیوتر** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | `PDF` | [📥 دانلود / مشاهده مستقیم](Computer_Workshop_Pamphlet.pdf) |
-| 🛠️ **دستورکار آزمایشگاه و تمرین‌ها** | مجموعه تمرین‌های عملی و سناریوهای کارگاهی | `PDF` | [📥 دانلود / مشاهده مستقیم](./computer-workshop-lab.pdf) |
 
 > 💡 **راهنما:** برای مشاهده آنلاین یا دریافت فایل، کافیست روی لینک **دانلود / مشاهده مستقیم** کلیک کنید.
 
