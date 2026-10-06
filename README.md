@@ -1,98 +1,60 @@
 <div align="center">
 
-<!-- Cute Laptop GIF -->
-<img src="https://user-images.githubusercontent.com/74038190/250967443-f5384ba2-bf78-4be4-94be-4559c1827245.gif" width="260"/>
-
-<br/><br/>
-
 # 📚 Academic Resources & Lecture Notes
+
 ### **Sina Shojaeian** | Technical Instructor & Computer Engineering Student
 
 *Centralized repository for academic course materials, lab manuals, and practical guides.*
 
-<br/>
-
-[![GitHub Repo](https://img.shields.io/badge/Repository-sina--notes-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/3INA3/sina-notes)
-[![Status](https://img.shields.io/badge/Status-Active_Coursework-00b4d8?style=for-the-badge)](#)
-[![Format](https://img.shields.io/badge/Format-PDF_%26_Markdown-7209b7?style=for-the-badge)](#)
-
 </div>
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%"/>
+<br>
+
+---
 
 ## 📌 About This Repository
 
 This repository serves as a hub for students to access lecture notes, laboratory manuals, and structured coursework material.
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%"/>
+<br>
+
+---
 
 ## 💻 Computer Workshop (کارگاه کامپیوتر)
-
-<div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212750996-938b257b-266c-45a7-9af7-655341c0f58b.gif" width="420"/>
-
-</div>
-
-<br/>
 
 کتابچه و جزوه آموزشی درس کارگاه کامپیوتر شامل مفاهیم پایه، راهنمای آزمایشگاه و تکالیف عملی.
 
 ### 📄 Course Materials & Downloads
 
-| Title / Module                                  | Description                                            | File Format | Direct Access                                                      |
-| :---------------------------------------------- | :----------------------------------------------------- | :---------: | :----------------------------------------------------------------: |
-| 📖 **جزوه جامع کارگاه کامپیوتر (ویندوز - WIN)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها |    `PDF`    | [📥 دانلود / مشاهده مستقیم](Computer_Workshop_Pamphlet.pdf)        |
-| 📖 **جزوه جامع کارگاه کامپیوتر (مک - MAC)**     | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها |    `PDF`    | [📥 دانلود / مشاهده مستقیم](Computer_Workshop_Pamphlet_macOS.pdf)  |
+| Title / Module | Description | File Format | Direct Access |
+|---------------|-------------|-------------|---------------|
+| 📖 **جزوه جامع کارگاه کامپیوتر (ویندوز - WIN)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | PDF | [📥 دانلود](./Computer_Workshop_Pamphlet.pdf) |
+| 📖 **جزوه جامع کارگاه کامپیوتر (مک - MAC)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | PDF | [📥 دانلود](./Computer_Workshop_Pamphlet_macOS.pdf) |
 
-<br/>
+<br>
 
-💡 **راهنما:** برای مشاهده آنلاین یا دریافت فایل، کافیست روی لینک **دانلود / مشاهده مستقیم** کلیک کنید.
+---
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%"/>
+## 📊 Data Structures with Python (ساختمان داده با پایتون)
 
-## 📊 Data Structures (ساختمان داده با Python)
+**از صفر تا درخت و گراف** — جزوه کامل و قدم‌به‌قدم از **مبتدی تا پیشرفته**
 
-<div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212747860-78776979-83ac-41bd-9e38-be7f95ba2918.gif" width="380"/>
-
-</div>
-
-<br/>
-
-**کتابچه آموزشی ساختمان داده با Python — از صفر تا درخت و گراف**  
-تنظیم‌کننده: سینا شجاعیان | استاد: دکتر اسدی | دانشگاه آزاد اسلامی واحد شیراز — ترم ۱۴۰۵
-
-شامل ۷ فصل کامل:
-- تحلیل الگوریتم
-- پشته (Stack)
-- صف و صف حلقوی
-- توابع بازگشتی
-- لیست پیوندی
-- درخت
-- گراف
-
-همراه با کدهای پایتون کامل و مثال‌های عملی.
+مناسب برای دانشجویان مهندسی کامپیوتر که می‌خواهند ساختمان داده را با مثال‌های پایتونی و تحلیل الگوریتم به صورت عمیق یاد بگیرند.
 
 ### 📄 Course Materials & Downloads
 
-| Title / Module                              | Description                                                      | File Format | Direct Access                                   |
-| :------------------------------------------ | :--------------------------------------------------------------- | :---------: | :---------------------------------------------: |
-| 📖 **جزوه جامع ساختمان داده با Python**     | از صفر تا درخت و گراف — تحلیل الگوریتم، پشته، صف، بازگشت، درخت، گراف |    `PDF`    | [📥 دانلود / مشاهده مستقیم](Python_Protected.pdf) |
+| Title / Module | Description | Level | Direct Access |
+|---------------|-------------|-------|---------------|
+| 📘 **کتابچه ساختمان داده با Python — از صفر** | از تحلیل الگوریتم تا پشته، صف، لیست پیوندی، درخت و گراف | مبتدی تا پیشرفته | [📥 دانلود](./کتابچه_ساختمان_داده_با_Python_از_صفر_Protected.pdf) |
 
-<br/>
+<br>
 
-💡 **راهنما:** برای مشاهده آنلاین یا دریافت فایل، کافیست روی لینک **دانلود / مشاهده مستقیم** کلیک کنید.
-
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%"/>
+---
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/213760697-1dc03683-ba49-44f2-985e-95fd5ec22d3f.gif" width="380"/>
+Designed for Educational Clarity & Professional Academic Standards
 
-<br/><br/>
-
-<sub>Designed for Educational Clarity & Professional Academic Standards</sub>
+**Instructor:** [Sina Shojaeian](https://github.com/3INA3)
 
 </div>
