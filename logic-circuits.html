@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Sina Shojaeian (3INA3)">
+<meta name="copyright" content="© 2026 Sina Shojaeian (3INA3). All Rights Reserved. Unauthorized distribution, modification or commercial use prohibited. Official source: github.com/3INA3">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>جزوه کامل مدارهای منطقی و دیجیتال — سینا شجاعیان (3INA3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --accent: #22d3ee;
+  --accent2: #a78bfa;
+  --success: #10b981;
+  --danger: #ef4444;
+  --text-dark: #0f172a;
+  --wm: rgba(15,23,42,.045);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@media screen {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    direction: rtl; color: var(--text-dark); line-height: 1.9; font-size: 15.5px;
+    background: radial-gradient(ellipse 1200px 600px at 90% -20%, rgba(99,102,241,.14), transparent 50%),
+                radial-gradient(ellipse 900px 500px at -10% 30%, rgba(34,211,238,.09), transparent 50%),
+                linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    user-select: text; -webkit-user-select: text;
+  }
+
+  /* 3D Watermark layer */
+  .wm-layer {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    display: flex; flex-wrap: wrap; align-content: space-around; justify-content: space-around;
+    opacity: .55;
+  }
+  .wm-layer span {
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 900; letter-spacing: .08em;
+    color: var(--wm); transform: rotate(-18deg) perspective(400px) rotateY(12deg);
+    text-shadow: 2px 2px 0 rgba(0,0,0,.03), 4px 4px 0 rgba(0,0,0,.02);
+    padding: 1.4rem 1.8rem; user-select: none; white-space: nowrap;
+  }
+
+  /* Heavy Copyright Banner */
+  .copy-banner {
+    max-width: 980px; margin: 16px auto 8px; width: calc(100% - 24px);
+    padding: 18px 20px; border-radius: 22px; text-align: center; position: relative; z-index: 1;
+    background: linear-gradient(135deg, rgba(99,102,241,.12), rgba(167,139,250,.12));
+    border: 1px solid rgba(99,102,241,.25);
+    box-shadow: 0 8px 24px rgba(15,23,42,.08);
+  }
+  .copy-banner h2 {
+    margin: 0 0 8px; font-size: 1.1rem;
+    background: linear-gradient(90deg, #6366f1, #a78bfa, #22d3ee);
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 800;
+  }
+  .copy-banner p {
+    margin: 0; font-size: .76rem; line-height: 1.85; color: var(--text-dark); opacity: .92;
+  }
+  .copy-banner a { color: #4f46e5; font-weight: 700; }
+  .copy-banner .doc-id {
+    margin-top: 12px; font-size: .7rem; opacity: .95; direction: ltr; text-align: center;
+    font-family: ui-monospace, monospace; line-height: 1.7;
+  }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(15,23,42,.94); backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(15,23,42,.4); border-bottom: 1px solid rgba(99,102,241,.3);
+  }
+  .tb-inner { max-width: 980px; margin: 0 auto; display: flex; align-items: center; gap: 12px; padding: 10px 16px; }
+  .tb-title { color: #fff; font-weight: 700; font-size: .9rem; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .tb-title .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg,#22d3ee,#a78bfa); box-shadow: 0 0 12px #22d3ee; }
+  .tb-nav { display: flex; gap: 2px; margin-inline: auto; flex-wrap: wrap; justify-content: center; }
+  .tb-nav a { color: #cbd5e1; text-decoration: none; font-size: .76rem; padding: 5px 10px; border-radius: 999px; transition: .2s; }
+  .tb-nav a:hover { background: rgba(99,102,241,.35); color: #fff; }
+  .progress { height: 3px; background: rgba(255,255,255,.06); }
+  .progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg,#22d3ee,#6366f1,#a78bfa); }
+
+  .cover {
+    max-width: 980px; margin: 26px auto 10px; border-radius: 24px; overflow: hidden; position: relative; z-index: 1; color: #fff;
+    background: radial-gradient(600px 280px at 10% 0%, rgba(34,211,238,.2), transparent 60%),
+                radial-gradient(500px 300px at 95% 90%, rgba(167,139,250,.25), transparent 60%),
+                linear-gradient(145deg,#1e1b4b 0%,#312e81 40%,#0f172a 100%);
+    box-shadow: 0 24px 60px rgba(49,46,129,.4); padding: 44px 30px 40px;
+  }
+  .cover-inner { position: relative; z-index: 1; text-align: center; }
+  .cover .uni { display: inline-block; font-size: .88rem; padding: 6px 18px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; background: rgba(255,255,255,.08); margin-bottom: 16px; }
+  .cover h1 { font-size: 1.85rem; line-height: 1.6; font-weight: 800; margin-bottom: 6px;
+    background: linear-gradient(90deg,#fff,#a5f3fc 45%,#c4b5fd); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .cover .sub { color: #a5b4fc; font-size: 1rem; margin-bottom: 22px; }
+  table.info { margin: 0 auto; border-collapse: separate; border-spacing: 0; width: min(100%,500px); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); border-radius: 14px; overflow: hidden; }
+  table.info th, table.info td { padding: 10px 16px; text-align: right; border-bottom: 1px solid rgba(255,255,255,.12); font-size: .9rem; }
+  table.info tr:last-child th, table.info tr:last-child td { border-bottom: 0; }
+  table.info th { color: #67e8f9; font-weight: 600; width: 38%; }
+  table.info td { color: #fff; }
+
+  .print-hint { max-width: 980px; margin: 12px auto 0; font-size: .76rem; color: #475569; background: #fff; border: 1px dashed #94a3b8; border-radius: 12px; padding: 8px 14px; text-align: center; }
+  .wrap { max-width: 980px; margin: 18px auto 0; padding: 0 12px 14px; }
+
+  .card {
+    background: #fff; border-radius: 20px; padding: 28px 30px; margin-bottom: 24px;
+    box-shadow: 0 8px 30px rgba(15,23,42,.07); border: 1px solid #e2e8f0; position: relative; z-index: 1; scroll-margin-top: 84px; overflow: hidden;
+  }
+  .card::before { content: ""; position: absolute; top: 0; right: 0; left: 0; height: 4px; background: linear-gradient(90deg,#6366f1,#22d3ee,#a78bfa,#f472b6); }
+  .card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0; }
+  .badge { width: 44px; height: 44px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.15rem; color: #fff; flex-shrink: 0;
+    background: linear-gradient(135deg,#4f46e5,#06b6d4); box-shadow: 0 5px 16px rgba(79,70,229,.35); }
+  .card-head h2 { font-size: 1.18rem; font-weight: 700; color: #1e1b4b; line-height: 1.5; }
+  h3 { font-size: 1.02rem; color: #4338ca; margin: 20px 0 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  h3::before { content: ""; width: 6px; height: 16px; border-radius: 3px; background: linear-gradient(180deg,#22d3ee,#6366f1); }
+  h4 { font-size: .96rem; color: #312e81; margin: 14px 0 6px; font-weight: 700; }
+  p { margin-bottom: 11px; text-align: justify; color: #1e293b; }
+  ul, ol { margin: 6px 0 12px; padding-right: 20px; }
+  li { margin-bottom: 4px; color: #1e293b; }
+  li::marker { color: #6366f1; }
+  strong { color: #312e81; }
+
+  /* Karnaugh */
+  .kmap-wrap { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 16px 0; }
+  .kmap { border-collapse: collapse; font-size: .88rem; box-shadow: 0 5px 16px rgba(79,70,229,.1); border-radius: 10px; overflow: hidden; }
+  .kmap th, .kmap td { border: 1px solid #c7d2fe; width: 50px; height: 40px; text-align: center; font-weight: 600; }
+  .kmap th { background: linear-gradient(135deg,#312e81,#4f46e5); color: #fff; font-size: .78rem; }
+  .kmap td { background: #f8fafc; }
+  .kmap td.one { background: #c7d2fe; color: #312e81; font-weight: 800; }
+  .kmap td.g1 { background: #a5f3fc; color: #0e7490; }
+  .kmap td.g2 { background: #bbf7d0; color: #166534; }
+  .kmap td.g3 { background: #fde68a; color: #92400e; }
+  .kmap-label { font-size: .8rem; color: #64748b; text-align: center; margin-top: 5px; }
+
+  .example {
+    background: linear-gradient(160deg,#f5f3ff,#ede9fe);
+    border: 1px solid #c4b5fd; border-right: 5px solid #7c3aed;
+    border-radius: 12px; padding: 14px 16px; margin: 16px 0; font-size: .92rem;
+  }
+  .example .ex-title { font-weight: 700; color: #5b21b6; margin-bottom: 8px; font-size: .95rem; }
+  .solution {
+    background: linear-gradient(160deg,#ecfdf5,#d1fae5);
+    border: 1px solid #6ee7b7; border-right: 5px solid #10b981;
+    border-radius: 12px; padding: 14px 16px; margin: 10px 0 18px; font-size: .91rem;
+  }
+  .solution .sol-title { font-weight: 700; color: #065f46; margin-bottom: 6px; }
+  .note {
+    background: linear-gradient(160deg,#ecfeff,#cffafe);
+    border-right: 5px solid #06b6d4; border-radius: 10px;
+    padding: 11px 14px; margin: 12px 0; font-size: .9rem; color: #0e7490;
+  }
+  .warning {
+    background: linear-gradient(160deg,#fef3c7,#fde68a);
+    border-right: 5px solid #f59e0b; border-radius: 10px;
+    padding: 11px 14px; margin: 12px 0; font-size: .9rem; color: #92400e;
+  }
+
+  .tbl-box { margin: 12px 0; overflow-x: auto; border-radius: 10px; border: 1px solid #c7d2fe; box-shadow: 0 4px 14px rgba(79,70,229,.07); }
+  .tbl-box table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl-box th, .tbl-box td { padding: 8px 9px; text-align: center; border-bottom: 1px solid #e0e7ff; border-left: 1px solid #e0e7ff; }
+  .tbl-box th { background: linear-gradient(135deg,#312e81,#4f46e5); color: #fff; font-weight: 700; }
+  .tbl-box tbody tr:nth-child(even) td { background: #f5f3ff; }
+  .tbl-box td:first-child { font-weight: 700; color: #4338ca; }
+
+  .step { background: #f8fafc; border-right: 4px solid #6366f1; padding: 9px 13px; margin: 7px 0; border-radius: 0 8px 8px 0; font-size: .9rem; }
+  .step-num { display: inline-block; width: 22px; height: 22px; background: #6366f1; color: #fff; border-radius: 50%; text-align: center; line-height: 22px; font-size: .75rem; font-weight: 700; margin-left: 7px; }
+
+  .card.conclusion { background: linear-gradient(160deg,#fff,#f5f3ff); border: 2px solid #a78bfa; }
+  .concl-title { font-size: 1.15rem; color: #312e81; margin-bottom: 10px; }
+  .footer {
+    max-width: 980px; margin: 20px auto 10px; text-align: center;
+    padding: 16px; font-size: .72rem; color: #64748b; line-height: 1.7;
+    border-radius: 18px; background: #fff; border: 1px solid #e2e8f0;
+    position: relative; z-index: 1;
+  }
+  .footer a { color: #4f46e5; }
+  .card::after {
+    content: "3INA3"; position: absolute; bottom: 8px; left: 12px;
+    font-size: .55rem; font-weight: 800; opacity: .18; letter-spacing: .12em; pointer-events: none;
+  }
+  .print-wm {
+    max-width: 980px; margin: 14px auto; width: calc(100% - 24px);
+    text-align: center; padding: 14px 16px; border-radius: 16px;
+    border: 1px dashed #94a3b8; background: rgba(241,245,249,.92);
+    font-size: .78rem; color: #475569; line-height: 1.75;
+    position: relative; z-index: 1;
+  }
+  .print-wm strong { color: #1e1b4b; }
+  .print-wm a { color: #4f46e5; font-weight: 700; }
+
+  @media (max-width: 700px) {
+    .tb-title { display: none; } .tb-nav { margin-inline: 0; }
+    .cover h1 { font-size: 1.35rem; } .card { padding: 18px 14px; }
+    .kmap th, .kmap td { width: 40px; height: 34px; font-size: .78rem; }
+  }
+}
+
+/* ==================== PRINT - خیلی مهم برای PDF ==================== */
+@page {
+  size: A4;
+  margin: 14mm 12mm 16mm 12mm;
+  @bottom-center {
+    content: counter(page, persian);
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    font-size: 9pt;
+    color: #64748b;
+  }
+}
+@page :first {
+  margin: 0;
+  @bottom-center { content: none; }
+}
+
+@media print {
+  .toolbar, .print-hint, .wm-layer { display: none !important; }
+  .copy-banner {
+    display: block !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #94a3b8 !important;
+    box-shadow: none !important;
+    page-break-after: always;
+    break-after: page;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .copy-banner h2 {
+    -webkit-text-fill-color: #312e81 !important;
+    background: none !important;
+    color: #312e81 !important;
+  }
+  .print-wm {
+    display: block !important;
+    text-align: center;
+    padding: 8mm 4mm;
+    margin: 4mm 0;
+    border: 1px dashed #64748b;
+    background: #f8fafc !important;
+    font-size: 9pt;
+    color: #334155 !important;
+    line-height: 1.7;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-inside: avoid;
+  }
+  .print-wm strong { color: #1e1b4b !important; }
+  .print-wm a { color: #4f46e5 !important; text-decoration: underline; }
+  * { animation: none !important; transition: none !important; box-shadow: none !important; }
+  html, body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    direction: rtl;
+    color: #111;
+    background: #fff !important;
+    font-size: 9.3pt;
+    line-height: 1.6;
+  }
+  .cover {
+    width: 210mm; height: 297mm; margin: 0; padding: 0;
+    page-break-after: always; break-after: page;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: linear-gradient(145deg,#1e1b4b,#312e81) !important;
+    color: #fff; border-radius: 0;
+  }
+  .cover h1 {
+    -webkit-text-fill-color: #fff !important;
+    background: none !important;
+    color: #fff !important;
+    font-size: 22pt;
+  }
+  .cover .sub { color: #c4b5fd !important; }
+  table.info { background: rgba(255,255,255,.1) !important; }
+  table.info th { color: #67e8f9 !important; }
+  table.info td { color: #fff !important; }
+
+  .wrap { width: 100%; max-width: 100%; margin: 0; padding: 0; }
+  .card {
+    break-before: page; page-break-before: always;
+    background: #fff !important; border: none !important; border-radius: 0;
+    padding: 0; margin: 0 0 4mm 0; box-shadow: none !important; overflow: visible;
+  }
+  .card:first-of-type { break-before: auto; page-break-before: auto; }
+  .card::before { display: none !important; }
+  .card-head {
+    display: flex; align-items: center; gap: 3mm;
+    margin-bottom: 3mm; padding-bottom: 2mm;
+    border-bottom: 1.5pt solid #4f46e5;
+  }
+  .badge {
+    width: 8mm; height: 8mm; border-radius: 2mm;
+    background: #4f46e5 !important; color: #fff !important;
+    font-size: 11pt; box-shadow: none !important;
+  }
+  .card-head h2 { font-size: 13pt; color: #312e81 !important; }
+  h3 { font-size: 10.5pt; color: #4338ca !important; margin: 3mm 0 1.5mm; break-after: avoid; }
+  h3::before { width: 1.5mm; height: 3.5mm; background: #6366f1 !important; }
+  h4 { font-size: 9.5pt; color: #312e81 !important; margin: 2.5mm 0 1mm; }
+  p { margin-bottom: 1.8mm; text-align: justify; }
+  ul, ol { margin: 1mm 0 2mm; padding-right: 5mm; }
+  li { margin-bottom: .6mm; }
+
+  .kmap-wrap { break-inside: avoid; page-break-inside: avoid; margin: 2.5mm 0; }
+  .kmap { box-shadow: none !important; }
+  .kmap th { background: #4f46e5 !important; color: #fff !important; }
+  .kmap td { background: #f8fafc !important; }
+  .kmap td.one { background: #c7d2fe !important; color: #312e81 !important; }
+  .kmap td.g1 { background: #a5f3fc !important; }
+  .kmap td.g2 { background: #bbf7d0 !important; }
+  .kmap td.g3 { background: #fde68a !important; }
+
+  .example, .solution, .note, .warning, .step, .tbl-box {
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .example {
+    background: #f5f3ff !important; border: 1px solid #a78bfa !important;
+    border-right: 1.5mm solid #7c3aed !important; padding: 2.5mm 3mm; margin: 2.5mm 0;
+  }
+  .solution {
+    background: #ecfdf5 !important; border: 1px solid #6ee7b7 !important;
+    border-right: 1.5mm solid #10b981 !important; padding: 2.5mm 3mm; margin: 2mm 0 3mm;
+  }
+  .note {
+    background: #ecfeff !important; border-right: 1.5mm solid #06b6d4 !important;
+    padding: 2mm 3mm; margin: 2mm 0; color: #0e7490 !important;
+  }
+  .warning {
+    background: #fef3c7 !important; border-right: 1.5mm solid #f59e0b !important;
+    padding: 2mm 3mm; margin: 2mm 0; color: #92400e !important;
+  }
+  .tbl-box { border: 1px solid #a5b4fc !important; margin: 2mm 0; }
+  .tbl-box th { background: #4f46e5 !important; color: #fff !important; }
+  .tbl-box tbody tr:nth-child(even) td { background: #f5f3ff !important; }
+  .step { background: #f8fafc !important; border-right: 1.2mm solid #6366f1 !important; padding: 1.5mm 2.5mm; margin: 1.2mm 0; }
+  .step-num { background: #6366f1 !important; color: #fff !important; }
+
+  .card.conclusion {
+    break-before: auto; page-break-before: auto;
+    border: 1.5pt solid #7c3aed !important; border-radius: 2mm;
+    padding: 3.5mm 4mm; margin-top: 4mm; background: #f5f3ff !important;
+  }
+  .concl-title { font-size: 12pt; color: #312e81 !important; }
+  .footer {
+    text-align: center; padding: 2.5mm; margin-top: 3mm;
+    font-size: 7.5pt; color: #64748b; border-top: 0.5pt solid #e2e8f0;
+    background: none !important; border: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 3D Watermark layer -->
+<div class="wm-layer" id="wm" aria-hidden="true"></div>
+
+<header class="toolbar">
+  <div class="tb-inner">
+    <div class="tb-title"><span class="dot"></span>جزوه مدارهای منطقی · 3INA3</div>
+    <nav class="tb-nav">
+      <a href="#s1">مقدمه</a>
+      <a href="#s2">جبر بول</a>
+      <a href="#s3">کارنو</a>
+      <a href="#s4">ترکیبی</a>
+      <a href="#s5">دیکودر</a>
+      <a href="#s6">فلیپ‌فلاپ</a>
+      <a href="#s7">نتیجه</a>
+    </nav>
+  </div>
+  <div class="progress"><i id="bar"></i></div>
+</header>
+
+<!-- HEAVY COPYRIGHT BANNER + DIGITAL DOCUMENT ID -->
+<section class="copy-banner">
+  <h2>© ۱۴۰۵ / ۲۰۲۶ · سینا شجاعیان (3INA3)</h2>
+  <p>
+    تمام حقوق این جزوه برای <strong>Sina Shojaeian (3INA3)</strong> محفوظ است.<br>
+    دانلود، استفاده، کپی، بازنشر، ویرایش و توزیع <strong>فقط</strong> از طریق ریپازیتوری رسمی گیت‌هاب مجاز است:<br>
+    <a href="https://github.com/3INA3" target="_blank" rel="noopener">github.com/3INA3</a><br>
+    هرگونه استفاده غیرمجاز، تغییر محتوا یا توزیع خارج از منبع رسمی پیگرد قانونی دارد.<br>
+    <strong>This material is proprietary. Unauthorized modification, redistribution or commercial use is strictly prohibited.</strong><br>
+    Official source only · © 2026 Sina Shojaeian (3INA3) · All Rights Reserved
+  </p>
+  <p class="doc-id">
+    <strong>DIGITAL DOCUMENT ID</strong><br>
+    <span style="letter-spacing:.06em;font-size:.95rem">3INA3-LOGICCIRCUITS-20261013-A7E29C4F</span><br>
+    Issued: 2026-10-13 16:55:00 UTC<br>
+    Owner / Author: Sina Shojaeian (3INA3)<br>
+    Official source: github.com/3INA3<br>
+    <span style="font-size:.65rem;opacity:.8">This ID identifies the original registered version. Any modification invalidates the claim of authenticity.</span>
+  </p>
+</section>
+
+<div class="cover">
+  <div class="cover-inner">
+    <div class="uni">دانشگاه آزاد اسلامی</div>
+    <h1>جزوه کامل و حل تمرین<br>مدارهای منطقی و دیجیتال</h1>
+    <div class="sub">توابع بول • جدول کارنو • دیکودر • فلیپ‌فلاپ — با نمونه سوال گام‌به‌گام</div>
+    <table class="info">
+      <tr><th>نام دانشجو</th><td>سینا شجاعیان (3INA3)</td></tr>
+      <tr><th>درس</th><td>طراحی سیستم‌های دیجیتال</td></tr>
+      <tr><th>سطح</th><td>از صفر کامل (با مثال‌های زیاد)</td></tr>
+      <tr><th>منبع رسمی</th><td><a href="https://github.com/3INA3" target="_blank" rel="noopener noreferrer" style="color:#67e8f9">github.com/3INA3</a></td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="print-hint">
+  برای PDF عالی: کاغذ <b>A4</b> + حاشیه‌ها <b>Default</b> + گزینه <b>Background graphics</b> را روشن کنید + سربرگ و پاورقی مرورگر را خاموش کنید.
+</div>
+
+<!-- Print-safe watermark (start) -->
+<div class="print-wm">
+  <strong>© 2026 Sina Shojaeian (3INA3) — All Rights Reserved</strong><br>
+  این جزوه متعلق به <strong>سینا شجاعیان (3INA3)</strong> است · هرگونه کپی، ویرایش یا بازنشر بدون مجوز ممنوع است<br>
+  منبع رسمی: <a href="https://github.com/3INA3" target="_blank" rel="noopener noreferrer">github.com/3INA3</a><br>
+  <span style="direction:ltr;font-family:ui-monospace,monospace;font-size:.7rem">Digital Document ID: 3INA3-LOGICCIRCUITS-20261013-A7E29C4F</span>
+</div>
+
+<div class="wrap">
+
+<!-- بخش ۱ -->
+<div class="card" id="s1">
+  <div class="card-head">
+    <div class="badge">۱</div>
+    <h2>مقدمه خیلی ساده</h2>
+  </div>
+  <p>کامپیوتر فقط دو چیز می‌فهمد: <strong>۰</strong> و <strong>۱</strong>. به این سیستم <strong>دودویی (Binary)</strong> می‌گویند. تمام مدارهایی که در این جزوه یاد می‌گیریم فقط با همین دو مقدار کار می‌کنند.</p>
+  <p>موضوعات خیلی مهم این جزوه (که روی آن‌ها تمرکز کرده‌ایم):</p>
+  <ul>
+    <li><strong>جدول کارنو</strong> (ساده‌سازی توابع) — با مثال‌های زیاد و گام‌به‌گام</li>
+    <li><strong>دیکودر</strong> — طراحی کامل از صفر</li>
+    <li><strong>فلیپ‌فلاپ‌ها</strong> — هر چهار نوع با جدول و مثال</li>
+  </ul>
+</div>
+
+<!-- بخش ۲ -->
+<div class="card" id="s2">
+  <div class="card-head">
+    <div class="badge">۲</div>
+    <h2>جبر بول — خلاصه ضروری</h2>
+  </div>
+  <p>سه عملگر اصلی:</p>
+  <div class="tbl-box">
+    <table>
+      <thead><tr><th>عملگر</th><th>علامت</th><th>معنی به زبان ساده</th></tr></thead>
+      <tbody>
+        <tr><td>AND</td><td>· یا هیچ علامتی</td><td>هر دو ورودی باید ۱ باشند تا خروجی ۱ شود</td></tr>
+        <tr><td>OR</td><td>+</td><td>حداقل یکی از ورودی‌ها ۱ باشد کافی است</td></tr>
+        <tr><td>NOT</td><td>' یا خط روی متغیر</td><td>۰ را ۱ و ۱ را ۰ می‌کند</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>قوانین طلایی که باید حفظ باشید</h3>
+  <ul>
+    <li>A + 0 = A &nbsp;&nbsp;|&nbsp;&nbsp; A · 1 = A</li>
+    <li>A + 1 = 1 &nbsp;&nbsp;|&nbsp;&nbsp; A · 0 = 0</li>
+    <li>A + A' = 1 &nbsp;&nbsp;|&nbsp;&nbsp; A · A' = 0</li>
+    <li>(A')' = A</li>
+    <li>دمورگان: (A+B)' = A'·B' &nbsp;&nbsp; و &nbsp;&nbsp; (A·B)' = A'+B'</li>
+    <li>جذب: A + AB = A</li>
+  </ul>
+</div>
+
+<!-- بخش ۳ - کارنو خیلی کامل -->
+<div class="card" id="s3">
+  <div class="card-head">
+    <div class="badge">۳</div>
+    <h2>جدول کارنو — توضیح کامل + مثال‌های زیاد</h2>
+  </div>
+
+  <p>جدول کارنو روشی تصویری برای پیدا کردن <strong>ساده‌ترین فرم</strong> یک تابع بول است. وقتی تابع پیچیده باشد، جبر بول سخت می‌شود و کارنو نجات‌دهنده است.</p>
+
+  <h3>قواعد طلایی گروه‌بندی (حتماً حفظ کنید)</h3>
+  <div class="step"><span class="step-num">۱</span> فقط خانه‌هایی که عدد ۱ دارند را گروه کنید (۰ها را نادیده بگیرید).</div>
+  <div class="step"><span class="step-num">۲</span> اندازه گروه باید قدرت ۲ باشد: ۱، ۲، ۴، ۸، ۱۶.</div>
+  <div class="step"><span class="step-num">۳</span> گروه را تا جایی که ممکن است بزرگ بگیرید (هرچه بزرگ‌تر، عبارت ساده‌تر).</div>
+  <div class="step"><span class="step-num">۴</span> خانه‌ها می‌توانند در چند گروه تکرار شوند.</div>
+  <div class="step"><span class="step-num">۵</span> گوشه‌های جدول هم مجاور هم هستند (مثل اینکه جدول را لوله کرده‌اید).</div>
+  <div class="step"><span class="step-num">۶</span> برای هر گروه، متغیرهایی که <strong>تغییر نکرده‌اند</strong> را می‌نویسیم.</div>
+
+  <h3>۱) جدول دو متغیره</h3>
+  <div class="kmap-wrap">
+    <div>
+      <table class="kmap">
+        <tr><th></th><th>B=0</th><th>B=1</th></tr>
+        <tr><th>A=0</th><td>m0<br><small>A'B'</small></td><td>m1<br><small>A'B</small></td></tr>
+        <tr><th>A=1</th><td>m2<br><small>AB'</small></td><td>m3<br><small>AB</small></td></tr>
+      </table>
+      <div class="kmap-label">شماره‌گذاری مینترم‌ها</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-title">📝 مثال ۱ (دو متغیره)</div>
+    تابع F = Σ(1,2,3) را ساده کنید.
+  </div>
+  <div class="solution">
+    <div class="sol-title">✅ حل کامل گام‌به‌گام:</div>
+    <p><strong>گام ۱:</strong> جدول را می‌کشیم و خانه‌های ۱ و ۲ و ۳ را با ۱ پر می‌کنیم:</p>
+    <div class="kmap-wrap">
+      <table class="kmap">
+        <tr><th></th><th>B=0</th><th>B=1</th></tr>
+        <tr><th>A=0</th><td>0</td><td class="one">1</td></tr>
+        <tr><th>A=1</th><td class="one">1</td><td class="one">1</td></tr>
+      </table>
+    </div>
+    <p><strong>گام ۲:</strong> دو گروه دوتایی می‌سازیم:</p>
+    <ul>
+      <li>گروه پایین (m2 و m3): A ثابت است، B تغییر کرده → <strong>A</strong></li>
+      <li>گروه راست (m1 و m3): B ثابت است، A تغییر کرده → <strong>B</strong></li>
+    </ul>
+    <p><strong>گام ۳:</strong> نتیجه نهایی = <strong>F = A + B</strong></p>
+  </div>
+
+  <h3>۲) جدول سه متغیره (مهم‌ترین)</h3>
+  <p>ترتیب ستون‌ها باید <strong>کد گری</strong> باشد: ۰۰ ، ۰۱ ، ۱۱ ، ۱۰ (فقط یک بیت بین دو ستون مجاور تغییر می‌کند).</p>
+  <div class="kmap-wrap">
+    <div>
+      <table class="kmap">
+        <tr><th></th><th>BC<br>00</th><th>BC<br>01</th><th>BC<br>11</th><th>BC<br>10</th></tr>
+        <tr><th>A=0</th><td>m0</td><td>m1</td><td>m3</td><td>m2</td></tr>
+        <tr><th>A=1</th><td>m4</td><td>m5</td><td>m7</td><td>m6</td></tr>
+      </table>
+      <div class="kmap-label">شماره‌گذاری استاندارد سه متغیره</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-title">📝 مثال ۲ (سه متغیره)</div>
+    F(A,B,C) = Σ(0,2,4,5,6) را ساده کنید.
+  </div>
+  <div class="solution">
+    <div class="sol-title">✅ حل کامل:</div>
+    <p><strong>گام ۱:</strong> پر کردن جدول:</p>
+    <div class="kmap-wrap">
+      <table class="kmap">
+        <tr><th></th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+        <tr><th>0</th><td class="g1">1</td><td>0</td><td>0</td><td class="g1">1</td></tr>
+        <tr><th>1</th><td class="g1">1</td><td class="g2">1</td><td>0</td><td class="g1">1</td></tr>
+      </table>
+    </div>
+    <p><strong>گام ۲:</strong> گروه‌بندی:</p>
+    <ul>
+      <li><span style="background:#a5f3fc;padding:2px 6px;border-radius:4px;">آبی</span> چهار خانه گوشه (m0,m2,m4,m6): این‌ها مثل یک حلقه هستند. متغیر B کاملاً حذف می‌شود → <strong>C'</strong></li>
+      <li><span style="background:#bbf7d0;padding:2px 6px;border-radius:4px;">سبز</span> دو خانه m4 و m5: A=1 و B=0 ثابت → <strong>AB'</strong></li>
+    </ul>
+    <p><strong>گام ۳:</strong> نتیجه = <strong>F = C' + AB'</strong></p>
+  </div>
+
+  <div class="example">
+    <div class="ex-title">📝 مثال ۳ (سه متغیره)</div>
+    F(x,y,z) = Σ(1,3,5,7) را ساده کنید.
+  </div>
+  <div class="solution">
+    <div class="sol-title">✅ حل:</div>
+    <div class="kmap-wrap">
+      <table class="kmap">
+        <tr><th></th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+        <tr><th>0</th><td>0</td><td class="g1">1</td><td class="g1">1</td><td>0</td></tr>
+        <tr><th>1</th><td>0</td><td class="g1">1</td><td class="g1">1</td><td>0</td></tr>
+      </table>
+    </div>
+    <p>هر چهار خانه ستون‌های ۰۱ و ۱۱ با هم یک گروه ۴ تایی می‌سازند. فقط متغیر z ثابت مانده (z=1).</p>
+    <p><strong>نتیجه فوق‌العاده ساده:</strong> F = z</p>
+  </div>
+
+  <div class="example">
+    <div class="ex-title">📝 مثال ۴ (سه متغیره – کمی سخت‌تر)</div>
+    F(A,B,C) = Σ(0,1,2,5,6,7) را ساده کنید.
+  </div>
+  <div class="solution">
+    <div class="sol-title">✅ حل:</div>
+    <div class="kmap-wrap">
+      <table class="kmap">
+        <tr><th></th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+        <tr><th>0</th><td class="g1">1</td><td class="g1">1</td><td>0</td><td class="g2">1</td></tr>
+        <tr><th>1</th><td>0</td><td class="g3">1</td><td class="g3">1</td><td class="g2">1</td></tr>
+      </table>
+    </div>
+    <ul>
+      <li>گروه m0,m1 → A'B'</li>
+      <li>گروه m2,m6 → B'C' ؟ صبر کنید... بهتر است:</li>
+      <li>گروه چهارتایی m1,m5,m7 و... صبر کنید بیایید درست گروه کنیم:</li>
+    </ul>
+    <p>بهترین گروه‌ها:</p>
+    <ul>
+      <li>m0 + m1 → A'C' ؟ نه. بیایید دقیق:</li>
+      <li>گروه m0,m2 → A'C' (B تغییر کرده)</li>
+      <li>گروه m5,m7 → AC (B تغییر کرده)</li>
+      <li>گروه m1,m5 → B'C ؟ صبر...</li>
+    </ul>
+    <p>گروه‌بندی استاندارد:</p>
+    <ul>
+      <li>m0,m1 → A'B'</li>
+      <li>m5,m7 → AC</li>
+      <li>m2,m6 → BC' ؟</li>
+    </ul>
+    <p>نتیجه رایج: <strong>F = A'B' + AC + BC'</strong> یا بعد از بررسی بیشتر می‌توان ساده‌تر کرد، اما این فرم قابل قبول است.</p>
+    <div class="note">در امتحان اگر چند جواب معادل درست باشد، همه پذیرفته می‌شوند به شرطی که مینترم‌ها را کامل پوشش داده باشید.</div>
+  </div>
+
+  <h3>۳) جدول چهار متغیره</h3>
+  <p>جدول ۴×۴ است. هم سطر و هم ستون با کد گری: ۰۰، ۰۱، ۱۱، ۱۰</p>
+  <div class="kmap-wrap">
+    <div>
+      <table class="kmap" style="font-size:.75rem;">
+        <tr><th></th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+        <tr><th>00</th><td>m0</td><td>m1</td><td>m3</td><td>m2</td></tr>
+        <tr><th>01</th><td>m4</td><td>m5</td><td>m7</td><td>m6</td></tr>
+        <tr><th>11</th><td>m12</td><td>m13</td><td>m15</td><td>m14</td></tr>
+        <tr><th>10</th><td>m8</td><td>m9</td><td>m11</td><td>m10</td></tr>
+      </table>
+      <div class="kmap-label">شماره‌گذاری چهار متغیره (ABCD)</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-title">📝 مثال ۵ (چهار متغیره)</div>
+    F(A,B,C,D) = Σ(0,2,5,7,8,10,13,15) را ساده کنید.
+  </div>
+  <div class="solution">
+    <div class="sol-title">✅ حل کامل:</div>
+    <p>با دقت می‌بینیم دو گروه ۴ تایی تمیز داریم:</p>
+    <ul>
+      <li>گروه m0,m2,m8,m10 (گوشه‌ها و کناره‌ها): متغیرهای B و D حذف می‌شوند → <strong>B'D'</strong></li>
+      <li>گروه m5,m7,m13,m15: متغیرهای B و D ثابت‌اند (B=1,D=1) → <strong>BD</strong></li>
+    </ul>
+    <p><strong>نتیجه نهایی:</strong> F = B'D' + BD</p>
+    <p>این یکی از زیباترین ساده‌سازی‌هاست!</p>
+  </div>
+
+  <div class="example">
+    <div class="ex-title">📝 مثال ۶ (چهار متغیره – تمرین بیشتر)</div>
+    F(W,X,Y,Z) = Σ(1,3,4,5,6,7,9,11,12,13,14,15) را ساده کنید.
+  </div>
+  <div class="solution">
+    <div class="sol-title">✅ حل:</div>
+    <p>تقریباً همه خانه‌ها ۱ هستند به جز m0,m2,m8,m10. می‌توان گروه‌های بزرگ ساخت:</p>
+    <ul>
+      <li>یک گروه ۸ تایی برای Z → <strong>Z</strong></li>
+      <li>یک گروه ۸ تایی برای X → <strong>X</strong></li>
+    </ul>
+    <p><strong>نتیجه:</strong> F = X + Z</p>
+  </div>
+
+  <div class="warning">
+    <strong>هشدار رایج:</strong> فراموش کردن اینکه گوشه‌های جدول مجاور هم هستند، باعث می‌شود گروه ۴ تایی یا ۸ تایی را از دست بدهید و جواب پیچیده‌تر شود.
+  </div>
+</div>
+
+<!-- بخش ۴ -->
+<div class="card" id="s4">
+  <div class="card-head">
+    <div class="badge">۴</div>
+    <h2>مدارهای ترکیبی — جمع‌کننده</h2>
+  </div>
+  <p>مدار ترکیبی = خروجی فقط به ورودی‌های همان لحظه بستگی دارد (حافظه ندارد).</p>
+
+  <h3>نیم‌جمع‌کننده (Half Adder)</h3>
+  <div class="tbl-box">
+    <table>
+      <thead><tr><th>A</th><th>B</th><th>Sum</th><th>Carry</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Sum = A ⊕ B &nbsp;&nbsp;|&nbsp;&nbsp; Carry = A · B</p>
+
+  <h3>تمام‌جمع‌کننده (Full Adder)</h3>
+  <p>سه ورودی: A، B، Cin &nbsp;→&nbsp; دو خروجی: Sum و Cout</p>
+  <p>Sum = A ⊕ B ⊕ Cin</p>
+  <p>Cout = AB + ACin + BCin</p>
+</div>
+
+<!-- بخش ۵ - دیکودر کامل -->
+<div class="card" id="s5">
+  <div class="card-head">
+    <div class="badge">۵</div>
+    <h2>دیکودر — توضیح کامل + طراحی از صفر</h2>
+  </div>
+
+  <p>دیکودر مداری است با <strong>n ورودی</strong> و حداکثر <strong>2ⁿ خروجی</strong>. در هر لحظه <strong>فقط یکی</strong> از خروجی‌ها فعال (۱) می‌شود.</p>
+  <p>کاربرد اصلی: انتخاب یکی از خانه‌های حافظه، دیکودر آدرس، روشن کردن یکی از چراغ‌ها و ...</p>
+
+  <h3>دیکودر ۲ به ۴ (مهم‌ترین)</h3>
+  <p>۲ خط ورودی (A,B) + معمولاً یک خط Enable (EN) → ۴ خروجی (Y0 تا Y3)</p>
+
+  <div class="tbl-box">
+    <table>
+      <thead>
+        <tr><th>EN</th><th>A</th><th>B</th><th>Y0</th><th>Y1</th><th>Y2</th><th>Y3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>×</td><td>×</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>معادلات خروجی (خیلی مهم):</strong></p>
+  <ul>
+    <li>Y0 = EN · A' · B'</li>
+    <li>Y1 = EN · A' · B</li>
+    <li>Y2 = EN · A · B'</li>
+    <li>Y3 = EN · A · B</li>
+  </ul>
+
+  <div class="example">
+    <div class="ex-title">📝 مثال طراحی دیکودر ۲ به ۴ از صفر</div>
+    با استفاده از گیت‌های AND و NOT یک دیکودر ۲ به ۴ طراحی کنید.
+  </div>
+  <div class="solution">
+    <div class="sol-title">✅ حل گام‌به‌گام:</div>
+    <div class="step"><span class="step-num">۱</span> دو گیت NOT برای ساختن A' و B' قرار می‌دهیم.</div>
+    <div class="step"><span class="step-num">۲</span> چهار گیت AND سه‌ورودی می‌گذاریم (یکی برای هر خروجی).</div>
+    <div class="step"><span class="step-num">۳</span> به AND مربوط به Y0 وصل می‌کنیم: EN و A' و B'</div>
+    <div class="step"><span class="step-num">۴</span> به AND مربوط به Y1 وصل می‌کنیم: EN و A' و B</div>
+    <div class="step"><span class="step-num">۵</span> به AND مربوط به Y2 وصل می‌کنیم: EN و A و B'</div>
+    <div class="step"><span class="step-num">۶</span> به AND مربوط به Y3 وصل می‌کنیم: EN و A و B</div>
+    <p>تمام! حالا هر وقت EN=1 باشد و ترکیب A و B مشخص شود، فقط یکی از خروجی‌ها ۱ می‌شود.</p>
+  </div>
+
+  <h3>دیکودر ۳ به ۸</h3>
+  <p>۳ ورودی → ۸ خروجی. دقیقاً همان منطق، فقط یک متغیر بیشتر.</p>
+  <div class="note">
+    می‌توان دو دیکودر ۲ به ۴ را با هم ترکیب کرد: ورودی سوم (C) را به Enable یکی و مکمل آن را به Enable دیگری وصل می‌کنیم. این روش در امتحان خیلی محبوب است.
+  </div>
+
+  <h3>کاربردهای دیکودر</h3>
+  <ul>
+    <li>آدرس‌دهی حافظه (Chip Select)</li>
+    <li>دیکودر BCD به ۷-سگمنت</li>
+    <li>تولید مینترم‌ها برای پیاده‌سازی توابع</li>
+  </ul>
+</div>
+
+<!-- بخش ۶ - فلیپ‌فلاپ کامل -->
+<div class="card" id="s6">
+  <div class="card-head">
+    <div class="badge">۶</div>
+    <h2>فلیپ‌فلاپ‌ها — توضیح کامل هر چهار نوع</h2>
+  </div>
+
+  <p>فلیپ‌فلاپ ساده‌ترین عنصر <strong>حافظه</strong> است. می‌تواند یک بیت (۰ یا ۱) را ذخیره کند. برخلاف مدار ترکیبی، خروجی آن به ورودی‌های قبلی هم بستگی دارد.</p>
+
+  <h3>۱. فلیپ‌فلاپ SR (Set-Reset)</h3>
+  <div class="tbl-box">
+    <table>
+      <thead><tr><th>S</th><th>R</th><th>Q بعدی</th><th>معنی</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>همان Q قبلی</td><td>حافظه (بدون تغییر)</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>Reset (پاک کردن)</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>Set (تنظیم روی ۱)</td></tr>
+        <tr><td>1</td><td>1</td><td>نامعتبر!</td><td>ممنوع — خروجی نامشخص</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warning">مشکل بزرگ SR: وقتی S=R=1 باشد، رفتار مدار قابل پیش‌بینی نیست. برای همین فلیپ‌فلاپ‌های دیگر ساخته شدند.</div>
+
+  <h3>۲. فلیپ‌فلاپ D (پرکاربردترین)</h3>
+  <p>فقط یک ورودی داده (D) دارد. در لبه ساعت، خروجی دقیقاً برابر D می‌شود.</p>
+  <div class="tbl-box">
+    <table>
+      <thead><tr><th>D</th><th>Q بعدی</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>قانون طلایی:</strong> Q⁺ = D</p>
+  <p>کاربرد: ساخت رجیستر، ذخیره‌سازی موقت داده، انتقال همزمان.</p>
+
+  <h3>۳. فلیپ‌فلاپ JK</h3>
+  <p>نسخه کامل‌شده SR. حالت J=K=1 دیگر ممنوع نیست و باعث <strong>Toggle</strong> (عوض شدن خروجی) می‌شود.</p>
+  <div class="tbl-box">
+    <table>
+      <thead><tr><th>J</th><th>K</th><th>Q بعدی</th><th>معنی</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>همان قبلی</td><td>حافظه</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>Reset</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>Set</td></tr>
+        <tr><td>1</td><td>1</td><td>معکوس Q</td><td>Toggle (عوض شو)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
+    <div class="ex-title">📝 مثال فلیپ‌فلاپ JK</div>
+    فرض کنید Q فعلی = 0 است و J=1 و K=1. سه پالس ساعت پشت سر هم می‌آید. خروجی چگونه تغییر می‌کند؟
+  </div>
+  <div class="solution">
+    <div class="sol-title">✅ حل گام‌به‌گام:</div>
+    <p>چون J=K=1 است، هر پالس باعث Toggle می‌شود:</p>
+    <ul>
+      <li>قبل از هر پالسی: Q = 0</li>
+      <li>بعد از پالس ۱: Q = 1 (Toggle)</li>
+      <li>بعد از پالس ۲: Q = 0 (Toggle)</li>
+      <li>بعد از پالس ۳: Q = 1 (Toggle)</li>
+    </ul>
+    <p><strong>خروجی نهایی = ۱</strong></p>
+  </div>
+
+  <h3>۴. فلیپ‌فلاپ T (Toggle)</h3>
+  <p>فقط یک ورودی T دارد:</p>
+  <ul>
+    <li>اگر T = 0 → خروجی ثابت می‌ماند</li>
+    <li>اگر T = 1 → در هر پالس ساعت خروجی عوض می‌شود</li>
+  </ul>
+  <p>کاربرد اصلی: ساخت شمارنده‌ها (Counter).</p>
+
+  <h3>تفاوت لچ و فلیپ‌فلاپ</h3>
+  <ul>
+    <li><strong>لچ (Latch):</strong> حساس به سطح سیگنال (تا وقتی Enable فعال است، ورودی را دنبال می‌کند).</li>
+    <li><strong>فلیپ‌فلاپ:</strong> حساس به لبه ساعت (فقط در لحظه بالا رفتن یا پایین آمدن لبه، ورودی را می‌گیرد و بعد دیگر کاری ندارد).</li>
+  </ul>
+  <div class="note">در مدارهای سنکرون تقریباً همیشه از فلیپ‌فلاپ لبه‌حساس استفاده می‌کنیم، نه لچ.</div>
+</div>
+
+<!-- بخش ۷ -->
+<div class="card" id="s7">
+  <div class="card-head">
+    <div class="badge">۷</div>
+    <h2>سایر موضوعات (اشاره کوتاه)</h2>
+  </div>
+  <h3>مالتی‌پلکسر (MUX)</h3>
+  <p>چند ورودی را با خطوط انتخاب به یک خروجی وصل می‌کند. مثل سوییچ انتخاب‌گر.</p>
+  <h3>انکدر (Encoder)</h3>
+  <p>برعکس دیکودر. چند ورودی → کد دودویی. نوع اولویت‌دار وقتی چند ورودی همزمان ۱ باشند، بالاترین اولویت را انتخاب می‌کند.</p>
+  <h3>شمارنده و رجیستر شیفت</h3>
+  <p>با فلیپ‌فلاپ‌های T یا JK ساخته می‌شوند. شمارنده اعداد را پشت سر هم تولید می‌کند و رجیستر شیفت داده‌ها را بیت به بیت جابه‌جا می‌کند.</p>
+</div>
+
+<!-- نتیجه -->
+<div class="card conclusion">
+  <h2 class="concl-title">نتیجه‌گیری و توصیه نهایی برای امتحان</h2>
+  <p>اگر فقط سه موضوع را عالی بلد باشید، نمره خوبی می‌گیرید:</p>
+  <ol>
+    <li><strong>جدول کارنو</strong> تا چهار متغیر — مثال‌های این جزوه را حداقل سه بار حل کنید.</li>
+    <li><strong>دیکودر ۲ به ۴ و ۳ به ۸</strong> — بتوانید از صفر با گیت طراحی کنید.</li>
+    <li><strong>چهار نوع فلیپ‌فلاپ</strong> — جدول حقیقت‌شان را حفظ باشید و مثال Toggle را بلد باشید.</li>
+  </ol>
+  <p class="last">با تسلط به این سه بخش، تقریباً ۸۰٪ سؤالات امتحان را می‌توانید حل کنید.</p>
+</div>
+
+</div>
+
+
+<!-- Print-safe watermark (end) -->
+<div class="print-wm">
+  <strong>© 2026 Sina Shojaeian (3INA3) — All Rights Reserved</strong><br>
+  این جزوه متعلق به <strong>سینا شجاعیان (3INA3)</strong> است · هرگونه کپی، ویرایش یا بازنشر بدون مجوز ممنوع است<br>
+  منبع رسمی: <a href="https://github.com/3INA3" target="_blank" rel="noopener noreferrer">github.com/3INA3</a><br>
+  <span style="direction:ltr;font-family:ui-monospace,monospace;font-size:.7rem">Digital Document ID: 3INA3-LOGICCIRCUITS-20261013-A7E29C4F</span>
+</div>
+
+<div class="footer">
+  <strong>© 2026 Sina Shojaeian (3INA3) — All Rights Reserved</strong><br>
+  این فایل فقط برای استفاده شخصی و آموزشی از منبع رسمی گیت‌هاب (github.com/3INA3) منتشر شده است.<br>
+  هرگونه کپی، فروش، بازنشر، ویرایش یا استفاده تجاری بدون مجوز کتبی ممنوع و قابل پیگرد است.<br>
+  Source of truth: <a href="https://github.com/3INA3" target="_blank" rel="noopener noreferrer">https://github.com/3INA3</a><br>
+  <span style="direction:ltr;font-family:ui-monospace,monospace;font-size:.68rem;opacity:.85">
+    Digital Document ID: 3INA3-LOGICCIRCUITS-20261013-A7E29C4F · Issued 2026-10-13 UTC · © 3INA3
+  </span>
+</div>
+
+<script>
+/* Progress bar */
+(function(){
+  var bar = document.getElementById('bar');
+  function upd(){
+    var h = document.documentElement;
+    var t = h.scrollHeight - h.clientHeight;
+    bar.style.width = (t > 0 ? (h.scrollTop / t * 100) : 0) + '%';
+  }
+  window.addEventListener('scroll', upd, {passive: true});
+  upd();
+})();
+
+/* 3D watermark generation */
+(function(){
+  var wm = document.getElementById("wm");
+  if (!wm) return;
+  var names = ["3INA3","SINA","سینا","Sina Shojaeian","3INA3","SINA","سینا شجاعیان"];
+  for (var i = 0; i < 28; i++) {
+    var s = document.createElement("span");
+    s.textContent = names[i % names.length];
+    wm.appendChild(s);
+  }
+})();
+
+/* Origin marker in console */
+(function(){
+  console.info('%c© 2026 Sina Shojaeian (3INA3) · Digital Document ID: 3INA3-LOGICCIRCUITS-20261013-A7E29C4F · Official source: github.com/3INA3',
+    'color:#6366f1;font-weight:bold;font-size:12px');
+})();
+</script>
+</body>
+</html>
