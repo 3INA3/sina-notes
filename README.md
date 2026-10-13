@@ -11,7 +11,7 @@
 <br/><br/>
 
 <!-- Typing Animation -->
-<img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=700&size=28&duration=2800&pause=900&color=8A2BE2,00D8FF,FF00AA,43C6AC&center=true&vCenter=true&width=800&lines=📚+Academic+Resources+%26+Lecture+Notes;💻+Computer+Workshop;📊+Data+Structures+with+Python;🎓+From+Beginner+to+Advanced" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=700&size=28&duration=2800&pause=900&color=8A2BE2,00D8FF,FF00AA,43C6AC&center=true&vCenter=true&width=800&lines=📚+Academic+Resources+%26+Lecture+Notes;💻+Computer+Workshop;📊+Data+Structures+with+Python;⚡+Digital+Logic+Circuits;🎓+From+Beginner+to+Advanced" alt="Typing SVG" />
 
 </div>
 
@@ -25,6 +25,8 @@
 
 این ریپازیتوری مرکز جزوات و منابع آموزشی کلاس‌های من است.  
 تمام فایل‌ها به صورت منظم و با استاندارد آموزشی تهیه شده‌اند.
+
+**Official source only · © 2026 Sina Shojaeian (3INA3) · All Rights Reserved**
 
 </div>
 
@@ -44,10 +46,10 @@
 
 <br>
 
-| Title / Module | Description | Access |
-|---------------|-------------|:------:|
-| 📖 **جزوه جامع کارگاه کامپیوتر (ویندوز)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | [📥 دانلود](./Computer_Workshop_Pamphlet.pdf) |
-| 📖 **جزوه جامع کارگاه کامپیوتر (مک)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | [📥 دانلود](./Computer_Workshop_Pamphlet_macOS.pdf) |
+| Title / Module                            | Description                                            |                        Access                       |
+| ----------------------------------------- | ------------------------------------------------------ | :-------------------------------------------------: |
+| 📖 **جزوه جامع کارگاه کامپیوتر (ویندوز)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها |    [📥 دانلود](./Computer_Workshop_Pamphlet.pdf)    |
+| 📖 **جزوه جامع کارگاه کامپیوتر (مک)**     | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | [📥 دانلود](./Computer_Workshop_Pamphlet_macOS.pdf) |
 
 <br>
 
@@ -55,7 +57,7 @@
 
 <br>
 
-## 📊 Data Structures with Python  
+## 📊 Data Structures with Python
 ### ساختمان داده با پایتون — از صفر تا درخت و گراف
 
 <div align="center">
@@ -67,9 +69,46 @@
 
 <br>
 
-| Title / Module | Level | Access |
-|---------------|:-----:|:------:|
+| Title / Module                                |       Level      |                               Access                              |
+| --------------------------------------------- | :--------------: | :---------------------------------------------------------------: |
 | 📘 **کتابچه ساختمان داده با Python — از صفر** | مبتدی تا پیشرفته | [📥 دانلود](./کتابچه_ساختمان_داده_با_Python_از_صفر_Protected.pdf) |
+
+<br>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%"/>
+
+<br>
+
+## ⚡ Digital Logic Circuits
+### مدارهای منطقی و دیجیتال — جزوه کامل با حل تمرین
+
+<div align="center">
+
+جزوه کامل و گام‌به‌گام از **صفر**  
+شامل جبر بول، جدول کارنو (۲ تا ۴ متغیره)، دیکودر، فلیپ‌فلاپ‌ها، جمع‌کننده و مثال‌های حل‌شده
+
+</div>
+
+<br>
+
+| Title / Module                                      |       Level      |                              Access                             |
+| --------------------------------------------------- | :--------------: | :-------------------------------------------------------------: |
+| 📗 **جزوه کامل مدارهای منطقی و دیجیتال**            | از صفر کامل      | [📥 دانلود / مشاهده](./جزوه_مدارهای_منطقی_کامل.html)            |
+
+<br>
+
+**موضوعات پوشش‌داده‌شده:**
+- جبر بول و قوانین طلایی
+- جدول کارنو (دو، سه و چهار متغیره) با مثال‌های زیاد
+- مدارهای ترکیبی — نیم‌جمع‌کننده و تمام‌جمع‌کننده
+- دیکودر ۲ به ۴ و ۳ به ۸ + طراحی از صفر
+- فلیپ‌فلاپ‌های SR، D، JK و T
+- مالتی‌پلکسر، انکدر، شمارنده و رجیستر شیفت
+
+<br>
+
+**Digital Document ID:** `3INA3-LOGICCIRCUITS-20261013-A7E29C4F`  
+© 2026 Sina Shojaeian (3INA3) — All Rights Reserved
 
 <br>
 
