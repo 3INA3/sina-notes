@@ -46,10 +46,10 @@
 
 <br>
 
-| Title / Module                            | Description                                            |                        Access                       |
-| ----------------------------------------- | ------------------------------------------------------ | :-------------------------------------------------: |
-| 📖 **جزوه جامع کارگاه کامپیوتر (ویندوز)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها |    [📥 دانلود](./Computer_Workshop_Pamphlet.pdf)    |
-| 📖 **جزوه جامع کارگاه کامپیوتر (مک)**     | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | [📥 دانلود](./Computer_Workshop_Pamphlet_macOS.pdf) |
+| Title / Module | Description | Access |
+| --- | --- | --- |
+| 📖 **جزوه جامع کارگاه کامپیوتر (ویندوز)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | [🌐 Live Demo](https://3ina3.github.io/sina-notes/computer-workshop.html) • [📥 دانلود](./Computer_Workshop_Pamphlet.pdf) |
+| 📖 **جزوه جامع کارگاه کامپیوتر (مک)** | آموزش کاربردی مفاهیم اولیه، مبانی سیستم‌عامل و ابزارها | [🌐 Live Demo](https://3ina3.github.io/sina-notes/computer-workshop-macos.html) • [📥 دانلود](./Computer_Workshop_Pamphlet_macOS.pdf) |
 
 <br>
 
@@ -69,9 +69,9 @@
 
 <br>
 
-| Title / Module                                |       Level      |                               Access                              |
-| --------------------------------------------- | :--------------: | :---------------------------------------------------------------: |
-| 📘 **کتابچه ساختمان داده با Python — از صفر** | مبتدی تا پیشرفته | [📥 دانلود](./کتابچه_ساختمان_داده_با_Python_از_صفر_Protected.pdf) |
+| Title / Module | Level | Access |
+| --- | --- | --- |
+| 📘 **کتابچه ساختمان داده با Python — از صفر** | مبتدی تا پیشرفته | [🌐 Live Demo](https://3ina3.github.io/sina-notes/data-structures.html) • [📥 دانلود](./کتابچه_ساختمان_داده_با_Python_از_صفر_Protected.pdf) |
 
 <br>
 
@@ -91,9 +91,9 @@
 
 <br>
 
-| Title / Module                                      |       Level      |                              Access                             |
-| --------------------------------------------------- | :--------------: | :-------------------------------------------------------------: |
-| 📗 **جزوه کامل مدارهای منطقی و دیجیتال**            | از صفر کامل      | [🌐 Live Demo](https://3ina3.github.io/sina-notes/logic-circuits.html) &nbsp;•&nbsp; [📥 دانلود](./logic-circuits.html) |
+| Title / Module | Level | Access |
+| --- | --- | --- |
+| 📗 **جزوه کامل مدارهای منطقی و دیجیتال** | از صفر کامل | [🌐 Live Demo](https://3ina3.github.io/sina-notes/logic-circuits.html) • [📥 دانلود](./logic-circuits.html) |
 
 <br>
 
