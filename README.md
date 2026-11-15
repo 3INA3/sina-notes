@@ -93,8 +93,7 @@
 
 | Title / Module | Level | Access |
 | --- | --- | --- |
-| 📗 **جزوه کامل مدارهای منطقی و دیجیتال** | از صفر کامل | [🌐 Live Demo](https://3ina3.github.io/sina-notes/logic-circuits.html) • [📥 دانلود](./logic-circuits.html) |
-
+| 📗 **جزوه کامل مدارهای منطقی و دیجیتال** | از صفر کامل | [🌐 Live Demo](https://3ina3.github.io/sina-notes/logic-circuits.html) •|
 <br>
 
 **موضوعات پوشش‌داده‌شده:**
