@@ -71,7 +71,7 @@
 
 | Title / Module | Level | Access |
 | --- | --- | --- |
-| 📘 **کتابچه ساختمان داده با Python — از صفر** | مبتدی تا پیشرفته | [🌐 Live Demo](https://3ina3.github.io/sina-notes/data-structures.html) • [📥 دانلود](./کتابچه_ساختمان_داده_با_Python_از_صفر_Protected.pdf) |
+| 📘 **جزوه ساختمان داده با Python — از صفر** | مبتدی تا پیشرفته | [🌐 Live Demo](https://3ina3.github.io/sina-notes/) • [📥 مشاهده فایل](./index.html) |
 
 <br>
 
