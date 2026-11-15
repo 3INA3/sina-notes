@@ -71,7 +71,7 @@
 
 | Title / Module | Level | Access |
 | --- | --- | --- |
-| 📘 **جزوه ساختمان داده با Python — از صفر** | مبتدی تا پیشرفته | [🌐 Live Demo](https://3ina3.github.io/sina-notes/) • [📥 مشاهده فایل](./index.html) |
+| 📘 **جزوه ساختمان داده با Python — از صفر** | مبتدی تا پیشرفته | [🌐 Live Demo](https://3ina3.github.io/sina-notes/) • |
 
 <br>
 
