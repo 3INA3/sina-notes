@@ -1,0 +1,3358 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///S:/DOWNLOADS/data-structures-booklet-PROTECTED.html -->
+<html lang="fa" dir="rtl" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!--
+  ╔══════════════════════════════════════════════════════════════════════════════╗
+  ║  PROPRIETARY — © 2026 سینا شجاعیان (3INA3) — ALL RIGHTS RESERVED            ║
+  ║  Serial / کد سند : SS-F24B-4128-445E-2026-DS2                                  ║
+  ║  Document ID     : 3INA3-DS-PYTHON-2026-F24B4128                                 ║
+  ║  Issued          : 2026-10-06                                                    ║
+  ║  Official source : https://github.com/3INA3                                    ║
+  ║  استاد: دکتر اسدی · دانشگاه آزاد اسلامی، واحد شیراز · مهندسی کامپیوتر · ترم ۱۴۰۵           ║
+  ╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+<meta name="author" content="سینا شجاعیان (3INA3)">
+<meta name="copyright" content="© 2026 سینا شجاعیان. کلیه حقوق محفوظ است. مرجع رسمی: github.com/3INA3">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="کتابچه ساختمان داده با Python — از صفر تا درخت و گراف · تنظیم‌کننده: سینا شجاعیان · استاد: دکتر اسدی · دانشگاه آزاد شیراز · ترم ۱۴۰۵ · © 3INA3">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>کتابچه ساختمان داده با Python · © سینا شجاعیان · SS-F24B-4128-445E-2026-DS2</title>
+<link href="./کتابچه ساختمان داده با Python · © سینا شجاعیان · SS-F24B-4128-445E-2026-DS2_files/css2" rel="stylesheet">
+<style>
+:root{--bg:#f5f6fa;--card:#fff;--tx:#1b2238;--mut:#5d6580;--ac:#2f4bd8;--ac2:#e0a100;--bd:#dde1ee;--code:#161b2e;--ct:#e6e9f7;--ok:#0f8a5f}
+:root[data-theme=dark]{--bg:#0e121f;--card:#171c2e;--tx:#e4e8f6;--mut:#9aa3c2;--ac:#8aa0ff;--ac2:#f2c14e;--bd:#2a3150;--code:#0a0d18;--ct:#d9def5}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.9 Vazirmatn,Tahoma,'Segoe UI',sans-serif}
+#bar{position:fixed;top:0;right:0;height:3px;background:var(--ac2);width:0;z-index:50}
+header.top{position:sticky;top:0;z-index:40;display:flex;gap:8px;align-items:center;padding:10px 16px;background:var(--card);border-bottom:1px solid var(--bd)}
+header.top b{flex:1;font-weight:800}
+button,input{font:inherit;color:inherit}
+.btn{background:none;border:1px solid var(--bd);border-radius:8px;padding:2px 10px;cursor:pointer}
+.btn:hover,.btn:focus-visible{border-color:var(--ac);outline:2px solid var(--ac);outline-offset:1px}
+#q{border:1px solid var(--bd);background:var(--bg);border-radius:8px;padding:2px 10px;width:200px;max-width:34vw}
+#menu{display:none}
+nav#side{position:fixed;top:54px;bottom:0;right:0;width:250px;overflow:auto;padding:16px;border-left:1px solid var(--bd);background:var(--card)}
+nav#side a{display:block;padding:4px 10px;border-radius:8px;color:var(--mut);text-decoration:none;font-size:14px}
+nav#side a:hover,nav#side a.on{background:var(--bg);color:var(--ac);font-weight:600}
+main{margin-right:250px;max-width:900px;padding:24px 32px 80px}
+.hero{padding:40px 0 24px;border-bottom:3px double var(--bd)}
+.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.3;margin:0 0 8px;font-weight:800}
+.hero p{color:var(--mut);margin:4px 0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-top:16px;font-size:14px}
+.ph{border-bottom:1px dashed var(--ac2);color:var(--mut)}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:24px 0}
+.map a{display:block;padding:12px 16px;border:1px solid var(--bd);border-right:5px solid var(--ac);background:var(--card);border-radius:6px;color:inherit;text-decoration:none}
+.map a:hover{border-right-color:var(--ac2)}.map small{color:var(--mut);display:block}
+section{padding-top:32px}
+h2{font-size:28px;margin:0 0 4px;border-bottom:2px solid var(--ac);padding-bottom:6px}
+h3{margin:28px 0 6px;font-size:19px;color:var(--ac)}
+h4{margin:18px 0 6px;font-size:16px;color:var(--ac2)}
+.note,.bug,.tip,.why{border-radius:8px;padding:10px 16px;margin:14px 0;background:var(--card);border:1px solid var(--bd);border-right:4px solid var(--ac2)}
+.bug{border-right-color:#d23f3f}.ex{border-right-color:var(--ok)}.tip{border-right-color:#0f8a5f}.why{border-right-color:#7048e8}
+.code{margin:12px 0;border-radius:10px;overflow:hidden;background:var(--code);direction:ltr;text-align:left}
+.code header{display:flex;justify-content:space-between;align-items:center;padding:4px 12px;background:#00000040;color:#9aa3c2;font:12px monospace}
+.code button{background:none;border:1px solid #4a5280;color:#c5cbee;border-radius:6px;cursor:pointer;font:12px monospace}
+.code pre{margin:0;padding:12px 16px;overflow-x:auto;color:var(--ct);font:13.5px/1.65 'Cascadia Code',Consolas,monospace}
+.k{color:#ff9d6e}.s{color:#8fd694}.c{color:#7b83a8;font-style:italic}.f{color:#7fb2ff}
+pre.ascii{direction:ltr;text-align:left;background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:10px 14px;overflow-x:auto;font:13px/1.4 monospace;line-height:1.35}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;background:var(--card);font-size:14.5px}
+th,td{border:1px solid var(--bd);padding:6px 10px;text-align:center}th{background:var(--bg)}
+td code,p code,li code{direction:ltr;unicode-bidi:embed;font-family:monospace;background:var(--bg);padding:0 4px;border-radius:4px}
+.hide{display:none}
+#top{position:fixed;left:16px;bottom:16px}
+@media(max-width:860px){#menu{display:inline-block}nav#side{transform:translateX(100%);transition:transform .2s;z-index:45}nav#side.open{transform:none}main{margin:0;padding:16px}}
+@media print{#bar,header.top,nav#side,#top,.code button{display:none}main{margin:0;max-width:none;padding:0}body{background:#fff;color:#000;font-size:11pt}
+.code{background:#f3f3f3;color:#000;break-inside:avoid}.code pre{color:#000;white-space:pre-wrap}.k,.s,.c,.f{color:#000}section{break-before:page}.hero+*{break-before:auto}@page{size:A4;margin:16mm}}
+.fig{margin:18px 0;padding:12px;background:var(--card);border:1px solid var(--bd);border-radius:12px;break-inside:avoid;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.fig svg{width:100%;height:auto;max-width:720px;display:block;margin:auto;direction:ltr}
+.fig text{fill:var(--tx);font:13px Vazirmatn,Tahoma,sans-serif;text-anchor:middle}
+.fig .b{fill:var(--card);stroke:var(--ac);stroke-width:2}.fig .h{fill:var(--bg);stroke:var(--ac2);stroke-width:2.5}
+.fig .l,.fig .a{stroke:var(--mut);stroke-width:2;fill:none}.fig .d{stroke-dasharray:5 4}.fig .ah{fill:var(--mut)}
+.fig .m{font-family:monospace;font-size:14px}.fig figcaption{text-align:center;color:var(--mut);font-size:13px;margin-top:6px}
+.step{display:flex;gap:12px;align-items:flex-start;margin:10px 0;padding:10px 14px;background:var(--card);border-radius:8px;border:1px solid var(--bd)}
+.step .num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.analogy{background:linear-gradient(135deg,rgba(47,75,216,.08),rgba(224,161,0,.08));border-radius:10px;padding:14px 18px;margin:14px 0;border:1px solid var(--bd)}
+.analogy b{color:var(--ac)}
+
+
+/* ===== Interactive Demo Widgets ===== */
+
+/* Circular queue ring */
+.cq-ring{position:relative;width:220px;height:220px;margin:0 auto}
+.cq-slot{position:absolute;width:48px;height:40px;border:2px solid var(--bd);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-weight:700;background:var(--card);transition:all .4s}
+.cq-slot.filled{border-color:var(--ac);background:var(--card)}
+.cq-slot.front{background:#2f4bd8;color:#fff;border-color:#2f4bd8}
+.cq-slot.rear{background:var(--ac2);color:#1b2238;border-color:var(--ac2)}
+.cq-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--mut);pointer-events:none}
+
+/* Merge sort bars */
+.ms-bars{display:flex;align-items:flex-end;justify-content:center;gap:6px;height:140px;direction:ltr}
+.ms-bar{width:36px;border-radius:6px 6px 0 0;background:var(--ac);display:flex;align-items:flex-start;justify-content:center;padding-top:4px;color:#fff;font:12px monospace;font-weight:700;transition:height .4s,background .3s,transform .3s}
+.ms-bar.left{background:#4c6ef5}
+.ms-bar.right{background:#e0a100}
+.ms-bar.merged{background:var(--ok)}
+.ms-bar.hl{transform:scaleY(1.08);filter:brightness(1.15)}
+
+/* Heap array + tree mini */
+.heap-arr{display:flex;gap:4px;justify-content:center;direction:ltr;margin-bottom:8px;flex-wrap:wrap}
+.heap-cell{width:44px;height:36px;border:2px solid var(--ac);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-weight:700;background:var(--card);transition:all .35s}
+.heap-cell.root{background:var(--ac2);border-color:var(--ac2)}
+.heap-cell.swap{background:#d23f3f;color:#fff;border-color:#d23f3f;transform:scale(1.1)}
+
+/* Graph nodes */
+.g-stage{position:relative;width:100%;max-width:420px;height:200px;margin:0 auto;direction:ltr}
+.g-node{position:absolute;width:40px;height:40px;border-radius:50%;border:2px solid var(--ac);background:var(--card);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:monospace;transition:all .4s;z-index:2}
+.g-node.visit{background:var(--ac);color:#fff;transform:scale(1.15)}
+.g-node.done{background:var(--ok);color:#fff;border-color:var(--ok)}
+.g-edge{position:absolute;height:2px;background:var(--mut);transform-origin:left center;z-index:1;transition:background .3s}
+.g-edge.active{background:var(--ac2);height:3px}
+
+/* Recursion stack frames */
+.rec-frames{display:flex;flex-direction:column;gap:4px;align-items:center;direction:ltr;min-height:160px;justify-content:flex-end}
+.rec-frame{padding:6px 16px;border:2px solid var(--ac);border-radius:8px;background:var(--card);font-family:monospace;font-size:13px;min-width:140px;text-align:center;transition:all .35s}
+.rec-frame.active{background:var(--ac2);border-color:var(--ac2);color:#1b2238;transform:scale(1.05)}
+.rec-frame.return{background:var(--ok);border-color:var(--ok);color:#fff}
+
+/* Parens */
+.paren-row{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;direction:ltr;font-size:22px;font-family:monospace}
+.paren-ch{width:32px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:all .3s}
+.paren-ch.cur{background:var(--ac2);transform:scale(1.2)}
+.paren-ch.ok{background:var(--ok);color:#fff}
+.paren-ch.bad{background:#d23f3f;color:#fff}
+
+.demo{margin:20px 0;padding:16px;background:var(--card);border:1px solid var(--bd);border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.demo h4{margin:0 0 10px;color:var(--ac);font-size:16px}
+.demo .controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
+.demo .controls button{background:var(--ac);color:#fff;border:none;border-radius:8px;padding:6px 14px;cursor:pointer;font:14px Vazirmatn,sans-serif}
+.demo .controls button:hover{filter:brightness(1.1)}
+.demo .controls button.sec{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+.demo .controls input{width:70px;border:1px solid var(--bd);border-radius:6px;padding:4px 8px;background:var(--bg);text-align:center}
+.demo .stage{min-height:180px;display:flex;align-items:flex-end;justify-content:center;gap:4px;padding:16px;background:var(--bg);border-radius:10px;position:relative;overflow:hidden;direction:ltr}
+.demo .hint{font-size:13px;color:var(--mut);margin-top:8px;text-align:center}
+.demo .msg{font-size:13px;color:var(--ac2);min-height:1.4em;text-align:center;margin-top:6px;font-weight:600}
+
+/* Stack cells */
+.stk-cell{width:72px;height:40px;display:flex;align-items:center;justify-content:center;border:2px solid var(--ac);border-radius:8px;background:var(--card);font-weight:700;font-family:monospace;font-size:15px;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s,background .3s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.stk-cell.new{animation:popIn .4s cubic-bezier(.34,1.56,.64,1)}
+.stk-cell.gone{animation:popOut .3s forwards}
+.stk-cell.top{background:var(--ac2);border-color:var(--ac2);color:#1b2238}
+@keyframes popIn{from{transform:translateY(-30px) scale(.5);opacity:0}to{transform:none;opacity:1}}
+@keyframes popOut{to{transform:translateY(-40px) scale(.3);opacity:0}}
+.stk-wrap{display:flex;flex-direction:column-reverse;align-items:center;gap:4px;min-height:160px}
+.stk-base{width:90px;height:8px;background:var(--mut);border-radius:4px;margin-top:4px}
+
+/* Queue cells */
+.q-row{display:flex;align-items:center;gap:6px;min-height:60px}
+.q-cell{width:56px;height:48px;display:flex;align-items:center;justify-content:center;border:2px solid var(--ac);border-radius:8px;background:var(--card);font-weight:700;font-family:monospace;transition:all .4s cubic-bezier(.34,1.56,.64,1)}
+.q-cell.front{background:#2f4bd8;color:#fff;border-color:#2f4bd8}
+.q-cell.rear{background:var(--ac2);color:#1b2238;border-color:var(--ac2)}
+.q-cell.enter{animation:slideIn .4s}
+.q-cell.leave{animation:slideOut .35s forwards}
+@keyframes slideIn{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+@keyframes slideOut{to{transform:translateX(-50px) scale(.5);opacity:0}}
+
+/* Linked list nodes */
+.ll-row{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;min-height:80px;direction:ltr}
+.ll-node{display:flex;align-items:center}
+.ll-box{width:52px;height:44px;border:2px solid var(--ac);border-radius:8px 0 0 8px;display:flex;align-items:center;justify-content:center;background:var(--card);font-weight:700;font-family:monospace}
+.ll-ptr{width:28px;height:44px;border:2px solid var(--ac);border-right:none;border-radius:0 8px 8px 0;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--mut)}
+.ll-arrow{width:28px;height:2px;background:var(--mut);position:relative;margin:0 2px}
+.ll-arrow::after{content:'';position:absolute;right:-6px;top:-4px;border:5px solid transparent;border-left-color:var(--mut)}
+.ll-node.new .ll-box{animation:nodeIn .45s cubic-bezier(.34,1.56,.64,1);background:var(--ac2)}
+@keyframes nodeIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.ll-null{font-family:monospace;color:var(--mut);padding:0 6px}
+
+/* Tree nodes */
+.tree-stage{min-height:220px;display:flex;justify-content:center;padding:12px;direction:ltr}
+.tree-svg{width:100%;max-width:480px;height:220px}
+.tree-node{fill:var(--card);stroke:var(--ac);stroke-width:2;transition:all .4s}
+.tree-node.hl{fill:var(--ac2);stroke:var(--ac2)}
+.tree-node.new{animation:nodeIn .5s}
+.tree-label{fill:var(--tx);font:14px monospace;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.tree-edge{stroke:var(--mut);stroke-width:2;fill:none;transition:opacity .3s}
+
+/* Binary search highlight */
+.bs-row{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;direction:ltr}
+.bs-cell{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:2px solid var(--bd);border-radius:6px;font-family:monospace;font-weight:600;background:var(--card);transition:all .35s}
+.bs-cell.active{border-color:var(--ac2);background:var(--ac2);color:#1b2238;transform:scale(1.15)}
+.bs-cell.discard{opacity:.25;transform:scale(.85)}
+.bs-cell.found{border-color:var(--ok);background:var(--ok);color:#fff;transform:scale(1.2)}
+
+@media print{.demo .controls{display:none}}
+
+.qbox{border-radius:8px;padding:12px 16px;margin:18px 0;background:var(--card);border:1px solid var(--bd);border-right:4px solid #0d9488}
+.qbox h4{margin:0 0 8px;color:#0d9488;font-size:17px}
+.qbox ol{margin:6px 0 0;padding-right:22px}
+.qbox li{margin:8px 0}
+.sol{border-radius:8px;padding:12px 16px;margin:12px 0 20px;background:linear-gradient(135deg,rgba(15,138,95,.07),transparent);border:1px solid var(--bd);border-right:4px solid var(--ok)}
+.sol h4{margin:0 0 8px;color:var(--ok);font-size:16px}
+.sol .concept{background:var(--bg);border-radius:6px;padding:10px 12px;margin:10px 0;border:1px dashed var(--bd)}
+.badge{display:inline-block;font-size:11px;padding:1px 8px;border-radius:999px;background:var(--bg);border:1px solid var(--bd);color:var(--mut);margin-right:6px}
+
+@media print{:root,:root[data-theme=dark]{--bg:#fff;--card:#fff;--tx:#000;--mut:#444;--ac:#1d3a9e;--ac2:#b07d00;--bd:#bbb;--code:#f3f3f3;--ct:#000}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* ===== 3INA3 Watermark & Copyright layers ===== */
+.wm-layer{
+  position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+  display:flex; flex-wrap:wrap; align-content:space-around; justify-content:space-around;
+  opacity:1;
+}
+.wm-layer span{
+  font-size:clamp(1.1rem, 2.4vw, 1.85rem); font-weight:800; letter-spacing:.06em;
+  color:rgba(47,75,216,.045);
+  transform:rotate(-18deg);
+  padding:1.4rem 1.8rem; user-select:none; white-space:nowrap;
+}
+:root[data-theme=dark] .wm-layer span{ color:rgba(138,160,255,.055); }
+
+/* ensure content above watermark */
+header.top, nav#side, main, #bar, #top { position:relative; z-index:2; }
+header.top, nav#side { z-index:40; }
+
+.copy-cover{
+  position:relative; z-index:2;
+  margin:16px 0 28px; padding:28px 24px 22px;
+  background:var(--card); border:1px solid var(--bd); border-radius:14px;
+  border-right:5px solid var(--ac);
+  box-shadow:0 4px 18px rgba(0,0,0,.06);
+}
+.copy-cover h1{
+  font-size:clamp(22px, 3.5vw, 32px); margin:0 0 8px; font-weight:800; line-height:1.35;
+}
+.copy-cover .sub{ color:var(--mut); font-size:14.5px; margin:0 0 14px; line-height:1.8; }
+.copy-cover .meta-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:8px 16px;
+  font-size:14px; margin:14px 0; padding:12px 14px; background:var(--bg); border-radius:10px; border:1px solid var(--bd);
+}
+.copy-cover .meta-grid div b{ color:var(--ac); }
+.copy-notice{
+  margin-top:16px; padding:14px 16px; border-radius:10px;
+  background:linear-gradient(135deg, rgba(47,75,216,.07), rgba(224,161,0,.07));
+  border:1px solid var(--bd); font-size:13px; line-height:1.9; color:var(--tx);
+}
+.copy-notice strong{ color:var(--ac); }
+.copy-notice a{ color:var(--ac); font-weight:700; }
+.doc-id-box{
+  margin-top:12px; text-align:center; direction:ltr;
+  font-family:ui-monospace, Consolas, monospace; font-size:12px; color:var(--mut); line-height:1.7;
+}
+.doc-id-box .sid{ font-size:14px; font-weight:800; color:var(--ac); letter-spacing:.04em; }
+
+.footer-copy{
+  position:relative; z-index:2;
+  margin:40px 0 20px; padding:16px 18px; text-align:center;
+  font-size:12.5px; color:var(--mut); line-height:1.85;
+  border:1px solid var(--bd); border-radius:12px; background:var(--card);
+}
+.footer-copy strong{ color:var(--tx); }
+.footer-copy a{ color:var(--ac); font-weight:700; }
+
+/* print: watermark on every page via fixed layer + running header/footer */
+@media print{
+  .wm-layer{
+    position:fixed !important; inset:0 !important; z-index:0 !important;
+    -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important;
+  }
+  .wm-layer span{
+    color:rgba(47,75,216,.07) !important;
+    -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important;
+  }
+  .copy-cover, .footer-copy, main, section{
+    position:relative; z-index:1;
+  }
+  .print-running{
+    display:block !important;
+    position:fixed; left:0; right:0; font-size:8pt; color:#64748b;
+    -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important;
+  }
+  .print-running.top{
+    top:4mm; text-align:center; border-bottom:0.4pt solid #cbd5e1; padding-bottom:1.5mm;
+  }
+  .print-running.bottom{
+    bottom:4mm; text-align:center; border-top:0.4pt solid #cbd5e1; padding-top:1.5mm;
+  }
+  body{ padding-top:10mm; padding-bottom:12mm; }
+  header.top, nav#side, #bar, #top, #menu, .btn { display:none !important; }
+  main{ margin:0 !important; max-width:none !important; padding:0 4mm !important; }
+}
+.print-running{ display:none; }
+
+</style>
+</head>
+<body><div class="wm-layer" aria-hidden="true" id="wm-layer"><span>3INA3</span><span>سینا شجاعیان</span><span>github.com/3INA3</span><span>SS-F24B-4128-445E-2026-DS2</span><span>ساختمان داده</span><span>Python</span><span>3INA3</span><span>سینا شجاعیان</span><span>3INA3</span><span>سینا شجاعیان</span><span>github.com/3INA3</span><span>SS-F24B-4128-445E-2026-DS2</span><span>ساختمان داده</span><span>Python</span><span>3INA3</span><span>سینا شجاعیان</span><span>3INA3</span><span>سینا شجاعیان</span><span>github.com/3INA3</span><span>SS-F24B-4128-445E-2026-DS2</span><span>ساختمان داده</span><span>Python</span><span>3INA3</span><span>سینا شجاعیان</span><span>3INA3</span><span>سینا شجاعیان</span><span>github.com/3INA3</span><span>SS-F24B-4128-445E-2026-DS2</span><span>ساختمان داده</span><span>Python</span><span>3INA3</span><span>سینا شجاعیان</span></div>
+<div id="bar"></div>
+<header class="top">
+<button class="btn" id="menu" aria-label="منو">☰</button><b>ساختمان داده با Python — از صفر</b>
+<input id="q" type="search" placeholder="جستجو: stack, heap, BFS…" aria-label="جستجو">
+<button class="btn" id="th">🌙 تاریک</button><button class="btn" onclick="print()">🖨 چاپ</button>
+</header>
+<nav id="side" aria-label="فهرست"></nav>
+<main>
+
+  <!-- ===== COVER / COPYRIGHT — © سینا شجاعیان ===== -->
+  <div class="print-running top">© ۲۰۲۶ سینا شجاعیان · SS-F24B-4128-445E-2026-DS2 · github.com/3INA3 · کتابچه ساختمان داده با Python</div>
+  <div class="print-running bottom">مرجع رسمی: github.com/3INA3 · کد سند: SS-F24B-4128-445E-2026-DS2 · کلیه حقوق محفوظ است</div>
+
+  <section class="copy-cover" id="cover-copyright">
+    <h1>کتابچه آموزش Python ساختمان داده</h1>
+    <p class="sub">از صفر تا درخت و گراف · نسخهٔ کامل با تمرین و راه‌حل</p>
+    <div class="meta-grid">
+      <div><b>تنظیم‌کننده:</b> سینا شجاعیان</div>
+      <div><b>استاد:</b> دکتر اسدی</div>
+      <div><b>دانشگاه / دانشکده:</b> دانشگاه آزاد اسلامی، واحد شیراز</div>
+      <div><b>رشته و مقطع:</b> مهندسی کامپیوتر</div>
+      <div><b>عنوان درس:</b> ساختمان داده (داده و ساختار)</div>
+      <div><b>ترم / سال:</b> ۱۴۰۵</div>
+    </div>
+    <div class="copy-notice">
+      <strong>© ۲۰۲۶ – کلیه حقوق این اثر متعلق به سینا شجاعیان است.</strong><br>
+      هرگونه کپی‌برداری، بازتولید، ویرایش، توزیع یا انتشار مجدد بخش یا تمام این اثر،
+      به هر شکل و در هر رسانه‌ای، بدون اجازه کتبی و صریح نویسنده ممنوع است.
+      این نسخه صرفاً برای استفاده شخصی و مطالعه در نظر گرفته شده است.<br>
+      <strong>مرجع رسمی و معتبر دانلود:</strong>
+      <a href="https://github.com/3INA3" target="_blank" rel="noopener">https://github.com/3INA3</a>
+    </div>
+    <div class="doc-id-box">
+      <div class="sid">SS-F24B-4128-445E-2026-DS2</div>
+      <div>Document ID: 3INA3-DS-PYTHON-2026-F24B4128</div>
+      <div>Issued: 2026-10-06 · Owner: سینا شجاعیان (3INA3)</div>
+      <div>ساختمان داده · Python · الگوریتم · درخت · گراف</div>
+    </div>
+  </section>
+
+<div class="hero" id="intro">
+<h1>ساختمان داده<br>از صفر تا درخت و گراف</h1>
+<p>جزوه‌ی کامل و دوستانه. هر مفهوم با مثال روزمره، دیاگرام، کد Python 3 و <strong>۶ تمرین کدنویسی با راه‌حل و توضیح مفهومی</strong> توضیح داده شده. کدها بر اساس ریپوی کلاسی گسترش یافته‌اند.</p>
+<div class="meta">
+<span>عنوان درس: <span class="ph" contenteditable="">[داده و ساختار]</span></span><span>نام استاد: <span class="ph" contenteditable="">[دکتر اسدی]</span></span>
+<span>تنظیم‌کننده: <span class="ph" contenteditable="">[سیناشجاعیان]</span></span><span>دانشگاه / دانشکده: <span class="ph" contenteditable="">[آزاد شیراز]</span></span>
+<span>رشته و مقطع: <span class="ph" contenteditable="">[مهندسی کامپیوتر]</span></span><span>ترم / سال: <span class="ph" contenteditable="">[1405]</span></span>
+</div>
+<div class="map" id="map"></div>
+<div class="analogy">
+<b>قبل از شروع — ساختمان داده چیست؟</b><br>
+تصور کنید اتاق شما پر از وسایل است. اگر همه‌چیز را روی هم بریزید، پیدا کردن یک جوراب سخت می‌شود. اما اگر کمد داشته باشید، کشو داشته باشید، یا جعبه‌های مرتب، خیلی سریع‌تر پیدا می‌کنید.<br>
+<strong>ساختمان داده</strong> دقیقاً همین است: روش‌های هوشمندانه برای چیدن داده در حافظه کامپیوتر تا بتوانیم سریع اضافه کنیم، حذف کنیم یا جست‌وجو کنیم.
+</div>
+</div>
+
+<!-- ==================== فصل ۱ ==================== -->
+<section id="c1"><h2>۱. تحلیل الگوریتم — چقدر طول می‌کشد؟</h2>
+
+<div class="analogy">
+<b>آنالوژی:</b> فرض کنید می‌خواهید یک کتاب را در کتابخانه پیدا کنید. اگر کتاب‌ها به‌هم‌ریخته باشند، ممکن است مجبور شوید همه‌ی قفسه‌ها را یکی‌یکی نگاه کنید (کند). اگر کتاب‌ها بر اساس حروف الفبا مرتب باشند، خیلی سریع‌تر پیدا می‌کنید (سریع). تحلیل الگوریتم یعنی بفهمیم «چقدر کار» لازم است تا مسئله حل شود وقتی ورودی بزرگ می‌شود.
+</div>
+
+<p>وقتی برنامه‌ای می‌نویسیم، دو چیز مهم است:</p>
+<ul>
+<li><b>زمان</b> — چند عملیات طول می‌کشد؟ (تابع پیچیدگی <code>f(n)</code>)</li>
+<li><b>حافظه</b> — چقدر فضای اضافی لازم است؟</li>
+</ul>
+<p>ما معمولاً فقط به «بدترین حالت» و «بزرگ‌ترین توان» نگاه می‌کنیم. مثلاً اگر <code>f(n) = 2n² + n + 1</code> باشد، فقط <code>n²</code> مهم است و می‌گوییم <b>O(n²)</b>.</p>
+
+<div class="tw"><table>
+<tbody><tr><th>نماد</th><th>معنا</th><th>رابطه با f(n)</th><th>مثال ساده</th></tr>
+<tr><td>O (بزرگ‌او)</td><td>حد بالا — بدتر از این نمی‌شود</td><td>f ≤ c·g</td><td>مرتب‌سازی حبابی O(n²)</td></tr>
+<tr><td>Ω</td><td>حد پایین — بهتر از این نمی‌شود</td><td>f ≥ c·g</td><td>جست‌وجوی خطی حداقل Ω(n)</td></tr>
+<tr><td>Θ</td><td>حد دقیق (هم بالا هم پایین)</td><td>هر دو</td><td>جمع لیست Θ(n)</td></tr>
+</tbody></table></div>
+
+<figure class="fig">
+<svg viewBox="0 0 740 295" role="img" aria-label="مقایسه‌ی رشد توابع">
+<line x1="60" y1="20" x2="60" y2="262" class="l"></line><line x1="60" y1="262" x2="680" y2="262" class="l"></line>
+<polyline class="a" style="stroke:#8a8a8a" points="120,258 180,258 240,258 300,258 360,258 420,258 480,258 540,258 600,258 660,258"></polyline>
+<polyline class="a" style="stroke:#2a9d8f" points="120,260 180,257.6 240,256.2 300,255.2 360,254.4 420,253.8 480,253.3 540,252.8 600,252.4 660,252"></polyline>
+<polyline class="a" style="stroke:#4c6ef5" points="120,257.6 180,255.2 240,252.8 300,250.4 360,248 420,245.6 480,243.2 540,240.8 600,238.4 660,236"></polyline>
+<polyline class="a" style="stroke:#e0a100" points="120,260 180,255.2 240,248.6 300,240.8 360,232.2 420,222.8 480,212.7 540,202.4 600,191.6 660,180.3"></polyline>
+<polyline class="a" style="stroke:#d6336c" points="120,257.6 180,250.4 240,238.4 300,221.6 360,200 420,173.6 480,142.4 540,106.4 600,65.6 660,20"></polyline>
+<polyline class="a" style="stroke:#7048e8" points="120,255.2 180,250.4 240,240.8 300,221.6 360,183.2 420,106.4 458,20"></polyline>
+<text x="690" y="236">n</text><text x="700" y="252">log n</text><text x="690" y="180">n log n</text>
+<text x="680" y="16">n²</text><text x="475" y="16">2ⁿ</text>
+<text x="78" y="250">O(1)</text><text x="370" y="284">اندازه‌ی ورودی n</text><text x="26" y="140">زمان</text>
+</svg>
+<figcaption>هرچه منحنی تندتر باشد، الگوریتم برای ورودی‌های بزرگ کندتر است. 2ⁿ وحشتناک است!</figcaption>
+</figure>
+
+<h3>مثال‌های روزمره به ترتیب سرعت</h3>
+<div class="tw"><table>
+<tbody><tr><th>تابع</th><th>پیچیدگی</th><th>چرا؟</th><th>مثال واقعی</th></tr>
+<tr><td><code>arr[i]</code></td><td>O(1)</td><td>مستقیم با اندیس می‌رود</td><td>باز کردن کشوی شماره‌ی ۳</td></tr>
+<tr><td><code>sum_list</code></td><td>O(n)</td><td>یک بار از اول تا آخر می‌رود</td><td>جمع کردن نمرات کلاس</td></tr>
+<tr><td><code>binary_search</code></td><td>O(log n)</td><td>هر بار نصف می‌شود</td><td>پیدا کردن اسم در دفتر تلفن مرتب</td></tr>
+<tr><td><code>merge_sort</code></td><td>O(n log n)</td><td>log n سطح × n کار</td><td>مرتب کردن کارت‌های بازی با تقسیم</td></tr>
+<tr><td>حبابی / درج</td><td>O(n²)</td><td>حلقه‌ی تودرتو</td><td>مرتب کردن با مقایسه‌ی دو به دو</td></tr>
+</tbody></table></div>
+
+<div class="tip"><b>نکته‌ی طلایی:</b> وقتی n خیلی بزرگ می‌شود (مثلاً یک میلیون)، تفاوت O(n) و O(n²) مثل تفاوت چند ثانیه با چند ساعت است!</div>
+
+<h3>قدم‌به‌قدم: f(n) چگونه ساخته می‌شود؟</h3>
+<p>برای هر دستور بپرسید: «چند بار اجرا می‌شود؟» بعد همه‌ی آن‌ها را جمع بزنید.</p>
+<div class="step"><div class="num">1</div><div>حلقه‌ی بیرونی n بار اجرا می‌شود.</div></div>
+<div class="step"><div class="num">2</div><div>حلقه‌ی درونی در هر دور بیرونی، n بار اجرا می‌شود → n × n = n²</div></div>
+<div class="step"><div class="num">3</div><div>اگر داخل حلقه‌ی درونی ۲ دستور باشد → 2n²</div></div>
+<div class="step"><div class="num">4</div><div>دستورهای بیرون حلقه را هم اضافه کنید → 2n² + n + 1</div></div>
+<div class="step"><div class="num">5</div><div>بزرگ‌ترین توان را نگه دارید و ضریب را دور بیندازید → <b>Θ(n²)</b></div></div>
+
+<table><tbody><tr><th>n</th><th>n</th><th>n log n</th><th>n²</th><th>2ⁿ</th></tr>
+<tr><td>10</td><td>10</td><td>≈33</td><td>100</td><td>1024</td></tr>
+<tr><td>20</td><td>20</td><td>≈86</td><td>400</td><td>بیش از یک میلیون</td></tr>
+<tr><td>1000</td><td>1000</td><td>≈9966</td><td>۱٬۰۰۰٬۰۰۰</td><td>غیرقابل تصور</td></tr>
+</tbody></table>
+
+<p><b>حافظه:</b> فقط فضای <em>اضافی</em> را حساب می‌کنیم. اگر فقط یک متغیر <code>total</code> داشته باشیم → O(1). اگر لیست کمکی بسازیم → O(n).</p>
+
+<h3>کدهای ساده با توضیح خط‌به‌خط</h3>
+<div class="code"><header>Python — O(1) و O(n)<button>Copy</button></header><pre>def worker(arr: list[int], index: int) -&gt; int:
+    """دسترسی مستقیم: کار به اندازه‌ی لیست بستگی ندارد → O(1)"""
+    return arr[index]          # فقط یک خواندن از حافظه
+
+
+def linear_sum(arr: list[int]) -&gt; int:
+    """هر عنصر دقیقاً یک بار دیده می‌شود → O(n)"""
+    total = 0                  # یک متغیر کمکی → حافظه O(1)
+    for element in arr:        # حلقه n بار اجرا می‌شود
+        total += element       # جمع کردن
+    return total
+
+
+if __name__ == "__main__":
+    data = [4, 8, 15, 16]
+    print(worker(data, 2), linear_sum(data))   # 15  43</pre></div>
+
+<div class="why"><b>چرا این مهم است؟</b> اگر لیست شما ۱۰۰ میلیون عنصر داشته باشد، <code>worker</code> هنوز در یک لحظه جواب می‌دهد، اما <code>linear_sum</code> باید ۱۰۰ میلیون بار جمع بزند.</div>
+
+<h3>جست‌وجوی دودویی — نصف کردن هوشمندانه</h3>
+
+<div class="demo" id="demo-bs">
+<h4>🎬 انیمیشن جست‌وجوی دودویی</h4>
+<div class="controls">
+  <input id="bs-target" type="number" value="7" placeholder="هدف">
+  <button onclick="bsStart()">▶ پخش جست‌وجو</button>
+  <button class="sec" onclick="bsReset()">بازنشانی</button>
+</div>
+<div class="stage"><div class="bs-row" id="bs-vis"><div class="bs-cell">1</div><div class="bs-cell">2</div><div class="bs-cell">3</div><div class="bs-cell">4</div><div class="bs-cell">5</div><div class="bs-cell">6</div><div class="bs-cell">7</div><div class="bs-cell">8</div><div class="bs-cell">9</div><div class="bs-cell">10</div><div class="bs-cell">11</div><div class="bs-cell">12</div><div class="bs-cell">13</div><div class="bs-cell">14</div><div class="bs-cell">15</div></div></div>
+<div class="msg" id="bs-msg">آماده جست‌وجو</div>
+<div class="hint">نارنجی = mid فعلی. کم‌رنگ = دور ریخته‌شده. سبز = پیدا شد.</div>
+</div>
+
+<p><b>شرط مهم:</b> آرایه باید <strong>مرتب</strong> باشد. ایده‌ی ساده: وسط را نگاه کن. اگر هدف بزرگ‌تر بود، نیمه‌ی چپ را دور بریز. اگر کوچک‌تر بود، نیمه‌ی راست را دور بریز. هر بار بازه نصف می‌شود.</p>
+
+<pre class="ascii">جست‌وجوی 7 در [1, 3, 4, 6, 7, 8, 10]
+low=0  high=6
+mid=3 → 6 &lt; 7  → low=4     بازه: [7, 8, 10]
+mid=5 → 8 &gt; 7  → high=4    بازه: [7]
+mid=4 → 7 == 7 → پیدا شد! اندیس 4
+
+برای ۱ میلیون عنصر فقط حدود ۲۰ مقایسه لازم است!</pre>
+
+<figure class="fig">
+<svg viewBox="0 0 700 200" role="img" aria-label="مراحل جست‌وجوی دودویی">
+<!-- array boxes -->
+<rect x="40" y="30" width="50" height="36" rx="4" class="b"></rect><text x="65" y="53">1</text>
+<rect x="95" y="30" width="50" height="36" rx="4" class="b"></rect><text x="120" y="53">3</text>
+<rect x="150" y="30" width="50" height="36" rx="4" class="b"></rect><text x="175" y="53">4</text>
+<rect x="205" y="30" width="50" height="36" rx="4" class="h"></rect><text x="230" y="53">6</text>
+<rect x="260" y="30" width="50" height="36" rx="4" class="b"></rect><text x="285" y="53">7</text>
+<rect x="315" y="30" width="50" height="36" rx="4" class="b"></rect><text x="340" y="53">8</text>
+<rect x="370" y="30" width="50" height="36" rx="4" class="b"></rect><text x="395" y="53">10</text>
+<text x="65" y="85" style="font-size:11px">0</text>
+<text x="120" y="85" style="font-size:11px">1</text>
+<text x="175" y="85" style="font-size:11px">2</text>
+<text x="230" y="85" style="font-size:11px">3</text>
+<text x="285" y="85" style="font-size:11px">4</text>
+<text x="340" y="85" style="font-size:11px">5</text>
+<text x="395" y="85" style="font-size:11px">6</text>
+<!-- step labels -->
+<text x="500" y="40" style="font-size:12px">① mid=3 → 6&lt;7 → low=4</text>
+<text x="500" y="65" style="font-size:12px">② mid=5 → 8&gt;7 → high=4</text>
+<text x="500" y="90" style="font-size:12px">③ mid=4 → 7==7 ✓</text>
+<!-- highlight final -->
+<rect x="260" y="110" width="50" height="36" rx="4" class="h"></rect><text x="285" y="133">7</text>
+<text x="285" y="165" style="font-size:13px;font-weight:700">پیدا شد! اندیس ۴</text>
+<text x="100" y="190" style="font-size:12px">هر مرحله بازه نصف می‌شود → حداکثر ⌈log₂ n⌉ مقایسه</text>
+</svg>
+<figcaption>جست‌وجوی دودویی برای ۷: سه مرحله تا پیدا شدن</figcaption>
+</figure>
+
+<div class="code"><header>Python — binary_search<button>Copy</button></header><pre>def binary_search(arr: list[int], target: int) -&gt; int:
+    """اندیس target را برمی‌گرداند یا -1 اگر نبود.
+    زمان: O(log n)   حافظه: O(1)"""
+    low, high = 0, len(arr) - 1          # دو اشاره‌گر به دو سر
+    while low &lt;= high:                   # تا وقتی بازه خالی نشده
+        mid = (low + high) // 2          # وسط را حساب کن
+        if arr[mid] == target:
+            return mid                   # پیدا شد!
+        elif arr[mid] &lt; target:
+            low = mid + 1                # برو سمت راست
+        else:
+            high = mid - 1               # برو سمت چپ
+    return -1                            # پیدا نشد
+
+
+if __name__ == "__main__":
+    nums = [1, 3, 4, 6, 7, 8, 10]
+    print(binary_search(nums, 7))   # 4
+    print(binary_search(nums, 5))   # -1</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط binary_search:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li><code>low, high = 0, len(arr)-1</code> — بازه‌ی جست‌وجو از اول تا آخر آرایه.</li>
+<li><code>while low &lt;= high</code> — تا وقتی بازه حداقل یک عنصر دارد ادامه بده.</li>
+<li><code>mid = (low+high)//2</code> — اندیس وسط (تقسیم صحیح تا اعشار نیاید).</li>
+<li>اگر <code>arr[mid] == target</code> — پیدا شد، اندیس را برگردان.</li>
+<li>اگر هدف بزرگ‌تر است → <code>low = mid+1</code> (نیمه‌ی چپ را دور بریز).</li>
+<li>اگر هدف کوچک‌تر است → <code>high = mid-1</code> (نیمه‌ی راست را دور بریز).</li>
+<li>اگر حلقه تمام شد و پیدا نشد → <code>-1</code>.</li>
+</ol>
+</div>
+
+<h3>مرتب‌سازی ادغامی (Merge Sort)</h3>
+<p>ایده: لیست را نصف کن، هر نیمه را مرتب کن، بعد دو لیست مرتب را با هم ادغام کن. این کار را آن‌قدر تکرار کن تا به لیست‌های یک‌عنصری برسی (که خودش مرتب است).</p>
+
+<pre class="ascii">[5 2 9 1]
+   /    \
+[5 2]  [9 1]        ← تقسیم
+[5][2] [9][1]
+  \ /    \ /
+[2 5]  [1 9]        ← ادغام
+    \  /
+  [1 2 5 9]</pre>
+
+<figure class="fig">
+<svg viewBox="0 0 720 320" role="img" aria-label="مراحل Merge Sort">
+<!-- Level 0 -->
+<rect x="280" y="10" width="160" height="36" rx="6" class="h"></rect><text x="360" y="33">5 2 9 1</text>
+<!-- arrows down -->
+<line x1="320" y1="46" x2="200" y2="70" class="a"></line><line x1="400" y1="46" x2="520" y2="70" class="a"></line>
+<!-- Level 1 -->
+<rect x="130" y="72" width="140" height="36" rx="6" class="b"></rect><text x="200" y="95">5 2</text>
+<rect x="450" y="72" width="140" height="36" rx="6" class="b"></rect><text x="520" y="95">9 1</text>
+<line x1="170" y1="108" x2="100" y2="132" class="a"></line><line x1="230" y1="108" x2="300" y2="132" class="a"></line>
+<line x1="490" y1="108" x2="420" y2="132" class="a"></line><line x1="550" y1="108" x2="620" y2="132" class="a"></line>
+<!-- Level 2 -->
+<rect x="50" y="134" width="100" height="36" rx="6" class="b"></rect><text x="100" y="157">5</text>
+<rect x="250" y="134" width="100" height="36" rx="6" class="b"></rect><text x="300" y="157">2</text>
+<rect x="370" y="134" width="100" height="36" rx="6" class="b"></rect><text x="420" y="157">9</text>
+<rect x="570" y="134" width="100" height="36" rx="6" class="b"></rect><text x="620" y="157">1</text>
+<!-- merge up arrows -->
+<line x1="100" y1="170" x2="170" y2="194" class="a"></line><line x1="300" y1="170" x2="230" y2="194" class="a"></line>
+<line x1="420" y1="170" x2="490" y2="194" class="a"></line><line x1="620" y1="170" x2="550" y2="194" class="a"></line>
+<!-- Level 1 merged -->
+<rect x="130" y="196" width="140" height="36" rx="6" class="h"></rect><text x="200" y="219">2 5</text>
+<rect x="450" y="196" width="140" height="36" rx="6" class="h"></rect><text x="520" y="219">1 9</text>
+<line x1="200" y1="232" x2="320" y2="256" class="a"></line><line x1="520" y1="232" x2="400" y2="256" class="a"></line>
+<!-- Final -->
+<rect x="280" y="258" width="160" height="36" rx="6" class="h"></rect><text x="360" y="281">1 2 5 9</text>
+<text x="360" y="310" style="font-size:12px">تقسیم تا تک‌عنصر ← ادغام دو‌به‌دو</text>
+</svg>
+<figcaption>مراحل کامل Merge Sort: تقسیم از بالا به پایین، ادغام از پایین به بالا</figcaption>
+</figure>
+
+<div class="code"><header>Python — merge_sort<button>Copy</button></header><pre>def merge_sort(arr: list[int]) -&gt; list[int]:
+    """همیشه O(n log n) زمان، O(n) حافظه اضافی."""
+    if len(arr) &lt;= 1:                    # شرط توقف: لیست ۱ یا ۰ عنصری
+        return arr
+    mid = len(arr) // 2
+    left  = merge_sort(arr[:mid])        # نیمه‌ی چپ را مرتب کن
+    right = merge_sort(arr[mid:])        # نیمه‌ی راست را مرتب کن
+    # حالا دو لیست مرتب را ادغام می‌کنیم
+    out, i, j = [], 0, 0
+    while i &lt; len(left) and j &lt; len(right):
+        if left[i] &lt;= right[j]:
+            out.append(left[i]); i += 1
+        else:
+            out.append(right[j]); j += 1
+    return out + left[i:] + right[j:]    # باقی‌مانده‌ها را بچسبان
+
+
+if __name__ == "__main__":
+    print(merge_sort([5, 2, 9, 1, 7]))   # [1, 2, 5, 7, 9]</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط merge_sort:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li><code>if len(arr) &lt;= 1</code> — اگر لیست خالی یا تک‌عنصری باشد، خودش مرتب است؛ برگردان.</li>
+<li><code>mid = len(arr) // 2</code> — نقطه‌ی وسط را پیدا کن (تقسیم صحیح).</li>
+<li><code>left = merge_sort(arr[:mid])</code> — نیمه‌ی چپ را <em>بازگشتی</em> مرتب کن.</li>
+<li><code>right = merge_sort(arr[mid:])</code> — نیمه‌ی راست را هم مرتب کن.</li>
+<li><code>out, i, j = [], 0, 0</code> — لیست نتیجه و دو اشاره‌گر برای پیمایش left و right.</li>
+<li>حلقه‌ی while: همیشه عنصر کوچک‌تر را به out اضافه کن و اشاره‌گرش را جلو ببر.</li>
+<li><code>return out + left[i:] + right[j:]</code> — هر کدام که تمام نشده، باقی‌مانده‌اش را بچسبان.</li>
+</ol>
+</div>
+
+<h3>جست‌وجوی خطی در برابر دودویی — مقایسهٔ تصویری</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 160" role="img" aria-label="مقایسه جست‌وجوی خطی و دودویی">
+<text x="350" y="18" style="font-size:13px;font-weight:700">جست‌وجوی عدد ۷ در آرایهٔ مرتب ۱۰ عنصری</text>
+<!-- linear -->
+<text x="80" y="45" style="font-size:12px">خطی:</text>
+<rect x="120" y="30" width="36" height="28" rx="3" class="h"></rect><text x="138" y="48" style="font-size:11px">1</text>
+<rect x="160" y="30" width="36" height="28" rx="3" class="h"></rect><text x="178" y="48" style="font-size:11px">2</text>
+<rect x="200" y="30" width="36" height="28" rx="3" class="h"></rect><text x="218" y="48" style="font-size:11px">3</text>
+<rect x="240" y="30" width="36" height="28" rx="3" class="h"></rect><text x="258" y="48" style="font-size:11px">4</text>
+<rect x="280" y="30" width="36" height="28" rx="3" class="h"></rect><text x="298" y="48" style="font-size:11px">5</text>
+<rect x="320" y="30" width="36" height="28" rx="3" class="h"></rect><text x="338" y="48" style="font-size:11px">6</text>
+<rect x="360" y="30" width="36" height="28" rx="3" class="h"></rect><text x="378" y="48" style="font-size:11px">7</text>
+<text x="500" y="48" style="font-size:12px">تا ۷ مقایسه در بدترین حالت</text>
+<!-- binary -->
+<text x="80" y="95" style="font-size:12px">دودویی:</text>
+<rect x="120" y="80" width="36" height="28" rx="3" class="b"></rect><text x="138" y="98" style="font-size:11px">1</text>
+<rect x="160" y="80" width="36" height="28" rx="3" class="b"></rect><text x="178" y="98" style="font-size:11px">2</text>
+<rect x="200" y="80" width="36" height="28" rx="3" class="b"></rect><text x="218" y="98" style="font-size:11px">3</text>
+<rect x="240" y="80" width="36" height="28" rx="3" class="b"></rect><text x="258" y="98" style="font-size:11px">4</text>
+<rect x="280" y="80" width="36" height="28" rx="3" class="h"></rect><text x="298" y="98" style="font-size:11px">5</text>
+<rect x="320" y="80" width="36" height="28" rx="3" class="b"></rect><text x="338" y="98" style="font-size:11px">6</text>
+<rect x="360" y="80" width="36" height="28" rx="3" class="h"></rect><text x="378" y="98" style="font-size:11px">7</text>
+<rect x="400" y="80" width="36" height="28" rx="3" class="b"></rect><text x="418" y="98" style="font-size:11px">8</text>
+<rect x="440" y="80" width="36" height="28" rx="3" class="b"></rect><text x="458" y="98" style="font-size:11px">9</text>
+<rect x="480" y="80" width="36" height="28" rx="3" class="b"></rect><text x="498" y="98" style="font-size:11px">10</text>
+<text x="350" y="140" style="font-size:12px">فقط ≈ ۳ مقایسه (نصف → نصف → پیدا)</text>
+</svg>
+<figcaption>خطی هر عنصر را یکی‌یکی چک می‌کند؛ دودویی هر بار نصف فضای جست‌وجو را دور می‌ریزد</figcaption>
+</figure>
+
+<div class="code"><header>Python — جست‌وجوی خطی برای مقایسه<button>Copy</button></header><pre>def linear_search(arr: list[int], target: int) -&gt; int:
+    """بدترین حالت O(n) — برای آرایهٔ نامرتب هم کار می‌کند"""
+    for i, x in enumerate(arr):
+        if x == target:
+            return i
+    return -1
+</pre></div>
+
+
+<div class="demo" id="demo-ms">
+<h4>🎬 انیمیشن Merge Sort</h4>
+<div class="controls">
+  <button onclick="msStart()">▶ پخش Merge Sort</button>
+  <button class="sec" onclick="msReset()">بازنشانی</button>
+</div>
+<div class="stage"><div class="ms-bars" id="ms-vis"><div class="ms-bar" style="height: 88px;">5</div><div class="ms-bar" style="height: 46px;">2</div><div class="ms-bar" style="height: 144px;">9</div><div class="ms-bar" style="height: 32px;">1</div><div class="ms-bar" style="height: 116px;">7</div><div class="ms-bar" style="height: 60px;">3</div></div></div>
+<div class="msg" id="ms-msg">آرایه اولیه</div>
+<div class="hint">آبی=نیمه چپ ، نارنجی=نیمه راست ، سبز=ادغام‌شده</div>
+</div>
+
+<div class="qbox">
+<h4><span class="badge">۶ تمرین</span> تمرین‌های کدنویسی — فصل ۱</h4>
+<ol>
+<li>تابعی بنویسید که دو آرایهٔ مرتب را در O(n+m) ادغام کند و آرایهٔ مرتب برگرداند (بدون <code>sorted</code>).</li>
+<li>جست‌وجوی دودویی بازگشتی بنویسید که اندیس اولین رخداد target را برگرداند (آرایه می‌تواند تکراری داشته باشد).</li>
+<li>تابع <code>count_comparisons(n)</code> بنویسید که حداکثر تعداد مقایسه‌های binary_search برای آرایهٔ ۱ تا n را برگرداند (⌈log₂ n⌉).</li>
+<li>Insertion Sort را پیاده کنید و پیچیدگی بهترین و بدترین حالت را در کامنت بنویسید.</li>
+<li>تابعی بنویسید که در O(n) بگوید آیا آرایه از قبل صعودی مرتب است یا نه.</li>
+<li>با ماژول <code>time</code> زمان <code>linear_sum</code> و <code>merge_sort</code> را برای n=۱۰⁴ و n=۱۰⁵ اندازه بگیرید و چاپ کنید.</li>
+</ol>
+</div>
+
+<div class="sol">
+<h4>راه‌حل و توضیح مفهومی — فصل ۱</h4>
+
+<p><b>۱) ادغام دو آرایهٔ مرتب</b></p>
+<div class="concept">مفهوم: مثل مرحلهٔ merge در Merge Sort. دو اشاره‌گر از ابتدای هر آرایه جلو می‌روند و همیشه عنصر کوچک‌تر را به خروجی می‌گذارند. وقتی یکی تمام شد، باقی‌ماندهٔ دیگری چسبانده می‌شود. این کار O(n+m) است چون هر عنصر دقیقاً یک‌بار دیده می‌شود.</div>
+<div class="code"><header>راه‌حل ۱<button>Copy</button></header><pre>def merge_sorted(a: list[int], b: list[int]) -&gt; list[int]:
+    i = j = 0
+    out = []
+    while i &lt; len(a) and j &lt; len(b):
+        if a[i] &lt;= b[j]:
+            out.append(a[i]); i += 1
+        else:
+            out.append(b[j]); j += 1
+    return out + a[i:] + b[j:]
+</pre></div>
+
+<p><b>۲) binary_search بازگشتی با اولین رخداد</b></p>
+<div class="concept">مفهوم: وقتی عنصر پیدا شد، به‌جای برگشت فوری، سمت چپ را هم جست‌وجو کن تا اولین اندیس را پیدا کنی. شرط توقف: اگر low &gt; high → -1.</div>
+<div class="code"><header>راه‌حل ۲<button>Copy</button></header><pre>def binary_first(arr, target, low=0, high=None):
+    if high is None:
+        high = len(arr) - 1
+    if low &gt; high:
+        return -1
+    mid = (low + high) // 2
+    if arr[mid] == target:
+        left = binary_first(arr, target, low, mid - 1)
+        return left if left != -1 else mid
+    if arr[mid] &lt; target:
+        return binary_first(arr, target, mid + 1, high)
+    return binary_first(arr, target, low, mid - 1)
+</pre></div>
+
+<p><b>۳) تعداد مقایسه‌ها</b></p>
+<div class="concept">مفهوم: هر مقایسه بازه را نصف می‌کند. بعد از k بار نصف شدن، اندازه به ۱ می‌رسد → n / 2^k ≈ 1 → k ≈ log₂ n. در پایتون: <code>math.ceil(math.log2(n))</code> برای n≥1 (و برای n=1 مقدار ۰ یا ۱ بسته به تعریف).</div>
+<div class="code"><header>راه‌حل ۳<button>Copy</button></header><pre>import math
+def count_comparisons(n: int) -&gt; int:
+    if n &lt;= 0:
+        return 0
+    return math.ceil(math.log2(n)) if n &gt; 1 else 1
+</pre></div>
+
+<p><b>۴) Insertion Sort</b></p>
+<div class="concept">مفهوم: مثل مرتب کردن کارت‌های بازی در دست. کارت‌ها را یکی‌یکی برمی‌داری و در جای درست بین کارت‌های قبلی قرار می‌دهی. بهترین حالت (آرایه مرتب): O(n). بدترین حالت (نزولی): O(n²).</div>
+<div class="code"><header>راه‌حل ۴<button>Copy</button></header><pre>def insertion_sort(arr: list[int]) -&gt; list[int]:
+    # بهترین: O(n)  |  بدترین: O(n²)
+    a = arr[:]
+    for i in range(1, len(a)):
+        key = a[i]
+        j = i - 1
+        while j &gt;= 0 and a[j] &gt; key:
+            a[j + 1] = a[j]
+            j -= 1
+        a[j + 1] = key
+    return a
+</pre></div>
+
+<p><b>۵) بررسی مرتب بودن</b></p>
+<div class="concept">مفهوم: فقط کافی است هر عنصر از عنصر بعدی بزرگ‌تر نباشد. یک پیمایش خطی کافی است → O(n).</div>
+<div class="code"><header>راه‌حل ۵<button>Copy</button></header><pre>def is_sorted(arr: list[int]) -&gt; bool:
+    for i in range(len(arr) - 1):
+        if arr[i] &gt; arr[i + 1]:
+            return False
+    return True
+</pre></div>
+
+<p><b>۶) اندازه‌گیری زمان</b></p>
+<div class="concept">مفهوم: برای دیدن تفاوت عملی پیچیدگی‌ها. merge_sort برای n بزرگ‌تر هنوز قابل قبول است اما linear_sum فقط جمع ساده است و سریع‌تر.</div>
+<div class="code"><header>راه‌حل ۶<button>Copy</button></header><pre>import time, random
+def measure(n):
+    data = [random.randint(0, 10**6) for _ in range(n)]
+    t0 = time.perf_counter(); linear_sum(data); t1 = time.perf_counter()
+    t2 = time.perf_counter(); merge_sort(data); t3 = time.perf_counter()
+    print(f"n={n}: sum={t1-t0:.4f}s  merge={t3-t2:.4f}s")
+measure(10**4); measure(10**5)
+</pre></div>
+</div>
+
+</section>
+
+<!-- ==================== فصل ۲ ==================== -->
+<section id="c2"><h2>۲. پشته (Stack) — آخرین ورودی، اولین خروجی</h2>
+
+<div class="analogy">
+<b>آنالوژی روزمره:</b> یک بسته‌ی بشقاب را تصور کنید. بشقاب جدید را روی بقیه می‌گذارید (push). وقتی بشقاب می‌خواهید، از بالا برمی‌دارید (pop). هیچ‌وقت از وسط یا پایین برنمی‌دارید. این همان <b>LIFO</b> است: Last In, First Out.
+</div>
+
+<p>پشته فقط از یک طرف (بالا / TOP) کار می‌کند. دو عملیات اصلی:</p>
+<ul>
+<li><code>push(x)</code> — عنصر را روی پشته بگذار (شرط: پر نباشد → Overflow)</li>
+<li><code>pop()</code> — عنصر بالای پشته را بردار (شرط: خالی نباشد → Underflow)</li>
+<li><code>peek()</code> — فقط ببین بالای پشته چیست، بدون برداشتن</li>
+</ul>
+
+<figure class="fig">
+<svg viewBox="0 0 420 220" role="img" aria-label="پشته LIFO">
+<path d="M120 30V175H230V30" class="l" stroke-width="3"></path>
+<rect x="125" y="135" width="100" height="36" rx="6" class="b"></rect><text x="175" y="158">10</text>
+<rect x="125" y="95" width="100" height="36" rx="6" class="b"></rect><text x="175" y="118">20</text>
+<rect x="125" y="55" width="100" height="36" rx="6" class="h"></rect><text x="175" y="78">30</text>
+<text x="175" y="20" font-weight="700">TOP → push ↓ / pop ↑</text>
+<text x="50" y="78">TOP</text>
+<text x="175" y="200">ته پشته (اولین ورودی)</text>
+<text x="300" y="90">آخرین ورودی</text>
+<text x="300" y="110">= اولین خروجی</text>
+<text x="300" y="140" style="fill:#0f8a5f">LIFO</text>
+</svg>
+<figcaption>پشته: ورود و خروج فقط از بالا. آخرین چیزی که گذاشتی، اولین چیزی است که برمی‌داری.</figcaption>
+</figure>
+
+<div class="demo" id="demo-stack">
+<h4>🎬 انیمیشن پشته — خودت امتحان کن</h4>
+<div class="controls">
+  <input id="stk-val" type="number" value="10" placeholder="مقدار">
+  <button onclick="stkPush()">push</button>
+  <button class="sec" onclick="stkPop()">pop</button>
+  <button class="sec" onclick="stkPeek()">peek</button>
+  <button class="sec" onclick="stkReset()">پاک کردن</button>
+  <button class="sec" onclick="stkAuto()">پخش خودکار ▶</button>
+</div>
+<div class="stage"><div class="stk-wrap" id="stk-vis"><div class="stk-base"></div></div></div>
+<div class="msg" id="stk-msg">پشته خالی است — یک مقدار وارد کن و push بزن</div>
+<div class="hint">هر push یک مربع از بالا اضافه می‌کند (TOP). هر pop مربع بالای را برمی‌دارد. رنگ نارنجی = TOP</div>
+</div>
+
+
+<pre class="ascii">push(1) → [1]
+push(2) → [1, 2]     TOP سمت راست
+push(3) → [1, 2, 3]
+pop()   → 3          حالا [1, 2]
+همه‌ی عملیات: O(1)  (ثابت — به اندازه‌ی پشته بستگی ندارد)</pre>
+
+<figure class="fig">
+<svg viewBox="0 0 680 200" role="img" aria-label="مراحل push و pop روی پشته">
+<!-- empty -->
+<rect x="20" y="40" width="80" height="120" rx="4" fill="none" stroke="var(--mut)" stroke-dasharray="4 3"></rect>
+<text x="60" y="30" style="font-size:12px">خالی</text>
+<!-- after push 10 -->
+<rect x="130" y="40" width="80" height="120" rx="4" class="l"></rect>
+<rect x="135" y="120" width="70" height="32" rx="4" class="b"></rect><text x="170" y="141">10</text>
+<text x="170" y="30" style="font-size:12px">push(10)</text>
+<!-- after push 20 -->
+<rect x="240" y="40" width="80" height="120" rx="4" class="l"></rect>
+<rect x="245" y="120" width="70" height="32" rx="4" class="b"></rect><text x="280" y="141">10</text>
+<rect x="245" y="84" width="70" height="32" rx="4" class="b"></rect><text x="280" y="105">20</text>
+<text x="280" y="30" style="font-size:12px">push(20)</text>
+<!-- after push 30 -->
+<rect x="350" y="40" width="80" height="120" rx="4" class="l"></rect>
+<rect x="355" y="120" width="70" height="32" rx="4" class="b"></rect><text x="390" y="141">10</text>
+<rect x="355" y="84" width="70" height="32" rx="4" class="b"></rect><text x="390" y="105">20</text>
+<rect x="355" y="48" width="70" height="32" rx="4" class="h"></rect><text x="390" y="69">30</text>
+<text x="390" y="30" style="font-size:12px">push(30)</text>
+<!-- after pop -->
+<rect x="460" y="40" width="80" height="120" rx="4" class="l"></rect>
+<rect x="465" y="120" width="70" height="32" rx="4" class="b"></rect><text x="500" y="141">10</text>
+<rect x="465" y="84" width="70" height="32" rx="4" class="h"></rect><text x="500" y="105">20</text>
+<text x="500" y="30" style="font-size:12px">pop() → 30</text>
+<!-- arrow -->
+<text x="580" y="100" style="font-size:13px;fill:#0f8a5f">TOP همیشه</text>
+<text x="580" y="120" style="font-size:13px;fill:#0f8a5f">بالاترین است</text>
+</svg>
+<figcaption>مراحل push و pop: هر push یک لایه بالا می‌آورد، هر pop لایه بالا را برمی‌دارد</figcaption>
+</figure>
+
+<div class="code"><header>Python — کلاس Stack با توضیح<button>Copy</button></header><pre>class Stack:
+    """پشته با ظرفیت محدود — ساده‌ترین پیاده‌سازی با list پایتون."""
+
+    def __init__(self, limit: int = 100) -&gt; None:
+        self.items: list = []       # لیست خالی برای نگه‌داری عناصر
+        self.limit = limit          # حداکثر ظرفیت
+
+    def is_empty(self) -&gt; bool:
+        return not self.items       # اگر لیست خالی باشد True
+
+    def push(self, x) -&gt; bool:
+        if len(self.items) &gt;= self.limit:   # اگر پر بود
+            return False                    # Overflow — جا نیست
+        self.items.append(x)                # به انتهای لیست اضافه کن
+        return True
+
+    def pop(self):
+        if self.is_empty():                 # اگر خالی بود
+            raise IndexError("stack is empty")  # Underflow
+        return self.items.pop()             # آخرین عنصر را بردار
+
+    def peek(self):
+        if self.is_empty():
+            raise IndexError("stack is empty")
+        return self.items[-1]               # فقط نگاه کن، برندار
+
+    def show(self) -&gt; None:
+        print(*reversed(self.items))        # از TOP به پایین چاپ کن
+
+
+if __name__ == "__main__":
+    s = Stack()
+    s.push(10); s.push(20); s.push(30)
+    s.show()                    # 30 20 10
+    print(s.peek())             # 30
+    print(s.pop())              # 30
+    s.show()                    # 20 10</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط کلاس Stack:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li><code>self.items = []</code> — یک لیست خالی پایتون؛ انتهای لیست = TOP پشته.</li>
+<li><code>is_empty</code> — اگر لیست خالی باشد، پشته خالی است.</li>
+<li><code>push</code> — اول ظرفیت را چک می‌کند (Overflow). بعد با <code>append</code> به انتها اضافه می‌کند → O(1).</li>
+<li><code>pop</code> — اول خالی بودن را چک می‌کند (Underflow). بعد با <code>list.pop()</code> آخرین عنصر را برمی‌دارد → O(1).</li>
+<li><code>peek</code> — فقط <code>items[-1]</code> را برمی‌گرداند؛ لیست تغییر نمی‌کند.</li>
+<li><code>show</code> — با <code>reversed</code> از بالا به پایین چاپ می‌کند تا شبیه پشته واقعی باشد.</li>
+</ol>
+</div>
+
+<h3>کاربردهای واقعی پشته</h3>
+<ol>
+<li><b>دکمه‌ی Undo</b> در ویرایشگر متن — آخرین تغییری که دادی، اول برمی‌گردد.</li>
+<li><b>Call Stack</b> — وقتی تابعی تابع دیگری را صدا می‌زند، آدرس بازگشت در پشته ذخیره می‌شود.</li>
+<li><b>بررسی پرانتزها</b> — هر پرانتز باز را push کن، هر بسته‌ای که آمد باید با آخرین باز جور باشد.</li>
+<li><b>تبدیل مبنا</b> — باقی‌مانده‌ها به ترتیب معکوس تولید می‌شوند، پشته آن‌ها را درست می‌چیند.</li>
+</ol>
+
+<h3>مثال کامل: تبدیل عدد دهدهی به دودویی</h3>
+<p>باقی‌مانده‌های تقسیم بر ۲ از کم‌ارزش به پرارزش تولید می‌شوند، اما ما باید از پرارزش شروع کنیم. پشته ترتیب را برعکس می‌کند.</p>
+
+<table>
+<tbody><tr><th>n</th><th>n % 2 (push)</th><th>n // 2</th><th>پشته (TOP راست)</th></tr>
+<tr><td>13</td><td>1</td><td>6</td><td>[1]</td></tr>
+<tr><td>6</td><td>0</td><td>3</td><td>[1, 0]</td></tr>
+<tr><td>3</td><td>1</td><td>1</td><td>[1, 0, 1]</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>[1, 0, 1, 1]</td></tr>
+</tbody></table>
+<p>حالا چهار بار <code>pop</code>: ۱ ← ۱ ← ۰ ← ۱ ⇒ <b>1101</b></p>
+
+<div class="code"><header>Python — d2b<button>Copy</button></header><pre>def d2b(n: int) -&gt; str:
+    """تبدیل دهدهی به دودویی با پشته."""
+    if n == 0:
+        return "0"
+    s = Stack()
+    while n:
+        s.push(n % 2)           # باقی‌مانده را push کن
+        n //= 2                 # خارج‌قسمت را ادامه بده
+    out = ""
+    while not s.is_empty():
+        out += str(s.pop())     # از بالا بخوان → ترتیب درست
+    return out
+
+
+print(d2b(13))   # 1101
+print(d2b(7))    # 111
+print(d2b(0))    # 0</pre></div>
+
+<h3>بررسی تعادل پرانتزها</h3>
+<div class="code"><header>Python — balanced<button>Copy</button></header><pre>def balanced(text: str) -&gt; bool:
+    """آیا همه‌ی پرانتزها، براکت‌ها و آکولادها درست جفت شده‌اند؟"""
+    pairs = {")": "(", "]": "[", "}": "{"}   # بسته‌ها → بازها
+    s = Stack()
+    for ch in text:
+        if ch in "([{":                      # پرانتز باز
+            s.push(ch)
+        elif ch in pairs:                    # پرانتز بسته
+            if s.is_empty() or s.pop() != pairs[ch]:
+                return False                 # جفت نبود یا پشته خالی
+    return s.is_empty()                      # در پایان پشته باید خالی باشد
+
+
+print(balanced("{[()]}"))   # True
+print(balanced("(]"))       # False
+print(balanced("((a+b)"))   # False (یک باز اضافی)</pre></div>
+
+<h3>پشته با لیست پیوندی</h3>
+<p>اگر بخواهیم ظرفیت پویا داشته باشیم، می‌توان پشته را روی لیست یک‌طرفه ساخت: <code>head</code> همان TOP است.</p>
+<div class="code"><header>Python — Stack با Linked List<button>Copy</button></header><pre>class LLNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class StackLL:
+    def __init__(self):
+        self.top = None
+
+    def push(self, x):
+        n = LLNode(x)
+        n.next = self.top
+        self.top = n
+
+    def pop(self):
+        if not self.top:
+            raise IndexError("empty")
+        x = self.top.data
+        self.top = self.top.next
+        return x
+
+    def peek(self):
+        if not self.top:
+            raise IndexError("empty")
+        return self.top.data
+
+    def is_empty(self):
+        return self.top is None
+</pre></div>
+
+<figure class="fig">
+<svg viewBox="0 0 520 180" role="img" aria-label="پشته با لیست پیوندی">
+<text x="260" y="20" style="font-size:13px;font-weight:700">TOP = head لیست</text>
+<rect x="200" y="40" width="70" height="36" rx="6" class="h"></rect><text x="235" y="63">30</text>
+<line x1="235" y1="76" x2="235" y2="95" class="a"></line>
+<rect x="200" y="95" width="70" height="36" rx="6" class="b"></rect><text x="235" y="118">20</text>
+<line x1="235" y1="131" x2="235" y2="150" class="a"></line>
+<rect x="200" y="150" width="70" height="28" rx="6" class="b"></rect><text x="235" y="169">10</text>
+<text x="320" y="63">← TOP (آخرین push)</text>
+<text x="320" y="169">← ته پشته</text>
+</svg>
+<figcaption>در StackLL هر push یک نود جدید در ابتدای لیست می‌سازد</figcaption>
+</figure>
+
+
+<div class="demo" id="demo-paren">
+<h4>🎬 انیمیشن بررسی پرانتزها با پشته</h4>
+<div class="controls">
+  <input id="paren-str" type="text" value="{[()]}" style="width:120px;text-align:center" dir="ltr">
+  <button onclick="parenStart()">▶ پخش بررسی</button>
+  <button class="sec" onclick="parenReset()">بازنشانی</button>
+</div>
+<div class="stage" style="flex-direction:column;gap:12px">
+  <div class="paren-row" id="paren-vis"></div>
+  <div class="stk-wrap" id="paren-stk" style="min-height:80px"><div class="stk-base"></div></div>
+</div>
+<div class="msg" id="paren-msg">آماده</div>
+<div class="hint">باز → push | بسته → باید با top جفت باشد و pop شود</div>
+</div>
+
+<div class="qbox">
+<h4><span class="badge">۶ تمرین</span> تمرین‌های کدنویسی — فصل ۲</h4>
+<ol>
+<li>پشته را با لیست پیوندی یک‌طرفه پیاده کنید (همه عملیات O(1)).</li>
+<li>تابعی بنویسید که یک پشته را فقط با یک پشتهٔ کمکی معکوس کند.</li>
+<li>با دو پشته یک صف (FIFO) بسازید.</li>
+<li>تابع <code>next_greater(arr)</code>: برای هر عنصر اولین عنصر بزرگ‌تر سمت راست را برگرداند (با پشته O(n)).</li>
+<li>عبارت postfix مثل <code>2 3 + 4 *</code> را با پشته ارزیابی کنید.</li>
+<li>بررسی تعادل پرانتزها را برای چند نوع گسترش دهید و رشته‌های نامعتبر را تشخیص دهید.</li>
+</ol>
+</div>
+
+<div class="sol">
+<h4>راه‌حل و توضیح مفهومی — فصل ۲</h4>
+
+<p><b>۱) Stack با Linked List</b></p>
+<div class="concept">مفهوم: TOP همیشه head است. push = insert_first، pop = delete_first. هر دو O(1) چون فقط اشاره‌گر head عوض می‌شود.</div>
+<p>کد نمونه در بالا آمده است (<code>StackLL</code>).</p>
+
+<p><b>۲) معکوس کردن پشته با یک پشتهٔ کمکی</b></p>
+<div class="concept">مفهوم: همه عناصر را از s به aux منتقل کن (ترتیب برعکس می‌شود)، بعد دوباره به s برگردان. یا می‌توان با recursion هم معکوس کرد.</div>
+<div class="code"><header>راه‌حل ۲<button>Copy</button></header><pre>def reverse_stack(s: Stack):
+    aux = Stack()
+    while not s.is_empty():
+        aux.push(s.pop())
+    # حالا aux معکوس s است؛ برگردان
+    while not aux.is_empty():
+        s.push(aux.pop())
+    # توجه: این دوباره ترتیب اولیه را برمی‌گرداند!
+    # برای معکوس ماندن، فقط یک‌بار به aux منتقل کنید و از aux استفاده کنید
+</pre></div>
+<div class="tip">اگر می‌خواهید خود s معکوس بماند، بعد از انتقال به aux، عناصر aux را دوباره در s نریزید؛ یا از روش بازگشتی استفاده کنید.</div>
+
+<p><b>۳) صف با دو پشته</b></p>
+<div class="concept">مفهوم: یکی برای enqueue (ورودی)، یکی برای dequeue (خروجی). وقتی خروجی خالی شد، همه ورودی را به خروجی منتقل کن تا ترتیب FIFO شود.</div>
+<div class="code"><header>راه‌حل ۳<button>Copy</button></header><pre>class Queue2Stacks:
+    def __init__(self):
+        self.in_s = Stack()
+        self.out_s = Stack()
+    def enqueue(self, x):
+        self.in_s.push(x)
+    def dequeue(self):
+        if self.out_s.is_empty():
+            while not self.in_s.is_empty():
+                self.out_s.push(self.in_s.pop())
+        return self.out_s.pop()
+</pre></div>
+
+<p><b>۴) Next Greater Element</b></p>
+<div class="concept">مفهوم: از راست به چپ (یا چپ به راست با پشته نزولی) حرکت کن. پشته اندیس‌هایی را نگه می‌دارد که هنوز «بزرگ‌تر بعدی» پیدا نکرده‌اند. وقتی عنصر بزرگ‌تری آمد، برای عناصر کوچک‌تر بالای پشته جواب ثبت می‌شود.</div>
+<div class="code"><header>راه‌حل ۴<button>Copy</button></header><pre>def next_greater(arr: list[int]) -&gt; list[int]:
+    n = len(arr)
+    res = [-1] * n
+    st = []  # اندیس‌ها
+    for i in range(n):
+        while st and arr[i] &gt; arr[st[-1]]:
+            res[st.pop()] = arr[i]
+        st.append(i)
+    return res
+# مثال: [4,5,2,25] → [5,25,25,-1]
+</pre></div>
+
+<p><b>۵) ارزیابی postfix</b></p>
+<div class="concept">مفهوم: عدد دیدید → push. عملگر دیدید → دو تا pop کنید، عمل را انجام دهید، نتیجه را push کنید. در پایان یک عنصر در پشته می‌ماند.</div>
+<div class="code"><header>راه‌حل ۵<button>Copy</button></header><pre>def eval_postfix(expr: str) -&gt; int:
+    s = Stack()
+    for tok in expr.split():
+        if tok in "+-*/":
+            b, a = s.pop(), s.pop()
+            if tok == '+': s.push(a + b)
+            elif tok == '-': s.push(a - b)
+            elif tok == '*': s.push(a * b)
+            else: s.push(a // b)
+        else:
+            s.push(int(tok))
+    return s.pop()
+# "2 3 + 4 *" → 20
+</pre></div>
+
+<p><b>۶) تعادل پرانتزها</b></p>
+<div class="concept">مفهوم: هر باز را push کن. هر بسته باید با آخرین باز جفت باشد. در پایان پشته باید خالی باشد. اگر بسته آمد و پشته خالی بود یا جفت نبود → نامعتبر.</div>
+<p>کد <code>balanced</code> در متن فصل آمده است.</p>
+</div>
+
+</section>
+
+<!-- ==================== فصل ۳ ==================== -->
+<section id="c3"><h2>۳. صف و صف حلقوی — اولین ورودی، اولین خروجی</h2>
+
+<div class="analogy">
+<b>آنالوژی:</b> صف نانوایی. کسی که اول آمده، اول نان می‌گیرد. کسی که آخر آمده، آخر می‌گیرد. این <b>FIFO</b> است: First In, First Out. درج از انتهای صف (rear)، حذف از ابتدای صف (front).
+</div>
+
+<figure class="fig">
+<svg viewBox="0 0 560 150" role="img" aria-label="صف خطی FIFO">
+<defs><marker id="q1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="ah"></path></marker></defs>
+<rect x="100" y="40" width="70" height="40" rx="6" class="h"></rect><text x="135" y="65">10</text>
+<rect x="175" y="40" width="70" height="40" rx="6" class="b"></rect><text x="210" y="65">20</text>
+<rect x="250" y="40" width="70" height="40" rx="6" class="b"></rect><text x="285" y="65">30</text>
+<rect x="325" y="40" width="70" height="40" rx="6" class="h"></rect><text x="360" y="65">40</text>
+<rect x="400" y="40" width="70" height="40" rx="6" class="b" opacity=".4"></rect><text x="435" y="65">خالی</text>
+<text x="135" y="105">front</text><text x="360" y="105">rear</text>
+<line x1="40" y1="60" x2="90" y2="60" class="a" marker-end="url(#q1)"></line><text x="50" y="40">dequeue</text>
+<line x1="520" y1="60" x2="480" y2="60" class="a" marker-end="url(#q1)"></line><text x="500" y="40">enqueue</text>
+<text x="280" y="140">FIFO: اول وارد → اول خارج</text>
+</svg>
+<figcaption>صف خطی: درج از rear، حذف از front</figcaption>
+</figure>
+
+<div class="demo" id="demo-queue">
+<h4>🎬 انیمیشن صف (FIFO) — خودت امتحان کن</h4>
+<div class="controls">
+  <input id="q-val" type="number" value="1" placeholder="مقدار">
+  <button onclick="qEnq()">enqueue</button>
+  <button class="sec" onclick="qDeq()">dequeue</button>
+  <button class="sec" onclick="qReset()">پاک کردن</button>
+  <button class="sec" onclick="qAuto()">پخش خودکار ▶</button>
+</div>
+<div class="stage"><div class="q-row" id="q-vis"></div></div>
+<div class="msg" id="q-msg">صف خالی است</div>
+<div class="hint">آبی = front (خروج)، نارنجی = rear (ورود). عناصر از راست وارد و از چپ خارج می‌شوند.</div>
+</div>
+
+
+<p><b>مشکل صف خطی:</b> با هر حذف، خانه‌ی اول هدر می‌رود و دیگر استفاده نمی‌شود. وقتی rear به آخر آرایه برسد، حتی اگر اول صف خالی باشد، صف «پر» اعلام می‌شود.</p>
+
+<pre class="ascii">limit=5
+enqueue(10),(20),(30)     dequeue()→10
+[10][20][30][ ][ ]        [ ][20][30][ ][ ]
+ ↑f      ↑r                    ↑f  ↑r
+خانه‌ی ۰ هدر رفت و دیگر استفاده نمی‌شود!</pre>
+
+<h3>صف حلقوی — راه‌حل هوشمندانه</h3>
+<p>با عملگر باقی‌مانده (<code>%</code>) وقتی به آخر آرایه رسیدیم، به ابتدا برمی‌گردیم (Wrap Around). حالا فضای خالی اول صف دوباره قابل استفاده است.</p>
+
+<div class="tw"><table>
+<tbody><tr><th>حالت</th><th>شرط صف حلقوی</th></tr>
+<tr><td>خالی</td><td><code>front == -1</code></td></tr>
+<tr><td>پر</td><td><code>(rear + 1) % limit == front</code></td></tr>
+<tr><td>تک‌عنصری</td><td><code>front == rear</code></td></tr>
+</tbody></table></div>
+
+<pre class="ascii">limit=8   اندیس: 0  1  2  3  4  5  6  7
+مقدار:   [50][  ][  ][  ][  ][20][30][40]
+                                 ↑f         ↑r
+rear بعدی = (7+1) % 8 = 0  ← بازگشت به ابتدا</pre>
+
+<figure class="fig">
+<svg viewBox="0 0 520 280" role="img" aria-label="صف حلقوی — نمای دایره‌ای">
+<!-- circle slots -->
+<circle cx="260" cy="140" r="110" fill="none" stroke="var(--bd)" stroke-width="2" stroke-dasharray="6 4"></circle>
+<!-- slots as rounded rects around circle -->
+<rect x="230" y="20" width="60" height="36" rx="6" class="b"></rect><text x="260" y="43">0</text>
+<rect x="340" y="55" width="60" height="36" rx="6" class="h"></rect><text x="370" y="78">1:A</text>
+<rect x="380" y="130" width="60" height="36" rx="6" class="h"></rect><text x="410" y="153">2:B</text>
+<rect x="340" y="205" width="60" height="36" rx="6" class="h"></rect><text x="370" y="228">3:C</text>
+<rect x="230" y="230" width="60" height="36" rx="6" class="b"></rect><text x="260" y="253">4</text>
+<rect x="120" y="205" width="60" height="36" rx="6" class="b"></rect><text x="150" y="228">5</text>
+<rect x="80" y="130" width="60" height="36" rx="6" class="b"></rect><text x="110" y="153">6</text>
+<rect x="120" y="55" width="60" height="36" rx="6" class="b"></rect><text x="150" y="78">7</text>
+<!-- labels -->
+<text x="370" y="50" style="font-size:12px;fill:#e0a100">front</text>
+<text x="370" y="250" style="font-size:12px;fill:#2f4bd8">rear</text>
+<text x="260" y="145" style="font-size:14px;font-weight:700">حلقوی</text>
+<text x="260" y="275" style="font-size:12px">بعد از delete(A) و insert(D): front=2, rear=0 (wrap)</text>
+</svg>
+<figcaption>نمای دایره‌ای صف حلقوی: بعد از پر شدن، rear به خانه‌ی ۰ برمی‌گردد</figcaption>
+</figure>
+
+<div class="code"><header>Python — CQueue (صف حلقوی)<button>Copy</button></header><pre>class CQueue:
+    """صف حلقوی با ظرفیت ثابت."""
+
+    def __init__(self, limit: int = 10) -&gt; None:
+        self.q = [None] * limit         # آرایه‌ی خالی با اندازه‌ی ثابت
+        self.limit = limit
+        self.front = self.rear = -1     # هر دو -1 یعنی صف خالی
+
+    def is_empty(self) -&gt; bool:
+        return self.front == -1
+
+    def is_full(self) -&gt; bool:
+        # یک خانه جلوتر از rear همان front باشد → پر
+        return (self.rear + 1) % self.limit == self.front
+
+    def insert(self, x) -&gt; None:        # enqueue
+        if self.is_full():
+            raise OverflowError("queue is full")
+        if self.is_empty():             # اولین عنصر
+            self.front = self.rear = 0
+        else:
+            self.rear = (self.rear + 1) % self.limit  # حلقوی!
+        self.q[self.rear] = x
+
+    def delete(self):                   # dequeue
+        if self.is_empty():
+            raise IndexError("queue is empty")
+        x = self.q[self.front]
+        if self.front == self.rear:     # آخرین عنصر بود → خالی شود
+            self.front = self.rear = -1
+        else:
+            self.front = (self.front + 1) % self.limit
+        return x
+
+    def display(self) -&gt; None:
+        if self.is_empty():
+            print("empty"); return
+        i = self.front
+        while True:
+            print(self.q[i], end=" ")
+            if i == self.rear:
+                break
+            i = (i + 1) % self.limit
+        print()
+
+
+if __name__ == "__main__":
+    q = CQueue(3)
+    q.insert(1); q.insert(2); q.insert(3)
+    q.delete()                          # 1 خارج شد
+    q.insert(4)                         # حالا جا برای 4 هست
+    q.display()                         # 2 3 4</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط صف حلقوی:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li><code>self.q = [None] * limit</code> — آرایه‌ی ثابت‌اندازه؛ خانه‌های خالی None هستند.</li>
+<li><code>front = rear = -1</code> — نشانه‌ی «صف خالی». با اولین insert هر دو ۰ می‌شوند.</li>
+<li><code>is_full</code> — اگر <code>(rear+1) % limit == front</code> باشد، یک خانه خالی هم نمانده (عمداً یک خانه را خالی نگه می‌داریم تا پر و خالی قاطی نشوند).</li>
+<li><code>insert</code> — rear را با <code>%</code> جلو می‌برد (حلقوی) و مقدار را می‌نویسد.</li>
+<li><code>delete</code> — مقدار front را برمی‌دارد، بعد front را با <code>%</code> جلو می‌برد. اگر front==rear بود، صف خالی می‌شود.</li>
+<li><code>display</code> — از front شروع می‌کند و با <code>%</code> دور می‌زند تا به rear برسد.</li>
+</ol>
+</div>
+
+<div class="tip"><b>تمرین ذهنی:</b> صف حلقوی با ظرفیت ۳
+</div>
+
+<div class="demo" id="demo-cq">
+<h4>🎬 انیمیشن صف حلقوی</h4>
+<div class="controls">
+  <input id="cq-val" type="number" value="1" placeholder="مقدار">
+  <button onclick="cqEnq()">insert</button>
+  <button class="sec" onclick="cqDeq()">delete</button>
+  <button class="sec" onclick="cqReset()">پاک</button>
+  <button class="sec" onclick="cqAuto()">پخش ▶</button>
+</div>
+<div class="stage"><div class="cq-ring" id="cq-vis"><div class="cq-center">حلقوی</div><div class="cq-slot" style="left: 86px; top: 12px;">0</div><div class="cq-slot" style="left: 164px; top: 90px;">1</div><div class="cq-slot" style="left: 86px; top: 168px;">2</div><div class="cq-slot" style="left: 8px; top: 90px;">3</div></div></div>
+<div class="msg" id="cq-msg">ظرفیت ۴ — front و rear حلقوی جلو می‌روند</div>
+<div class="hint">آبی=front ، نارنجی=rear. بعد از آخر آرایه به خانهٔ ۰ برمی‌گردد (wrap).</div>
+</div>
+
+<div class="tip"><b>حذف‌شده برای جا: بسازید. ترتیب عملیات: insert(A), insert(B), delete, insert(C), insert(D). وضعیت نهایی چیست؟ (پاسخ: B C D)</b></div><b>
+
+<figure class="fig">
+<svg viewBox="0 0 640 200" role="img" aria-label="مراحل صف حلقوی">
+<text x="320" y="18" style="font-size:13px;font-weight:700">صف حلقوی ظرفیت ۴ — مراحل</text>
+<!-- step boxes -->
+<text x="70" y="45" style="font-size:11px">خالی</text>
+<rect x="30" y="55" width="40" height="28" rx="3" class="b" opacity=".4"></rect><text x="50" y="74" style="font-size:10px">0</text>
+<rect x="75" y="55" width="40" height="28" rx="3" class="b" opacity=".4"></rect><text x="95" y="74" style="font-size:10px">1</text>
+<rect x="120" y="55" width="40" height="28" rx="3" class="b" opacity=".4"></rect><text x="140" y="74" style="font-size:10px">2</text>
+<rect x="165" y="55" width="40" height="28" rx="3" class="b" opacity=".4"></rect><text x="185" y="74" style="font-size:10px">3</text>
+
+<text x="280" y="45" style="font-size:11px">insert A,B</text>
+<rect x="240" y="55" width="40" height="28" rx="3" class="h"></rect><text x="260" y="74" style="font-size:10px">A</text>
+<rect x="285" y="55" width="40" height="28" rx="3" class="h"></rect><text x="305" y="74" style="font-size:10px">B</text>
+<rect x="330" y="55" width="40" height="28" rx="3" class="b" opacity=".4"></rect><text x="350" y="74" style="font-size:10px">2</text>
+<rect x="375" y="55" width="40" height="28" rx="3" class="b" opacity=".4"></rect><text x="395" y="74" style="font-size:10px">3</text>
+<text x="260" y="100" style="font-size:10px">f</text><text x="305" y="100" style="font-size:10px">r</text>
+
+<text x="500" y="45" style="font-size:11px">delete + insert C,D</text>
+<rect x="460" y="55" width="40" height="28" rx="3" class="b" opacity=".4"></rect><text x="480" y="74" style="font-size:10px">0</text>
+<rect x="505" y="55" width="40" height="28" rx="3" class="h"></rect><text x="525" y="74" style="font-size:10px">B</text>
+<rect x="550" y="55" width="40" height="28" rx="3" class="h"></rect><text x="570" y="74" style="font-size:10px">C</text>
+<rect x="595" y="55" width="40" height="28" rx="3" class="h"></rect><text x="615" y="74" style="font-size:10px">D</text>
+<text x="525" y="100" style="font-size:10px">f</text><text x="615" y="100" style="font-size:10px">r</text>
+
+<text x="320" y="140" style="font-size:12px">بعد از wrap: rear می‌تواند از front جلو بزند (حلقه)</text>
+<text x="320" y="165" style="font-size:12px">شرط پر: (rear+1) % limit == front</text>
+</svg>
+<figcaption>فضای خالی اول صف دوباره استفاده می‌شود چون اندیس‌ها حلقوی‌اند</figcaption>
+</figure>
+
+<div class="code"><header>Python — معکوس کردن صف با پشته<button>Copy</button></header><pre>def reverse_queue(q: CQueue) -&gt; None:
+    """صف را با کمک پشته معکوس می‌کند (درجا از نظر منطقی)"""
+    s = Stack()
+    while not q.is_empty():
+        s.push(q.delete())
+    while not s.is_empty():
+        q.insert(s.pop())
+</pre></div>
+
+<div class="qbox">
+<h4><span class="badge">۶ تمرین</span> تمرین‌های کدنویسی — فصل ۳</h4>
+<ol>
+<li>صف حلقوی را با شمارندهٔ <code>size</code> پیاده کنید تا نیازی به یک خانهٔ خالی عمدی نباشد.</li>
+<li>با یک صف، یک پشته بسازید (push و pop).</li>
+<li>تابع <code>reverse_queue</code> را بنویسید که صف را با پشته معکوس کند.</li>
+<li>صف اولویت ساده با لیست مرتب (insert O(n)، delete_min O(1)).</li>
+<li>شبیه‌سازی سادهٔ نوبت بانک: میانگین زمان انتظار را حساب کنید.</li>
+<li>با <code>collections.deque</code> مسئلهٔ sliding window maximum را در O(n) حل کنید.</li>
+</ol>
+</div>
+
+<div class="sol">
+<h4>راه‌حل و توضیح مفهومی — فصل ۳</h4>
+
+<p><b>۱) صف حلقوی با size</b></p>
+<div class="concept">مفهوم: به‌جای یک خانه خالی عمدی، یک متغیر size نگه می‌داریم. پر وقتی size == limit، خالی وقتی size == 0. front و rear همیشه با % جلو می‌روند.</div>
+<div class="code"><header>راه‌حل ۱<button>Copy</button></header><pre>class CQueueSize:
+    def __init__(self, limit=10):
+        self.q = [None]*limit
+        self.limit = limit
+        self.front = 0
+        self.rear = 0
+        self.size = 0
+    def is_full(self): return self.size == self.limit
+    def is_empty(self): return self.size == 0
+    def insert(self, x):
+        if self.is_full(): raise OverflowError("full")
+        self.q[self.rear] = x
+        self.rear = (self.rear + 1) % self.limit
+        self.size += 1
+    def delete(self):
+        if self.is_empty(): raise IndexError("empty")
+        x = self.q[self.front]
+        self.front = (self.front + 1) % self.limit
+        self.size -= 1
+        return x
+</pre></div>
+
+<p><b>۲) پشته با یک صف</b></p>
+<div class="concept">مفهوم: برای push فقط enqueue کن. برای pop باید n-1 عنصر را dequeue و دوباره enqueue کنی تا عنصر آخر بیاید جلو — O(n).</div>
+<div class="code"><header>راه‌حل ۲<button>Copy</button></header><pre>from collections import deque
+class StackFromQueue:
+    def __init__(self):
+        self.q = deque()
+    def push(self, x):
+        self.q.append(x)
+    def pop(self):
+        for _ in range(len(self.q)-1):
+            self.q.append(self.q.popleft())
+        return self.q.popleft()
+</pre></div>
+
+<p><b>۳) reverse_queue</b> — کد نمونه در بالا.</p>
+<div class="concept">مفهوم: صف FIFO است. اگر همه را در پشته بریزید (LIFO) و دوباره به صف برگردانید، ترتیب معکوس می‌شود.</div>
+
+<p><b>۴) صف اولویت ساده</b></p>
+<div class="concept">مفهوم: لیست را همیشه مرتب نگه می‌داریم (مثلاً صعودی). insert باید جای درست را پیدا کند O(n). delete_min = pop از ابتدا O(1).</div>
+
+<p><b>۵ و ۶</b></p>
+<div class="concept">نوبت بانک: برای هر مشتری زمان شروع سرویس = max(زمان رسیدن، زمان پایان نفر قبلی). انتظار = شروع − رسیدن.<br>
+Sliding window max: deque اندیس‌ها را به‌صورت نزولی از نظر مقدار نگه می‌دارد؛ از جلو عناصر خارج از پنجره و از عقب عناصر کوچک‌تر از عنصر جدید حذف می‌شوند.</div>
+</div>
+
+</b></section><b>
+
+<!-- ==================== فصل ۴ ==================== -->
+<section id="c4"><h2>۴. توابع بازگشتی — تابعی که خودش را صدا می‌زند</h2>
+
+<div class="analogy">
+<b>آنالوژی:</b> تصور کنید می‌خواهید یک جعبه‌ی تو در تو را باز کنید. هر جعبه داخلش جعبه‌ی کوچک‌تری دارد. شما جعبه را باز می‌کنید، جعبه‌ی داخل را به دوستتان می‌دهید تا او باز کند، و همین‌طور ادامه می‌دهید تا به آخرین جعبه‌ی خالی برسید. بعد جواب‌ها یکی‌یکی برمی‌گردند. این همان <b>بازگشت (Recursion)</b> است.
+</div>
+
+<p>هر تابع بازگشتی <strong>سه جزء</strong> دارد:</p>
+<ol>
+<li><b>شرط توقف (Base Case)</b> — کی باید تمام شود؟ (وگرنه بی‌نهایت صدا می‌زند و برنامه می‌ترکد)</li>
+<li><b>مقدار بازگشت</b> — وقتی شرط توقف برقرار شد، چه چیزی برگردانیم؟</li>
+<li><b>رابطه‌ی بازگشتی</b> — مسئله را به مسئله‌ی کوچک‌تر تبدیل کن.</li>
+</ol>
+
+<div class="bug"><b>هشدار:</b> اگر شرط توقف ننویسید یا هیچ‌وقت برقرار نشود، پایتون با خطای <code>RecursionError</code> متوقف می‌شود (پیش‌فرض حدود ۱۰۰۰ فراخوانی).</div>
+
+<div class="tw"><table>
+<tbody><tr><th>تابع</th><th>شرط توقف</th><th>رابطه</th><th>زمان</th></tr>
+<tr><td>فاکتوریل</td><td>n ≤ 1 → 1</td><td>n! = n × (n−1)!</td><td>O(n)</td></tr>
+<tr><td>فیبوناچی</td><td>n &lt; 2 → n</td><td>f(n)=f(n−1)+f(n−2)</td><td>O(2ⁿ) بدون حافظه</td></tr>
+<tr><td>جمع a+b</td><td>b=0 → a</td><td>S(a,b)=S(a,b−1)+1</td><td>O(b)</td></tr>
+<tr><td>برج هانوی</td><td>n=1 → یک حرکت</td><td>T(n)=2T(n−1)+1</td><td>O(2ⁿ)</td></tr>
+</tbody></table></div>
+
+<figure class="fig">
+<svg viewBox="0 0 700 240" role="img" aria-label="درخت فراخوانی fib(4)">
+<line x1="300" y1="30" x2="180" y2="90" class="l"></line><line x1="300" y1="30" x2="420" y2="90" class="l"></line>
+<line x1="180" y1="90" x2="110" y2="150" class="l"></line><line x1="180" y1="90" x2="250" y2="150" class="l"></line>
+<line x1="420" y1="90" x2="380" y2="150" class="l"></line><line x1="420" y1="90" x2="460" y2="150" class="l"></line>
+<line x1="110" y1="150" x2="70" y2="210" class="l"></line><line x1="110" y1="150" x2="150" y2="210" class="l"></line>
+<circle cx="300" cy="30" r="20" class="b"></circle><text x="300" y="35">f(4)</text>
+<circle cx="180" cy="90" r="20" class="b"></circle><text x="180" y="95">f(3)</text>
+<circle cx="420" cy="90" r="20" class="h"></circle><text x="420" y="95">f(2)</text>
+<circle cx="110" cy="150" r="20" class="h"></circle><text x="110" y="155">f(2)</text>
+<circle cx="250" cy="150" r="20" class="b"></circle><text x="250" y="155">f(1)</text>
+<circle cx="380" cy="150" r="20" class="b"></circle><text x="380" y="155">f(1)</text>
+<circle cx="460" cy="150" r="20" class="b"></circle><text x="460" y="155">f(0)</text>
+<circle cx="70" cy="210" r="20" class="b"></circle><text x="70" y="215">f(1)</text>
+<circle cx="150" cy="210" r="20" class="b"></circle><text x="150" y="215">f(0)</text>
+<text x="580" y="70">f(2) دوبار حساب می‌شود</text>
+<text x="580" y="92">(رنگ نارنجی)</text>
+</svg>
+<figcaption>درخت فراخوانی fib(4): زیرمسئله‌های تکراری دلیل کندی فیبوناچی ساده هستند.</figcaption>
+</figure>
+
+<pre class="ascii">ردگیری fact(4) روی Call Stack (LIFO):
+
+رفت (فراخوانی)              برگشت (جواب)
+fact(4) = 4 * fact(3)        fact(1) = 1
+fact(3) = 3 * fact(2)        fact(2) = 2 * 1 = 2
+fact(2) = 2 * fact(1)        fact(3) = 3 * 2 = 6
+fact(1) → شرط توقف           fact(4) = 4 * 6 = 24</pre>
+
+<figure class="fig">
+<svg viewBox="0 0 700 260" role="img" aria-label="Call Stack برای fact(4)">
+<!-- stack frames going down -->
+<rect x="40" y="20" width="200" height="40" rx="6" class="b"></rect><text x="140" y="45">fact(4) منتظر fact(3)</text>
+<rect x="40" y="70" width="200" height="40" rx="6" class="b"></rect><text x="140" y="95">fact(3) منتظر fact(2)</text>
+<rect x="40" y="120" width="200" height="40" rx="6" class="b"></rect><text x="140" y="145">fact(2) منتظر fact(1)</text>
+<rect x="40" y="170" width="200" height="40" rx="6" class="h"></rect><text x="140" y="195">fact(1) → return 1</text>
+<text x="140" y="240" style="font-size:12px">Call Stack (از بالا به پایین رشد می‌کند)</text>
+<!-- return path -->
+<rect x="320" y="170" width="160" height="40" rx="6" class="h"></rect><text x="400" y="195">1</text>
+<rect x="320" y="120" width="160" height="40" rx="6" class="b"></rect><text x="400" y="145">2 × 1 = 2</text>
+<rect x="320" y="70" width="160" height="40" rx="6" class="b"></rect><text x="400" y="95">3 × 2 = 6</text>
+<rect x="320" y="20" width="160" height="40" rx="6" class="b"></rect><text x="400" y="45">4 × 6 = 24</text>
+<text x="400" y="240" style="font-size:12px">برگشت جواب‌ها (از پایین به بالا)</text>
+<!-- arrows -->
+<line x1="250" y1="190" x2="310" y2="190" class="a"></line>
+<line x1="250" y1="140" x2="310" y2="140" class="a"></line>
+<line x1="250" y1="90" x2="310" y2="90" class="a"></line>
+<line x1="250" y1="40" x2="310" y2="40" class="a"></line>
+<text x="580" y="100" style="font-size:13px">هر قاب تا رسیدن</text>
+<text x="580" y="120" style="font-size:13px">جواب زیرفراخوانی</text>
+<text x="580" y="140" style="font-size:13px">منتظر می‌ماند</text>
+</svg>
+<figcaption>Call Stack برای fact(4): فراخوانی‌ها روی هم انباشته می‌شوند، بعد جواب‌ها از پایین برمی‌گردند</figcaption>
+</figure>
+
+<div class="code"><header>Python — توابع بازگشتی کلاسیک<button>Copy</button></header><pre>def fact(n: int) -&gt; int:
+    """فاکتوریل: n! = n × (n-1)!"""
+    if n &lt;= 1:                  # شرط توقف
+        return 1
+    return n * fact(n - 1)      # رابطه‌ی بازگشتی
+
+
+def fib(n: int) -&gt; int:
+    """فیبوناچی ساده — کند برای n بزرگ"""
+    if n &lt; 2:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
+
+def fib_memo(n: int, memo: dict | None = None) -&gt; int:
+    """فیبوناچی با حافظه (Memoization) → O(n)"""
+    if memo is None:
+        memo = {}
+    if n &lt; 2:
+        return n
+    if n not in memo:                       # قبلاً حساب نشده؟
+        memo[n] = fib_memo(n-1, memo) + fib_memo(n-2, memo)
+    return memo[n]
+
+
+def is_palindrome(s: str) -&gt; bool:
+    """آیا رشته از دو طرف یکسان خوانده می‌شود؟"""
+    if len(s) &lt;= 1:                         # شرط توقف
+        return True
+    return s[0] == s[-1] and is_palindrome(s[1:-1])
+
+
+def hanoi(n: int, src: str, aux: str, dst: str) -&gt; None:
+    """برج هانوی: n دیسک از src به dst با کمک aux"""
+    if n == 1:
+        print(src, "→", dst)
+        return
+    hanoi(n-1, src, dst, aux)               # n-1 تا را به کمکی ببر
+    print(src, "→", dst)                    # بزرگ‌ترین را جابه‌جا کن
+    hanoi(n-1, aux, src, dst)               # n-1 تا را روی مقصد بگذار
+
+
+if __name__ == "__main__":
+    print(fact(6))              # 720
+    print(fib_memo(40))         # 102334155 (سریع!)
+    print(is_palindrome("radar"))  # True
+    hanoi(2, "A", "B", "C")
+    # A → B
+    # A → C
+    # B → C</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط fact و fib_memo:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li><code>if n &lt;= 1: return 1</code> — شرط توقف حیاتی. بدون آن برنامه تا بی‌نهایت صدا می‌زند.</li>
+<li><code>return n * fact(n-1)</code> — مسئله را به یک مسئله‌ی کوچک‌تر تبدیل می‌کند و منتظر جواب می‌ماند.</li>
+<li>در <code>fib_memo</code>: دیکشنری <code>memo</code> نتایج قبلی را نگه می‌دارد.</li>
+<li><code>if n not in memo</code> — فقط اگر قبلاً حساب نشده، محاسبه کن و ذخیره کن.</li>
+<li>نتیجه: به‌جای O(2ⁿ) فقط O(n) فراخوانی داریم.</li>
+</ol>
+</div>
+
+<div class="why"><b>چرا فیبوناچی ساده کند است؟</b> چون زیرمسئله‌های تکراری را بارها حساب می‌کند. با Memoization هر مقدار فقط یک بار محاسبه می‌شود و نتیجه ذخیره می‌شود.</div>
+
+<figure class="fig">
+<svg viewBox="0 0 600 200" role="img" aria-label="درخت فراخوانی fact(4)">
+<text x="300" y="18" style="font-size:13px;font-weight:700">فراخوانی fact(4) — درخت ساده</text>
+<circle cx="300" cy="50" r="22" class="b"></circle><text x="300" y="55">4</text>
+<line x1="300" y1="72" x2="300" y2="95" class="l"></line>
+<circle cx="300" cy="115" r="22" class="b"></circle><text x="300" y="120">3</text>
+<line x1="300" y1="137" x2="300" y2="160" class="l"></line>
+<circle cx="300" cy="180" r="18" class="h"></circle><text x="300" y="185">1</text>
+<text x="380" y="55">4 × fact(3)</text>
+<text x="380" y="120">3 × fact(2)</text>
+<text x="380" y="185">base → 1</text>
+</svg>
+<figcaption>هر قاب روی Call Stack منتظر جواب زیرفراخوانی می‌ماند</figcaption>
+</figure>
+
+
+<div class="demo" id="demo-rec">
+<h4>🎬 انیمیشن Call Stack — فاکتوریل</h4>
+<div class="controls">
+  <input id="rec-n" type="number" value="4" min="1" max="6" style="width:60px">
+  <button onclick="recStart()">▶ پخش فاکتوریل</button>
+  <button class="sec" onclick="recReset()">پاک</button>
+</div>
+<div class="stage"><div class="rec-frames" id="rec-vis"></div></div>
+<div class="msg" id="rec-msg">آماده</div>
+<div class="hint">نارنجی=قاب فعال ، سبز=در حال بازگشت با جواب</div>
+</div>
+
+<div class="qbox">
+<h4><span class="badge">۶ تمرین</span> تمرین‌های کدنویسی — فصل ۴</h4>
+<ol>
+<li>توان <code>a^b</code> را بازگشتی در O(log b) حساب کنید (نصف کردن توان).</li>
+<li>مجموع ارقام یک عدد را بازگشتی حساب کنید.</li>
+<li>همهٔ جایگشت‌های یک رشته را با بازگشت تولید کنید.</li>
+<li>تعداد راه‌های بالا رفتن از n پله با گام ۱ یا ۲ (مثل فیبوناچی).</li>
+<li>اعداد از n تا ۱ و سپس از ۱ تا n را با یک تابع بازگشتی چاپ کنید.</li>
+<li>برج هانوی برای n=3 را اجرا و تعداد حرکت‌ها را بشمارید (باید ۷ باشد).</li>
+</ol>
+</div>
+
+<div class="sol">
+<h4>راه‌حل و توضیح مفهومی — فصل ۴</h4>
+
+<p><b>۱) توان لگاریتمی</b></p>
+<div class="concept">مفهوم: a^b = (a^(b/2))² اگر b زوج باشد، و a × a^(b-1) اگر فرد. هر بار توان نصف می‌شود → O(log b).</div>
+<div class="code"><header>راه‌حل ۱<button>Copy</button></header><pre>def power(a, b):
+    if b == 0: return 1
+    if b % 2 == 0:
+        half = power(a, b // 2)
+        return half * half
+    return a * power(a, b - 1)
+</pre></div>
+
+<p><b>۲) مجموع ارقام</b></p>
+<div class="concept">مفهوم: رقم یکان = n % 10، باقی = n // 10. شرط توقف: n == 0 → 0.</div>
+<div class="code"><header>راه‌حل ۲<button>Copy</button></header><pre>def digit_sum(n):
+    if n == 0: return 0
+    return n % 10 + digit_sum(n // 10)
+</pre></div>
+
+<p><b>۳) جایگشت‌ها</b></p>
+<div class="concept">مفهوم: برای هر موقعیت، هر کاراکتر باقی‌مانده را انتخاب کن و روی بقیهٔ رشته بازگشت بزن.</div>
+<div class="code"><header>راه‌حل ۳<button>Copy</button></header><pre>def permutations(s):
+    if len(s) &lt;= 1: return [s]
+    out = []
+    for i, ch in enumerate(s):
+        for p in permutations(s[:i] + s[i+1:]):
+            out.append(ch + p)
+    return out
+</pre></div>
+
+<p><b>۴) پله‌ها</b></p>
+<div class="concept">مفهوم: برای رسیدن به پلهٔ n یا از n-1 با یک گام آمده‌اید یا از n-2 با دو گام → همان رابطهٔ فیبوناچی.</div>
+<div class="code"><header>راه‌حل ۴<button>Copy</button></header><pre>def climb(n, memo=None):
+    if memo is None: memo = {}
+    if n &lt;= 1: return 1
+    if n not in memo:
+        memo[n] = climb(n-1, memo) + climb(n-2, memo)
+    return memo[n]
+</pre></div>
+
+<p><b>۵) چاپ رفت و برگشت</b></p>
+<div class="concept">مفهوم: اول چاپ n، بعد بازگشت برای n-1، بعد دوباره چاپ n — این الگوی «کار قبل و بعد از بازگشت» است.</div>
+<div class="code"><header>راه‌حل ۵<button>Copy</button></header><pre>def print_both(n):
+    if n &lt; 1: return
+    print(n, end=' ')
+    print_both(n - 1)
+    print(n, end=' ')
+# print_both(3) → 3 2 1 1 2 3
+</pre></div>
+
+<p><b>۶) هانوی n=3</b></p>
+<div class="concept">مفهوم: T(n) = 2T(n-1)+1 → T(3)=7. الگوریتم: n-1 را به کمکی، بزرگ را به مقصد، n-1 را از کمکی به مقصد.</div>
+</div>
+
+</section>
+
+<!-- ==================== فصل ۵ ==================== -->
+<section id="c5"><h2>۵. لیست پیوندی — زنجیره‌ای از نودها</h2>
+
+<div class="analogy">
+<b>آنالوژی:</b> یک قطار را تصور کنید. هر واگن (نود) هم محتوای خودش را دارد (مسافر/داده) و هم به واگن بعدی وصل است (اشاره‌گر next). برخلاف آرایه که همه‌ی خانه‌ها کنار هم در حافظه‌اند، اینجا هر نود می‌تواند هر جای حافظه باشد و فقط با اشاره‌گر به هم وصل‌اند.
+</div>
+
+<figure class="fig">
+<svg viewBox="0 0 640 200" role="img" aria-label="لیست یک‌طرفه و دوطرفه">
+<defs><marker id="ln" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="ah"></path></marker></defs>
+<text x="40" y="48">HEAD</text>
+<rect x="80" y="25" width="55" height="36" rx="5" class="b"></rect><text x="107" y="48">10</text>
+<rect x="135" y="25" width="40" height="36" rx="5" class="b"></rect><text x="155" y="48">•</text>
+<rect x="230" y="25" width="55" height="36" rx="5" class="b"></rect><text x="257" y="48">20</text>
+<rect x="285" y="25" width="40" height="36" rx="5" class="b"></rect><text x="305" y="48">•</text>
+<rect x="380" y="25" width="55" height="36" rx="5" class="b"></rect><text x="407" y="48">30</text>
+<rect x="435" y="25" width="40" height="36" rx="5" class="b"></rect><text x="455" y="48">•</text>
+<line x1="55" y1="43" x2="75" y2="43" class="a" marker-end="url(#ln)"></line>
+<line x1="175" y1="43" x2="225" y2="43" class="a" marker-end="url(#ln)"></line>
+<line x1="325" y1="43" x2="375" y2="43" class="a" marker-end="url(#ln)"></line>
+<line x1="475" y1="43" x2="520" y2="43" class="a" marker-end="url(#ln)"></line>
+<text x="545" y="48">None</text>
+<text x="300" y="85">یک‌طرفه: فقط next</text>
+
+<text x="40" y="148">HEAD</text>
+<rect x="80" y="125" width="55" height="36" rx="5" class="b"></rect><text x="107" y="148">10</text>
+<rect x="135" y="125" width="40" height="36" rx="5" class="b"></rect><text x="155" y="148">•</text>
+<rect x="230" y="125" width="55" height="36" rx="5" class="b"></rect><text x="257" y="148">20</text>
+<rect x="285" y="125" width="40" height="36" rx="5" class="b"></rect><text x="305" y="148">•</text>
+<rect x="380" y="125" width="55" height="36" rx="5" class="b"></rect><text x="407" y="148">30</text>
+<rect x="435" y="125" width="40" height="36" rx="5" class="b"></rect><text x="455" y="148">•</text>
+<line x1="55" y1="143" x2="75" y2="143" class="a" marker-end="url(#ln)"></line>
+<line x1="175" y1="138" x2="225" y2="138" class="a" marker-end="url(#ln)"></line>
+<line x1="225" y1="152" x2="175" y2="152" class="a" marker-end="url(#ln)"></line>
+<line x1="325" y1="138" x2="375" y2="138" class="a" marker-end="url(#ln)"></line>
+<line x1="375" y1="152" x2="325" y2="152" class="a" marker-end="url(#ln)"></line>
+<line x1="475" y1="143" x2="520" y2="143" class="a" marker-end="url(#ln)"></line>
+<text x="545" y="148">None</text>
+<text x="300" y="185">دوطرفه: next و back</text>
+</svg>
+<figcaption>بالا: لیست یک‌طرفه — پایین: لیست دوطرفه</figcaption>
+</figure>
+
+<div class="demo" id="demo-ll">
+<h4>🎬 انیمیشن لیست پیوندی یک‌طرفه</h4>
+<div class="controls">
+  <input id="ll-val" type="number" value="10" placeholder="مقدار">
+  <button onclick="llInsertFirst()">درج ابتدا</button>
+  <button onclick="llInsertLast()">درج انتها</button>
+  <button class="sec" onclick="llDeleteFirst()">حذف ابتدا</button>
+  <button class="sec" onclick="llReset()">پاک کردن</button>
+  <button class="sec" onclick="llAuto()">پخش خودکار ▶</button>
+</div>
+<div class="stage"><div class="ll-row" id="ll-vis"><span class="ll-null">HEAD → None</span></div></div>
+<div class="msg" id="ll-msg">لیست خالی — درج ابتدا یا انتها را بزن</div>
+<div class="hint">هر نود: [داده | اشاره‌گر]. فلش = next. درج ابتدا فقط head را عوض می‌کند (O(1)).</div>
+</div>
+
+
+<pre class="ascii">یک‌طرفه:   HEAD → [10|•] → [20|•] → [30|•] → None
+حلقوی:     HEAD → [10|•] → [20|•] → [30|•] ─┐
+                     ↑──────────────────────┘
+دوطرفه:    None ⇄ [10] ⇄ [20] ⇄ [30] ⇄ None</pre>
+
+<figure class="fig">
+<svg viewBox="0 0 700 200" role="img" aria-label="درج در ابتدای لیست پیوندی">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="ah"></path></marker></defs>
+<!-- before -->
+<text x="60" y="30" style="font-size:13px;font-weight:700">قبل از insert_first(5)</text>
+<text x="40" y="70">HEAD</text>
+<rect x="80" y="50" width="50" height="34" rx="5" class="b"></rect><text x="105" y="72">10</text>
+<rect x="130" y="50" width="35" height="34" rx="5" class="b"></rect><text x="147" y="72">•</text>
+<line x1="55" y1="67" x2="75" y2="67" class="a" marker-end="url(#ar)"></line>
+<line x1="165" y1="67" x2="200" y2="67" class="a" marker-end="url(#ar)"></line>
+<rect x="205" y="50" width="50" height="34" rx="5" class="b"></rect><text x="230" y="72">20</text>
+<rect x="255" y="50" width="35" height="34" rx="5" class="b"></rect><text x="272" y="72">•</text>
+<line x1="290" y1="67" x2="330" y2="67" class="a" marker-end="url(#ar)"></line>
+<text x="350" y="72">None</text>
+<!-- after -->
+<text x="60" y="120" style="font-size:13px;font-weight:700">بعد از insert_first(5)</text>
+<text x="40" y="160">HEAD</text>
+<rect x="80" y="140" width="50" height="34" rx="5" class="h"></rect><text x="105" y="162">5</text>
+<rect x="130" y="140" width="35" height="34" rx="5" class="h"></rect><text x="147" y="162">•</text>
+<line x1="55" y1="157" x2="75" y2="157" class="a" marker-end="url(#ar)"></line>
+<line x1="165" y1="157" x2="200" y2="157" class="a" marker-end="url(#ar)"></line>
+<rect x="205" y="140" width="50" height="34" rx="5" class="b"></rect><text x="230" y="162">10</text>
+<rect x="255" y="140" width="35" height="34" rx="5" class="b"></rect><text x="272" y="162">•</text>
+<line x1="290" y1="157" x2="330" y2="157" class="a" marker-end="url(#ar)"></line>
+<rect x="335" y="140" width="50" height="34" rx="5" class="b"></rect><text x="360" y="162">20</text>
+<rect x="385" y="140" width="35" height="34" rx="5" class="b"></rect><text x="402" y="162">•</text>
+<line x1="420" y1="157" x2="460" y2="157" class="a" marker-end="url(#ar)"></line>
+<text x="480" y="162">None</text>
+<text x="580" y="90" style="font-size:12px">۱) n.next = head</text>
+<text x="580" y="110" style="font-size:12px">۲) head = n</text>
+</svg>
+<figcaption>درج در ابتدا: فقط دو اشاره‌گر عوض می‌شود → O(1)</figcaption>
+</figure>
+
+<h3>مزیت و عیب نسبت به آرایه</h3>
+<div class="tw"><table>
+<tbody><tr><th>عمل</th><th>آرایه</th><th>لیست پیوندی</th></tr>
+<tr><td>دسترسی با اندیس</td><td>O(1)</td><td>O(n)</td></tr>
+<tr><td>درج / حذف ابتدا</td><td>O(n) (جابه‌جایی)</td><td>O(1)</td></tr>
+<tr><td>درج / حذف وسط</td><td>O(n)</td><td>O(n) جست‌وجو + O(1) تغییر اشاره‌گر</td></tr>
+<tr><td>حافظه</td><td>پیوسته</td><td>پراکنده + اشاره‌گر اضافی</td></tr>
+</tbody></table></div>
+
+<div class="code"><header>Python — LinkedList یک‌طرفه<button>Copy</button></header><pre>from typing import Any, Optional
+
+class Node:
+    def __init__(self, data: Any) -&gt; None:
+        self.data = data        # محتوای نود
+        self.next = None        # اشاره‌گر به نود بعدی
+
+
+class LinkedList:
+    def __init__(self) -&gt; None:
+        self.head: Optional[Node] = None   # شروع زنجیره
+
+    def insert_first(self, x) -&gt; None:
+        """درج در ابتدا — O(1)"""
+        n = Node(x)
+        n.next = self.head      # نود جدید به سر قبلی اشاره کند
+        self.head = n           # سر جدید شود
+
+    def insert_last(self, x) -&gt; None:
+        """درج در انتها — O(n)"""
+        n = Node(x)
+        if not self.head:       # لیست خالی بود
+            self.head = n
+            return
+        t = self.head
+        while t.next:           # تا آخر برو
+            t = t.next
+        t.next = n              # آخری به نود جدید اشاره کند
+
+    def delete_first(self) -&gt; None:
+        if self.head:
+            self.head = self.head.next   # سر را یکی جلو ببر
+
+    def show(self) -&gt; None:
+        t, out = self.head, []
+        while t:
+            out.append(str(t.data))
+            t = t.next
+        print(" → ".join(out) + " → None")
+
+
+if __name__ == "__main__":
+    L = LinkedList()
+    L.insert_last(20)
+    L.insert_last(30)
+    L.insert_first(10)
+    L.show()    # 10 → 20 → 30 → None
+    L.delete_first()
+    L.show()    # 20 → 30 → None</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط LinkedList:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li><code>Node</code> — هر نود دو فیلد دارد: <code>data</code> (محتوا) و <code>next</code> (آدرس نود بعدی).</li>
+<li><code>self.head</code> — فقط آدرس اولین نود را نگه می‌داریم. بقیه از طریق زنجیره‌ی next پیدا می‌شوند.</li>
+<li><code>insert_first</code> — نود جدید می‌سازد، <code>n.next</code> را به head فعلی وصل می‌کند، بعد head را عوض می‌کند. دو خط → O(1).</li>
+<li><code>insert_last</code> — باید تا آخر لیست برود (<code>while t.next</code>)، بعد وصل کند → O(n).</li>
+<li><code>delete_first</code> — فقط head را یکی جلو می‌برد. نود قبلی دیگر قابل دسترس نیست و زباله‌روب آزادش می‌کند.</li>
+<li><code>show</code> — از head شروع می‌کند و تا رسیدن به None پیمایش می‌کند.</li>
+</ol>
+</div>
+
+<div class="tip"><b>ترتیب طلایی اشاره‌گرها:</b> همیشه اول <code>new.next = t.next</code> را تنظیم کنید، بعد <code>t.next = new</code>. اگر برعکس کنید، بقیه‌ی لیست گم می‌شود!</div>
+
+<h3>لیست دوطرفه (از ریپو — بازنویسی تمیز)</h3>
+<div class="code"><header>Python — Doubly Linked List<button>Copy</button></header><pre>class DNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def insert_first(self, x):
+        n = DNode(x)
+        if not self.head:
+            self.head = self.tail = n
+            return
+        n.next = self.head
+        self.head.prev = n
+        self.head = n
+
+    def insert_last(self, x):
+        n = DNode(x)
+        if not self.tail:
+            self.head = self.tail = n
+            return
+        n.prev = self.tail
+        self.tail.next = n
+        self.tail = n
+
+    def delete_first(self):
+        if not self.head: return
+        if self.head is self.tail:
+            self.head = self.tail = None
+            return
+        self.head = self.head.next
+        self.head.prev = None
+
+    def delete_last(self):
+        if not self.tail: return
+        if self.head is self.tail:
+            self.head = self.tail = None
+            return
+        self.tail = self.tail.prev
+        self.tail.next = None
+
+    def show(self):
+        t, out = self.head, []
+        while t:
+            out.append(str(t.data))
+            t = t.next
+        print(" ⇄ ".join(out) if out else "empty")
+</pre></div>
+
+<figure class="fig">
+<svg viewBox="0 0 640 120" role="img" aria-label="حذف از وسط لیست دوطرفه">
+<text x="320" y="18" style="font-size:12px;font-weight:700">حذف نود وسط در لیست دوطرفه</text>
+<rect x="40" y="40" width="50" height="32" rx="4" class="b"></rect><text x="65" y="60">10</text>
+<rect x="130" y="40" width="50" height="32" rx="4" class="h"></rect><text x="155" y="60">20</text>
+<rect x="220" y="40" width="50" height="32" rx="4" class="b"></rect><text x="245" y="60">30</text>
+<line x1="90" y1="50" x2="125" y2="50" class="a"></line>
+<line x1="125" y1="60" x2="90" y2="60" class="a"></line>
+<line x1="180" y1="50" x2="215" y2="50" class="a"></line>
+<line x1="215" y1="60" x2="180" y2="60" class="a"></line>
+<text x="400" y="45" style="font-size:12px">prev.next = next</text>
+<text x="400" y="65" style="font-size:12px">next.prev = prev</text>
+<text x="400" y="90" style="font-size:12px">نود ۲۰ از زنجیره جدا می‌شود</text>
+</svg>
+<figcaption>در دوطرفه حذف از وسط فقط با دو انتساب اشاره‌گر ممکن است</figcaption>
+</figure>
+
+<div class="code"><header>Python — معکوس کردن لیست یک‌طرفه<button>Copy</button></header><pre>def reverse_list(head):
+    prev = None
+    cur = head
+    while cur:
+        nxt = cur.next
+        cur.next = prev
+        prev = cur
+        cur = nxt
+    return prev  # head جدید
+</pre></div>
+
+<div class="qbox">
+<h4><span class="badge">۶ تمرین</span> تمرین‌های کدنویسی — فصل ۵</h4>
+<ol>
+<li>لیست یک‌طرفه را iterative و recursive معکوس کنید.</li>
+<li>وسط لیست را با دو اشاره‌گر slow/fast در یک پیمایش پیدا کنید.</li>
+<li>آیا لیست حلقه دارد؟ (الگوریتم Floyd).</li>
+<li>دو لیست مرتب را ادغام کنید.</li>
+<li>n-امین نود از آخر را در یک پیمایش حذف کنید.</li>
+<li>لیست دوطرفه حلقوی با insert_after و delete_value کامل کنید.</li>
+</ol>
+</div>
+
+<div class="sol">
+<h4>راه‌حل و توضیح مفهومی — فصل ۵</h4>
+
+<p><b>۱) معکوس کردن</b></p>
+<div class="concept">مفهوم: سه اشاره‌گر prev, cur, nxt. هر بار nextِ cur را به prev بچرخان، بعد همه را یک قدم جلو ببر. در پایان prev سر جدید است.</div>
+
+<p><b>۲) وسط لیست</b></p>
+<div class="concept">مفهوم: slow هر بار یک قدم، fast هر بار دو قدم. وقتی fast به آخر رسید، slow وسط است.</div>
+<div class="code"><header>راه‌حل ۲<button>Copy</button></header><pre>def middle(head):
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
+</pre></div>
+
+<p><b>۳) تشخیص حلقه (Floyd)</b></p>
+<div class="concept">مفهوم: اگر حلقه باشد، fast بالاخره slow را می‌گیرد (مثل لاک‌پشت و خرگوش روی مسیر دایره‌ای).</div>
+<div class="code"><header>راه‌حل ۳<button>Copy</button></header><pre>def has_cycle(head):
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow is fast:
+            return True
+    return False
+</pre></div>
+
+<p><b>۴) ادغام دو لیست مرتب</b></p>
+<div class="concept">مفهوم: شبیه merge در merge_sort — دو اشاره‌گر، همیشه کوچک‌تر را به نتیجه وصل کن.</div>
+
+<p><b>۵) حذف n-ام از آخر</b></p>
+<div class="concept">مفهوم: دو اشاره‌گر با فاصلهٔ n. وقتی جلو به None رسید، عقب روی نود قبل از هدف ایستاده و می‌تواند حذف کند.</div>
+
+<p><b>۶) دوطرفه حلقوی</b></p>
+<div class="concept">مفهوم: tail.next = head و head.prev = tail. هنگام درج و حذف این دو پیوند حلقه را حفظ کنید.</div>
+</div>
+
+</section>
+
+<!-- ==================== فصل ۶ ==================== -->
+<section id="c6"><h2>۶. درخت — ساختار سلسله‌مراتبی</h2>
+
+<div class="analogy">
+<b>آنالوژی:</b> شجره‌نامه‌ی خانوادگی. یک نفر در رأس (ریشه / Root)، فرزندان، نوه‌ها و ... . هر کس فقط یک پدر دارد (به‌جز ریشه). برگ‌ها کسانی هستند که فرزندی ندارند.
+</div>
+
+<p>مفاهیم کلیدی:</p>
+<ul>
+<li><b>ریشه (Root)</b> — بالای درخت</li>
+<li><b>برگ (Leaf)</b> — نود بدون فرزند</li>
+<li><b>درجه‌ی نود</b> — تعداد فرزندان</li>
+<li><b>ارتفاع</b> — طولانی‌ترین مسیر از ریشه تا یک برگ</li>
+<li><b>درخت دودویی</b> — هر نود حداکثر ۲ فرزند دارد</li>
+</ul>
+
+<figure class="fig">
+<svg viewBox="0 0 700 300" role="img" aria-label="درخت دودویی و پیمایش‌ها">
+<line x1="350" y1="34" x2="200" y2="100" class="l"></line><line x1="350" y1="34" x2="500" y2="100" class="l"></line>
+<line x1="200" y1="100" x2="120" y2="170" class="l"></line><line x1="200" y1="100" x2="280" y2="170" class="l"></line>
+<line x1="500" y1="100" x2="420" y2="170" class="l"></line><line x1="500" y1="100" x2="580" y2="170" class="l"></line>
+<circle cx="350" cy="34" r="20" class="b"></circle><text x="350" y="39">13</text>
+<circle cx="200" cy="100" r="20" class="b"></circle><text x="200" y="105">11</text>
+<circle cx="500" cy="100" r="20" class="b"></circle><text x="500" y="105">15</text>
+<circle cx="120" cy="170" r="20" class="b"></circle><text x="120" y="175">9</text>
+<circle cx="280" cy="170" r="20" class="b"></circle><text x="280" y="175">12</text>
+<circle cx="420" cy="170" r="20" class="b"></circle><text x="420" y="175">14</text>
+<circle cx="580" cy="170" r="20" class="b"></circle><text x="580" y="175">17</text>
+<text x="350" y="220">NLR (پیش‌ترتیب):  13 11 9 12 15 14 17</text>
+<text x="350" y="242">LNR (میان‌ترتیب):  9 11 12 13 14 15 17</text>
+<text x="350" y="264">LRN (پس‌ترتیب):   9 12 11 14 17 15 13</text>
+<text x="350" y="286">سطحی (BFS):     13 11 15 9 12 14 17</text>
+</svg>
+<figcaption>یک درخت دودویی و چهار روش پیمایش</figcaption>
+</figure>
+
+<h3>درخت جست‌وجوی دودویی (BST)</h3>
+<p>قانون طلایی: <b>چپ &lt; پدر &lt; راست</b>. این قانون باعث می‌شود جست‌وجو، درج و حذف در حالت متوسط O(log n) باشد.</p>
+
+<div class="demo" id="demo-bst">
+<h4>🎬 انیمیشن درخت جست‌وجوی دودویی (BST)</h4>
+<div class="controls">
+  <input id="bst-val" type="number" value="13" placeholder="مقدار">
+  <button onclick="bstAdd()">درج</button>
+  <button class="sec" onclick="bstReset()">پاک کردن</button>
+  <button class="sec" onclick="bstAuto()">پخش نمونه ▶</button>
+</div>
+<div class="stage tree-stage"><svg class="tree-svg" id="bst-svg" viewBox="0 0 480 220"></svg></div>
+<div class="msg" id="bst-msg">درخت خالی — عددی وارد کن و درج بزن (قانون: چپ &lt; پدر &lt; راست)</div>
+<div class="hint">هر عدد از ریشه شروع می‌کند و با مقایسه چپ/راست جای خالی پیدا می‌کند. نود نارنجی = آخرین درج.</div>
+</div>
+
+
+<figure class="fig">
+<svg viewBox="0 0 700 280" role="img" aria-label="درج گام‌به‌گام در BST">
+<!-- step by step building -->
+<text x="80" y="20" style="font-size:12px;font-weight:700">add(13)</text>
+<circle cx="80" cy="55" r="18" class="h"></circle><text x="80" y="60">13</text>
+
+<text x="200" y="20" style="font-size:12px;font-weight:700">add(11)</text>
+<circle cx="200" cy="55" r="18" class="b"></circle><text x="200" y="60">13</text>
+<line x1="190" y1="70" x2="170" y2="95" class="l"></line>
+<circle cx="160" cy="110" r="18" class="h"></circle><text x="160" y="115">11</text>
+
+<text x="340" y="20" style="font-size:12px;font-weight:700">add(15)</text>
+<circle cx="340" cy="55" r="18" class="b"></circle><text x="340" y="60">13</text>
+<line x1="330" y1="70" x2="310" y2="95" class="l"></line><line x1="350" y1="70" x2="370" y2="95" class="l"></line>
+<circle cx="300" cy="110" r="18" class="b"></circle><text x="300" y="115">11</text>
+<circle cx="380" cy="110" r="18" class="h"></circle><text x="380" y="115">15</text>
+
+<text x="520" y="20" style="font-size:12px;font-weight:700">add(9) … add(17)</text>
+<circle cx="540" cy="50" r="16" class="b"></circle><text x="540" y="55">13</text>
+<line x1="530" y1="64" x2="500" y2="88" class="l"></line><line x1="550" y1="64" x2="580" y2="88" class="l"></line>
+<circle cx="490" cy="100" r="16" class="b"></circle><text x="490" y="105">11</text>
+<circle cx="590" cy="100" r="16" class="b"></circle><text x="590" y="105">15</text>
+<line x1="480" y1="114" x2="460" y2="138" class="l"></line><line x1="500" y1="114" x2="520" y2="138" class="l"></line>
+<line x1="580" y1="114" x2="560" y2="138" class="l"></line><line x1="600" y1="114" x2="620" y2="138" class="l"></line>
+<circle cx="455" cy="150" r="16" class="h"></circle><text x="455" y="155">9</text>
+<circle cx="520" cy="150" r="16" class="h"></circle><text x="520" y="155">12</text>
+<circle cx="560" cy="150" r="16" class="h"></circle><text x="560" y="155">14</text>
+<circle cx="625" cy="150" r="16" class="h"></circle><text x="625" y="155">17</text>
+<text x="350" y="200" style="font-size:13px">هر عدد جدید از ریشه شروع می‌کند و با مقایسه چپ/راست جای خالی پیدا می‌کند</text>
+<text x="350" y="225" style="font-size:12px">۹ &lt; ۱۳ → چپ | ۹ &lt; ۱۱ → چپ → برگ | ۱۷ &gt; ۱۳ → راست | ۱۷ &gt; ۱۵ → راست → برگ</text>
+</svg>
+<figcaption>ساخت BST با درج متوالی ۱۳، ۱۱، ۱۵، ۹، ۱۲، ۱۴، ۱۷</figcaption>
+</figure>
+
+<div class="code"><header>Python — BST ساده<button>Copy</button></header><pre>class BNode:
+    def __init__(self, d) -&gt; None:
+        self.data = d
+        self.left = None
+        self.right = None
+
+
+class BST:
+    def __init__(self) -&gt; None:
+        self.root = None
+
+    def add(self, x) -&gt; None:
+        if not self.root:
+            self.root = BNode(x)
+            return
+        t = self.root
+        while True:
+            if x == t.data:
+                return              # تکراری قبول نمی‌کنیم
+            if x &lt; t.data:
+                if t.left is None:
+                    t.left = BNode(x)
+                    return
+                t = t.left
+            else:
+                if t.right is None:
+                    t.right = BNode(x)
+                    return
+                t = t.right
+
+    def search(self, x) -&gt; bool:
+        t = self.root
+        while t and t.data != x:
+            t = t.left if x &lt; t.data else t.right
+        return t is not None
+
+    def inorder(self) -&gt; list:
+        """میان‌ترتیب همیشه لیست مرتب می‌دهد"""
+        result = []
+        def walk(n):
+            if n:
+                walk(n.left)
+                result.append(n.data)
+                walk(n.right)
+        walk(self.root)
+        return result
+
+
+if __name__ == "__main__":
+    b = BST()
+    for v in (13, 11, 15, 9, 12, 14, 17):
+        b.add(v)
+    print(b.inorder())      # [9, 11, 12, 13, 14, 15, 17]
+    print(b.search(14))     # True
+    print(b.search(99))     # False</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط BST.add:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li>اگر ریشه None باشد، نود جدید ریشه می‌شود.</li>
+<li>از ریشه شروع می‌کنیم و در یک حلقه بی‌نهایت (<code>while True</code>) حرکت می‌کنیم.</li>
+<li>اگر <code>x == t.data</code> — تکراری است، کاری نمی‌کنیم.</li>
+<li>اگر <code>x &lt; t.data</code> — باید به چپ برویم. اگر چپ خالی بود، همان‌جا درج کن؛ وگرنه <code>t = t.left</code>.</li>
+<li>اگر <code>x &gt; t.data</code> — همین منطق برای راست.</li>
+<li>جست‌وجو دقیقاً همین مسیر را می‌رود؛ اگر به None رسید یعنی نبود.</li>
+</ol>
+</div>
+
+<h3>هیپ (Heap) — درخت کامل با اولویت</h3>
+<p>در Max-Heap هر پدر از فرزندانش بزرگ‌تر است. ریشه همیشه بزرگ‌ترین عنصر است. در لیست ذخیره می‌شود: فرزندان نود i در خانه‌های <code>2i+1</code> و <code>2i+2</code>.</p>
+
+<figure class="fig">
+<svg viewBox="0 0 700 260" role="img" aria-label="Max-Heap">
+<line x1="300" y1="30" x2="180" y2="90" class="l"></line><line x1="300" y1="30" x2="420" y2="90" class="l"></line>
+<line x1="180" y1="90" x2="120" y2="150" class="l"></line><line x1="180" y1="90" x2="240" y2="150" class="l"></line>
+<circle cx="300" cy="30" r="20" class="h"></circle><text x="300" y="35">100</text>
+<circle cx="180" cy="90" r="20" class="b"></circle><text x="180" y="95">50</text>
+<circle cx="420" cy="90" r="20" class="b"></circle><text x="420" y="95">15</text>
+<circle cx="120" cy="150" r="20" class="b"></circle><text x="120" y="155">10</text>
+<circle cx="240" cy="150" r="20" class="b"></circle><text x="240" y="155">40</text>
+<rect x="190" y="195" width="50" height="30" rx="4" class="b"></rect><text x="215" y="215">100</text>
+<rect x="245" y="195" width="50" height="30" rx="4" class="b"></rect><text x="270" y="215">50</text>
+<rect x="300" y="195" width="50" height="30" rx="4" class="b"></rect><text x="325" y="215">15</text>
+<rect x="355" y="195" width="50" height="30" rx="4" class="b"></rect><text x="380" y="215">10</text>
+<rect x="410" y="195" width="50" height="30" rx="4" class="b"></rect><text x="435" y="215">40</text>
+<text x="215" y="245">0</text><text x="270" y="245">1</text><text x="325" y="245">2</text>
+<text x="380" y="245">3</text><text x="435" y="245">4</text>
+<text x="150" y="215">لیست:</text>
+<text x="560" y="60">فرزندان i: 2i+1 و 2i+2</text>
+<text x="560" y="82">پدر: (i−1)//2</text>
+</svg>
+<figcaption>Max-Heap: درخت کامل که در یک لیست ساده ذخیره می‌شود</figcaption>
+</figure>
+
+<div class="code"><header>Python — MaxHeap<button>Copy</button></header><pre>class MaxHeap:
+    def __init__(self) -&gt; None:
+        self.a: list = []
+
+    def insert(self, x) -&gt; None:
+        self.a.append(x)                # به انتها اضافه کن
+        self._up(len(self.a) - 1)       # به بالا حباب بزن
+
+    def _up(self, n: int) -&gt; None:
+        while n &gt; 0:
+            p = (n - 1) // 2            # پدر
+            if self.a[n] &lt;= self.a[p]:
+                break
+            self.a[n], self.a[p] = self.a[p], self.a[n]
+            n = p
+
+    def del_root(self):
+        if not self.a:
+            raise IndexError("heap is empty")
+        top = self.a[0]
+        last = self.a.pop()
+        if self.a:
+            self.a[0] = last
+            self._down(0)               # به پایین حباب بزن
+        return top
+
+    def _down(self, n: int) -&gt; None:
+        while True:
+            big = n
+            l, r = 2*n+1, 2*n+2
+            if l &lt; len(self.a) and self.a[l] &gt; self.a[big]:
+                big = l
+            if r &lt; len(self.a) and self.a[r] &gt; self.a[big]:
+                big = r
+            if big == n:
+                return
+            self.a[n], self.a[big] = self.a[big], self.a[n]
+            n = big
+
+
+if __name__ == "__main__":
+    h = MaxHeap()
+    for v in (10, 40, 15, 50, 100):
+        h.insert(v)
+    print([h.del_root() for _ in range(5)])
+    # [100, 50, 40, 15, 10]  ← همیشه بزرگ‌ترین خارج می‌شود</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط MaxHeap:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li><code>insert</code> — عنصر را به <em>انتهای</em> لیست اضافه می‌کند، بعد <code>_up</code> را صدا می‌زند.</li>
+<li><code>_up</code> (bubble up) — تا وقتی پدر کوچک‌تر باشد، با پدر جابه‌جا می‌شود. اندیس پدر: <code>(i-1)//2</code>.</li>
+<li><code>del_root</code> — ریشه (بزرگ‌ترین) را برمی‌دارد، آخرین عنصر را جای ریشه می‌گذارد، بعد <code>_down</code>.</li>
+<li><code>_down</code> (bubble down) — با بزرگ‌ترین فرزند جابه‌جا می‌شود تا ترتیب هیپ درست شود. فرزندان: <code>2i+1</code> و <code>2i+2</code>.</li>
+<li>هر دو عملیات O(log n) هستند چون ارتفاع درخت کامل حدود log n است.</li>
+</ol>
+</div>
+
+<figure class="fig">
+<svg viewBox="0 0 700 220" role="img" aria-label="heapify up برای درج ۱۰۰">
+<text x="350" y="18" style="font-size:13px;font-weight:700">درج ۱۰۰: bubble up گام‌به‌گام</text>
+<!-- step 1 -->
+<text x="100" y="45" style="font-size:11px">۱. اضافه به انتها</text>
+<rect x="40" y="55" width="40" height="28" rx="3" class="b"></rect><text x="60" y="74">50</text>
+<rect x="85" y="55" width="40" height="28" rx="3" class="b"></rect><text x="105" y="74">40</text>
+<rect x="130" y="55" width="40" height="28" rx="3" class="b"></rect><text x="150" y="74">15</text>
+<rect x="175" y="55" width="40" height="28" rx="3" class="b"></rect><text x="195" y="74">10</text>
+<rect x="220" y="55" width="40" height="28" rx="3" class="h"></rect><text x="240" y="74">100</text>
+<!-- step 2 -->
+<text x="350" y="45" style="font-size:11px">۲. جابه‌جا با پدر (۴۰)</text>
+<rect x="290" y="55" width="40" height="28" rx="3" class="b"></rect><text x="310" y="74">50</text>
+<rect x="335" y="55" width="40" height="28" rx="3" class="h"></rect><text x="355" y="74">100</text>
+<rect x="380" y="55" width="40" height="28" rx="3" class="b"></rect><text x="400" y="74">15</text>
+<rect x="425" y="55" width="40" height="28" rx="3" class="b"></rect><text x="445" y="74">10</text>
+<rect x="470" y="55" width="40" height="28" rx="3" class="b"></rect><text x="490" y="74">40</text>
+<!-- step 3 -->
+<text x="600" y="45" style="font-size:11px">۳. جابه‌جا با ریشه</text>
+<rect x="540" y="55" width="40" height="28" rx="3" class="h"></rect><text x="560" y="74">100</text>
+<rect x="585" y="55" width="40" height="28" rx="3" class="b"></rect><text x="605" y="74">50</text>
+<rect x="630" y="55" width="40" height="28" rx="3" class="b"></rect><text x="650" y="74">15</text>
+<!-- tree view final -->
+<line x1="350" y1="110" x2="280" y2="150" class="l"></line><line x1="350" y1="110" x2="420" y2="150" class="l"></line>
+<line x1="280" y1="150" x2="240" y2="190" class="l"></line><line x1="280" y1="150" x2="320" y2="190" class="l"></line>
+<circle cx="350" cy="110" r="18" class="h"></circle><text x="350" y="115">100</text>
+<circle cx="280" cy="150" r="18" class="b"></circle><text x="280" y="155">50</text>
+<circle cx="420" cy="150" r="18" class="b"></circle><text x="420" y="155">15</text>
+<circle cx="240" cy="190" r="18" class="b"></circle><text x="240" y="195">10</text>
+<circle cx="320" cy="190" r="18" class="b"></circle><text x="320" y="195">40</text>
+</svg>
+<figcaption>درج ۱۰۰ در Max-Heap: از انتها اضافه می‌شود و با bubble-up به ریشه می‌رسد</figcaption>
+</figure>
+
+<h3>حذف از BST — سه حالت</h3>
+<figure class="fig">
+<svg viewBox="0 0 700 220" role="img" aria-label="حذف در BST">
+<text x="120" y="20" style="font-size:12px;font-weight:700">حذف برگ</text>
+<circle cx="80" cy="60" r="16" class="b"></circle><text x="80" y="65">5</text>
+<line x1="80" y1="76" x2="50" y2="100" class="l"></line><line x1="80" y1="76" x2="110" y2="100" class="l"></line>
+<circle cx="50" cy="110" r="14" class="b"></circle><text x="50" y="114">3</text>
+<circle cx="110" cy="110" r="14" class="h"></circle><text x="110" y="114">7</text>
+<text x="120" y="150" style="font-size:11px">فقط پیوند پدر قطع می‌شود</text>
+
+<text x="350" y="20" style="font-size:12px;font-weight:700">یک فرزند</text>
+<circle cx="320" cy="60" r="16" class="b"></circle><text x="320" y="65">5</text>
+<line x1="320" y1="76" x2="320" y2="100" class="l"></line>
+<circle cx="320" cy="110" r="14" class="h"></circle><text x="320" y="114">7</text>
+<line x1="320" y1="124" x2="350" y2="145" class="l"></line>
+<circle cx="355" cy="155" r="12" class="b"></circle><text x="355" y="159">9</text>
+<text x="350" y="185" style="font-size:11px">فرزند جایگزین پدر می‌شود</text>
+
+<text x="560" y="20" style="font-size:12px;font-weight:700">دو فرزند</text>
+<circle cx="540" cy="55" r="16" class="h"></circle><text x="540" y="60">5</text>
+<line x1="530" y1="70" x2="500" y2="95" class="l"></line><line x1="550" y1="70" x2="580" y2="95" class="l"></line>
+<circle cx="495" cy="105" r="14" class="b"></circle><text x="495" y="109">3</text>
+<circle cx="585" cy="105" r="14" class="b"></circle><text x="585" y="109">8</text>
+<line x1="575" y1="118" x2="560" y2="140" class="l"></line><line x1="595" y1="118" x2="610" y2="140" class="l"></line>
+<circle cx="555" cy="150" r="12" class="h"></circle><text x="555" y="154">6</text>
+<circle cx="615" cy="150" r="12" class="b"></circle><text x="615" y="154">9</text>
+<text x="560" y="185" style="font-size:11px">جانشین = کوچک‌ترین راست (۶)</text>
+</svg>
+<figcaption>سه حالت حذف در BST: برگ، یک فرزند، دو فرزند (جانشین inorder)</figcaption>
+</figure>
+
+<div class="code"><header>Python — BST با حذف کامل<button>Copy</button></header><pre>class BST:
+    # ... add و search مثل متن اصلی ...
+    def _min_node(self, n):
+        while n.left:
+            n = n.left
+        return n
+
+    def delete(self, x):
+        self.root = self._delete(self.root, x)
+
+    def _delete(self, n, x):
+        if n is None:
+            return None
+        if x &lt; n.data:
+            n.left = self._delete(n.left, x)
+        elif x &gt; n.data:
+            n.right = self._delete(n.right, x)
+        else:
+            if n.left is None:
+                return n.right
+            if n.right is None:
+                return n.left
+            succ = self._min_node(n.right)
+            n.data = succ.data
+            n.right = self._delete(n.right, succ.data)
+        return n
+</pre></div>
+
+
+<div class="demo" id="demo-heap">
+<h4>🎬 انیمیشن Max-Heap — درج و bubble-up</h4>
+<div class="controls">
+  <input id="heap-val" type="number" value="40" placeholder="مقدار">
+  <button onclick="heapIns()">insert</button>
+  <button class="sec" onclick="heapDel()">del_root</button>
+  <button class="sec" onclick="heapReset()">پاک</button>
+  <button class="sec" onclick="heapAuto()">پخش ▶</button>
+</div>
+<div class="stage" style="flex-direction:column;align-items:center">
+  <div class="heap-arr" id="heap-arr"></div>
+  <svg id="heap-svg" class="tree-svg" viewBox="0 0 400 160" style="max-width:400px;height:160px"></svg>
+</div>
+<div class="msg" id="heap-msg">ریشه همیشه بزرگ‌ترین است — insert به انتها + bubble up</div>
+<div class="hint">قرمز = در حال جابه‌جایی با پدر. نارنجی = ریشه (max)</div>
+</div>
+
+<div class="qbox">
+<h4><span class="badge">۶ تمرین</span> تمرین‌های کدنویسی — فصل ۶</h4>
+<ol>
+<li>تابع <code>is_bst(root)</code> بنویسید که اعتبار BST را چک کند.</li>
+<li>کمینه و بیشینه BST را بدون recursion پیدا کنید.</li>
+<li>پیمایش سطح‌به‌سطح (BFS) درخت با صف.</li>
+<li>تعداد برگ‌ها و نودهای داخلی را حساب کنید.</li>
+<li>Min-Heap کامل و Heap Sort پیاده کنید.</li>
+<li>با del_root متوالی از MaxHeap آرایه را نزولی مرتب کنید و پیچیدگی را بنویسید.</li>
+</ol>
+</div>
+
+<div class="sol">
+<h4>راه‌حل و توضیح مفهومی — فصل ۶</h4>
+
+<p><b>۱) is_bst</b></p>
+<div class="concept">مفهوم: هر نود باید در بازه (min, max) مجاز باشد. برای چپ max=data نود، برای راست min=data نود. از -∞ و +∞ شروع کنید.</div>
+<div class="code"><header>راه‌حل ۱<button>Copy</button></header><pre>def is_bst(n, lo=float('-inf'), hi=float('inf')):
+    if n is None: return True
+    if not (lo &lt; n.data &lt; hi): return False
+    return is_bst(n.left, lo, n.data) and is_bst(n.right, n.data, hi)
+</pre></div>
+
+<p><b>۲) min / max بدون بازگشت</b></p>
+<div class="concept">مفهوم: در BST همیشه چپ‌ترین = کمینه، راست‌ترین = بیشینه. فقط یک حلقه while.</div>
+
+<p><b>۳) BFS درخت</b></p>
+<div class="concept">مفهوم: صف. ریشه را بگذار، هر بار یکی بردار و فرزندانش را به صف اضافه کن — همان سطح‌به‌سطح.</div>
+
+<p><b>۴) شمارش برگ</b></p>
+<div class="concept">مفهوم: اگر نود left و right نداشته باشد برگ است. در غیر این صورت مجموع برگ‌های زیردرخت چپ و راست.</div>
+
+<p><b>۵ و ۶) Heap Sort</b></p>
+<div class="concept">مفهوم: n بار insert → O(n log n)، بعد n بار del_root → O(n log n). خروجی MaxHeap نزولی است؛ MinHeap صعودی.</div>
+</div>
+
+</section>
+
+<!-- ==================== فصل ۷ ==================== -->
+<section id="c7"><h2>۷. گراف — شبکه‌ی رئوس و یال‌ها</h2>
+
+<div class="analogy">
+<b>آنالوژی:</b> نقشه‌ی شهرها و جاده‌ها. هر شهر یک رأس (Vertex)، هر جاده یک یال (Edge). اگر جاده یک‌طرفه باشد، گراف جهت‌دار است. اگر وزن (فاصله) داشته باشد، وزن‌دار است.
+</div>
+
+<figure class="fig">
+<svg viewBox="0 0 700 220" role="img" aria-label="گراف بدون جهت">
+<line x1="70" y1="50" x2="250" y2="50" class="l"></line><line x1="70" y1="50" x2="70" y2="170" class="l"></line>
+<line x1="250" y1="50" x2="430" y2="110" class="l"></line><line x1="250" y1="50" x2="250" y2="170" class="l"></line>
+<line x1="250" y1="50" x2="70" y2="170" class="l"></line><line x1="430" y1="110" x2="250" y2="170" class="l"></line>
+<line x1="250" y1="170" x2="70" y2="170" class="l"></line>
+<circle cx="70" cy="50" r="20" class="b"></circle><text x="70" y="55">0</text>
+<circle cx="250" cy="50" r="20" class="b"></circle><text x="250" y="55">1</text>
+<circle cx="430" cy="110" r="20" class="b"></circle><text x="430" y="115">2</text>
+<circle cx="250" cy="170" r="20" class="b"></circle><text x="250" y="175">3</text>
+<circle cx="70" cy="170" r="20" class="b"></circle><text x="70" y="175">4</text>
+<text x="580" y="40">ماتریس مجاورت</text>
+<text x="580" y="65" class="m">  0 1 2 3 4</text>
+<text x="580" y="88" class="m">0 0 1 0 0 1</text>
+<text x="580" y="110" class="m">1 1 0 1 1 1</text>
+<text x="580" y="132" class="m">2 0 1 0 1 0</text>
+<text x="580" y="154" class="m">3 0 1 1 0 1</text>
+<text x="580" y="176" class="m">4 1 1 0 1 0</text>
+</svg>
+<figcaption>گراف بدون جهت با ۵ رأس و ۷ یال + ماتریس مجاورت</figcaption>
+</figure>
+
+<pre class="ascii">BFS (صف) — سطح‌به‌سطح          DFS (پشته/بازگشت) — تا عمق
+از 0: 0 → 1 → 4 → 2 → 3        از 0: 0 → 1 → 2 → 3 → 4</pre>
+
+<figure class="fig">
+<svg viewBox="0 0 700 240" role="img" aria-label="مقایسه BFS و DFS">
+<!-- BFS side -->
+<text x="160" y="22" style="font-size:14px;font-weight:700">BFS (صف)</text>
+<rect x="40" y="40" width="50" height="30" rx="4" class="h"></rect><text x="65" y="60">0</text>
+<text x="100" y="60" style="font-size:11px">→ صف:[1,4]</text>
+<rect x="40" y="80" width="50" height="30" rx="4" class="b"></rect><text x="65" y="100">1</text>
+<text x="100" y="100" style="font-size:11px">→ صف:[4,2,3]</text>
+<rect x="40" y="120" width="50" height="30" rx="4" class="b"></rect><text x="65" y="140">4</text>
+<text x="100" y="140" style="font-size:11px">→ صف:[2,3]</text>
+<rect x="40" y="160" width="50" height="30" rx="4" class="b"></rect><text x="65" y="180">2</text>
+<text x="100" y="180" style="font-size:11px">→ صف:[3]</text>
+<rect x="40" y="200" width="50" height="30" rx="4" class="b"></rect><text x="65" y="220">3</text>
+<text x="160" y="220" style="font-size:12px">خروجی: 0 1 4 2 3</text>
+
+<!-- DFS side -->
+<text x="500" y="22" style="font-size:14px;font-weight:700">DFS (عمق‌اول)</text>
+<rect x="400" y="40" width="50" height="30" rx="4" class="h"></rect><text x="425" y="60">0</text>
+<text x="460" y="60" style="font-size:11px">→ برو به 1</text>
+<rect x="400" y="80" width="50" height="30" rx="4" class="b"></rect><text x="425" y="100">1</text>
+<text x="460" y="100" style="font-size:11px">→ برو به 2</text>
+<rect x="400" y="120" width="50" height="30" rx="4" class="b"></rect><text x="425" y="140">2</text>
+<text x="460" y="140" style="font-size:11px">→ برو به 3</text>
+<rect x="400" y="160" width="50" height="30" rx="4" class="b"></rect><text x="425" y="180">3</text>
+<text x="460" y="180" style="font-size:11px">→ برو به 4</text>
+<rect x="400" y="200" width="50" height="30" rx="4" class="b"></rect><text x="425" y="220">4</text>
+<text x="520" y="220" style="font-size:12px">خروجی: 0 1 2 3 4</text>
+</svg>
+<figcaption>BFS سطح‌به‌سطح با صف جلو می‌رود؛ DFS تا عمق می‌رود و بعد برمی‌گردد</figcaption>
+</figure>
+
+<div class="code"><header>Python — Graph با ماتریس مجاورت<button>Copy</button></header><pre>from collections import deque
+
+class Graph:
+    def __init__(self, n: int, directed: bool = False) -&gt; None:
+        self.n = n
+        self.directed = directed
+        self.m = [[0]*n for _ in range(n)]   # ماتریس n×n
+
+    def insert_edge(self, s: int, t: int, w: int = 1) -&gt; None:
+        self.m[s][t] = w
+        if not self.directed:
+            self.m[t][s] = w                 # دوطرفه
+
+    def bfs(self, start: int) -&gt; list[int]:
+        """پیمایش سطح‌به‌سطح با صف"""
+        seen, q, order = {start}, deque([start]), []
+        while q:
+            u = q.popleft()
+            order.append(u)
+            for v in range(self.n):
+                if self.m[u][v] and v not in seen:
+                    seen.add(v)
+                    q.append(v)
+        return order
+
+    def dfs(self, start: int, seen: set | None = None) -&gt; list[int]:
+        """پیمایش عمقی با بازگشت"""
+        if seen is None:
+            seen = set()
+        seen.add(start)
+        order = [start]
+        for v in range(self.n):
+            if self.m[start][v] and v not in seen:
+                order += self.dfs(v, seen)
+        return order
+
+
+if __name__ == "__main__":
+    g = Graph(5)
+    for s, t in [(0,1),(0,4),(1,2),(1,3),(1,4),(2,3),(3,4)]:
+        g.insert_edge(s, t)
+    print(g.bfs(0))   # [0, 1, 4, 2, 3]
+    print(g.dfs(0))   # [0, 1, 2, 3, 4]</pre></div>
+
+<div class="why">
+<b>توضیح خط‌به‌خط BFS و DFS:</b>
+<ol style="margin:6px 0 0;padding-right:20px">
+<li><code>seen</code> — مجموعه‌ی رأس‌های دیده‌شده تا دوباره نرویم (جلوگیری از حلقه).</li>
+<li><b>BFS:</b> صف (<code>deque</code>). اول رأس را از صف برمی‌داریم، بعد همه‌ی همسایه‌های ندیده را به صف اضافه می‌کنیم → سطح‌به‌سطح.</li>
+<li><b>DFS:</b> بازگشت (یا پشته). رأس فعلی را علامت می‌زنیم، بعد اولین همسایه‌ی ندیده را صدا می‌زنیم و تا عمق می‌رویم.</li>
+<li>ماتریس مجاورت: <code>m[u][v] != 0</code> یعنی یال وجود دارد.</li>
+<li>زمان با ماتریس: O(V²) چون برای هر رأس همه‌ی ستون‌ها را چک می‌کنیم.</li>
+</ol>
+</div>
+
+<div class="tw"><table>
+<tbody><tr><th>ویژگی</th><th>ماتریس مجاورت</th><th>لیست مجاورت</th></tr>
+<tr><td>حافظه</td><td>O(V²)</td><td>O(V+E)</td></tr>
+<tr><td>آیا یال (s,t) هست؟</td><td>O(1)</td><td>O(درجه‌ی s)</td></tr>
+<tr><td>BFS / DFS</td><td>O(V²)</td><td>O(V+E)</td></tr>
+<tr><td>مناسب برای</td><td>گراف انبوه</td><td>گراف خلوت</td></tr>
+</tbody></table></div>
+
+<figure class="fig">
+<svg viewBox="0 0 640 180" role="img" aria-label="BFS لایه به لایه">
+<text x="320" y="18" style="font-size:13px;font-weight:700">BFS از رأس ۰ — لایه‌ها</text>
+<circle cx="80" cy="80" r="20" class="h"></circle><text x="80" y="85">0</text>
+<text x="80" y="115" style="font-size:11px">لایه ۰</text>
+<line x1="100" y1="80" x2="180" y2="50" class="l"></line><line x1="100" y1="80" x2="180" y2="110" class="l"></line>
+<circle cx="200" cy="50" r="18" class="b"></circle><text x="200" y="55">1</text>
+<circle cx="200" cy="110" r="18" class="b"></circle><text x="200" y="115">4</text>
+<text x="200" y="145" style="font-size:11px">لایه ۱</text>
+<line x1="218" y1="50" x2="300" y2="40" class="l"></line><line x1="218" y1="50" x2="300" y2="70" class="l"></line>
+<line x1="218" y1="110" x2="300" y2="110" class="l"></line>
+<circle cx="320" cy="40" r="16" class="b"></circle><text x="320" y="45">2</text>
+<circle cx="320" cy="70" r="16" class="b"></circle><text x="320" y="75">3</text>
+<text x="320" y="145" style="font-size:11px">لایه ۲</text>
+<text x="480" y="70" style="font-size:12px">صف در هر لحظه</text>
+<text x="480" y="90" style="font-size:12px">فقط رأس‌های لایه بعد</text>
+</svg>
+<figcaption>BFS لایه به لایه جلو می‌رود و کوتاه‌ترین مسیر از نظر تعداد یال را می‌دهد</figcaption>
+</figure>
+
+<div class="code"><header>Python — گراف وزن‌دار جهت‌دار (لیست مجاورت)<button>Copy</button></header><pre>class WeightedDiGraph:
+    def __init__(self, n):
+        self.n = n
+        self.adj = [[] for _ in range(n)]  # list of (v, w)
+
+    def add_edge(self, u, v, w):
+        self.adj[u].append((v, w))
+
+    def bfs_order(self, start):
+        from collections import deque
+        seen, q, order = {start}, deque([start]), []
+        while q:
+            u = q.popleft()
+            order.append(u)
+            for v, _ in self.adj[u]:
+                if v not in seen:
+                    seen.add(v)
+                    q.append(v)
+        return order
+</pre></div>
+
+
+<div class="demo" id="demo-graph">
+<h4>🎬 انیمیشن BFS و DFS روی گراف</h4>
+<div class="controls">
+  <button onclick="gBFS()">▶ BFS</button>
+  <button onclick="gDFS()">▶ DFS</button>
+  <button class="sec" onclick="gReset()">بازنشانی</button>
+</div>
+<div class="stage"><div class="g-stage" id="g-vis"><div class="g-edge" style="left: 60px; top: 100px; width: 111.803px; transform: rotate(-26.5651deg);"></div><div class="g-edge" style="left: 60px; top: 100px; width: 80.6226px; transform: rotate(60.2551deg);"></div><div class="g-edge" style="left: 160px; top: 50px; width: 120px; transform: rotate(0deg);"></div><div class="g-edge" style="left: 160px; top: 50px; width: 125.3px; transform: rotate(61.3895deg);"></div><div class="g-edge" style="left: 160px; top: 50px; width: 134.164px; transform: rotate(116.565deg);"></div><div class="g-edge" style="left: 280px; top: 50px; width: 125.3px; transform: rotate(118.61deg);"></div><div class="g-edge" style="left: 220px; top: 160px; width: 120.416px; transform: rotate(175.236deg);"></div><div class="g-node" style="left: 40px; top: 80px;">0</div><div class="g-node" style="left: 140px; top: 30px;">1</div><div class="g-node" style="left: 260px; top: 30px;">2</div><div class="g-node" style="left: 200px; top: 140px;">3</div><div class="g-node" style="left: 80px; top: 150px;">4</div></div></div>
+<div class="msg" id="g-msg">گراف آماده</div>
+<div class="hint">نارنجی=در حال بازدید ، سبز=تمام‌شده. ترتیب در پیام پایین دیده می‌شود.</div>
+</div>
+
+<div class="qbox">
+<h4><span class="badge">۶ تمرین</span> تمرین‌های کدنویسی — فصل ۷</h4>
+<ol>
+<li>DFS را بدون بازگشت و با پشته صریح پیاده کنید.</li>
+<li>تشخیص دهید آیا گراف بدون جهت دور دارد یا نه.</li>
+<li>تعداد مؤلفه‌های همبند را بشمارید.</li>
+<li>کوتاه‌ترین مسیر از نظر تعداد یال از s به همه رئوس (با BFS).</li>
+<li>گراف را از لیست یال‌ها بسازید و ماتریس مجاورت را چاپ کنید.</li>
+<li>Dijkstra ساده (آرایه فاصله) برای کوتاه‌ترین مسیر وزن‌دار از رأس ۰.</li>
+</ol>
+</div>
+
+<div class="sol">
+<h4>راه‌حل و توضیح مفهومی — فصل ۷</h4>
+
+<p><b>۱) DFS با پشته</b></p>
+<div class="concept">مفهوم: به‌جای call stack سیستم، خودتان پشته بسازید. رأس را push کنید، وقتی pop شد همسایه‌های ندیده را push کنید.</div>
+<div class="code"><header>راه‌حل ۱<button>Copy</button></header><pre>def dfs_iter(g, start):
+    seen, st, order = set(), [start], []
+    while st:
+        u = st.pop()
+        if u in seen: continue
+        seen.add(u)
+        order.append(u)
+        for v in range(g.n):
+            if g.m[u][v] and v not in seen:
+                st.append(v)
+    return order
+</pre></div>
+
+<p><b>۲) تشخیص دور</b></p>
+<div class="concept">مفهوم: در DFS اگر به رأسی برسید که دیده شده و پدر مستقیم شما نیست → دور وجود دارد.</div>
+
+<p><b>۳) مؤلفه‌های همبند</b></p>
+<div class="concept">مفهوم: روی همه رئوس حلقه بزنید؛ هر بار که رأس ندیده دیدید یک BFS/DFS جدید شروع کنید و شمارنده را یکی زیاد کنید.</div>
+
+<p><b>۴) کوتاه‌ترین مسیر بدون وزن</b></p>
+<div class="concept">مفهوم: BFS خودش لایه به لایه است؛ فاصله هر رأس = فاصله پدر + ۱. اولین باری که رأس دیده می‌شود، کوتاه‌ترین است.</div>
+
+<p><b>۵) ساخت از لیست یال</b></p>
+<div class="concept">مفهوم: برای هر یال (u,v) مقدار m[u][v]=1 (و اگر بدون جهت m[v][u]=1).</div>
+
+<p><b>۶) Dijkstra ساده</b></p>
+<div class="concept">مفهوم: همیشه رأسی را که فاصلهٔ قطعی کمتری دارد انتخاب کنید، فاصله همسایه‌ها را در صورت بهتر شدن به‌روز کنید. با آرایه O(V²) می‌شود؛ برای گراف خلوت بهتر است از heap استفاده شود.</div>
+<div class="code"><header>راه‌حل ۶ (ساده)<button>Copy</button></header><pre>def dijkstra(g, src):
+    INF = 10**9
+    dist = [INF]*g.n
+    dist[src] = 0
+    used = [False]*g.n
+    for _ in range(g.n):
+        u = -1
+        for i in range(g.n):
+            if not used[i] and (u == -1 or dist[i] &lt; dist[u]):
+                u = i
+        if dist[u] == INF: break
+        used[u] = True
+        for v, w in g.adj[u]:
+            if dist[u] + w &lt; dist[v]:
+                dist[v] = dist[u] + w
+    return dist
+</pre></div>
+</div>
+
+</section>
+
+<!-- ==================== جدول مرور ==================== -->
+<section id="cheat"><h2>جدول مرور سریع و نکات امتحانی</h2>
+<div class="tw"><table>
+<tbody><tr><th>ساختار / عمل</th><th>زمان</th><th>نکته‌ی کلیدی</th></tr>
+<tr><td>Stack push/pop/peek</td><td>O(1)</td><td>LIFO — Overflow و Underflow را چک کن</td></tr>
+<tr><td>Queue insert/delete</td><td>O(1)</td><td>FIFO — حلقوی با %</td></tr>
+<tr><td>Linked list جست‌وجو</td><td>O(n)</td><td>درج ابتدا O(1)</td></tr>
+<tr><td>BST جست‌وجو / درج</td><td>O(log n) / O(n)</td><td>درخت کج → بدترین حالت</td></tr>
+<tr><td>Heap insert / del root</td><td>O(log n)</td><td>ریشه همیشه max یا min</td></tr>
+<tr><td>BFS / DFS (ماتریس)</td><td>O(V²)</td><td>صف / پشته</td></tr>
+<tr><td>binary_search</td><td>O(log n)</td><td>آرایه باید مرتب باشد</td></tr>
+<tr><td>merge_sort</td><td>O(n log n)</td><td>همیشه — بهترین و بدترین یکسان</td></tr>
+</tbody></table></div>
+
+<ul>
+<li>همیشه قبل از <code>pop / delete / peek</code> خالی بودن را چک کنید.</li>
+<li>در لیست پیوندی ترتیب بازنویسی اشاره‌گرها را حفظ کنید (اول new.next، بعد t.next).</li>
+<li>برای بازگشت: <strong>اول شرط توقف</strong> را بنویسید.</li>
+<li>در BST قانون چپ &lt; پدر &lt; راست را فراموش نکنید.</li>
+<li>در هیپ فقط رابطه‌ی پدر-فرزند مهم است؛ بین دو برادر ترتیبی نیست.</li>
+</ul>
+
+<p style="color:var(--mut);font-size:14px;margin:16px 0">
+کدهای پایه برگرفته و بازنویسی‌شده از ریپوی 
+<a href="https://github.com/SMHSaadat/Data-Structure" target="_blank" rel="noopener">SMHSaadat/Data-Structure</a>
+— به همراه تمرین‌های حل‌شده و توضیح مفهومی برای هر فصل.
+</p>
+<div class="analogy">
+<b>جمع‌بندی نهایی:</b> ساختمان داده ابزار است. مثل جعبه‌ابزار: برای هر کار ابزار مناسب را انتخاب کنید. آرایه برای دسترسی سریع، پشته برای Undo، صف برای نوبت، درخت برای سلسله‌مراتب، گراف برای شبکه. هرچه بیشتر تمرین کنید، انتخاب ابزار برایتان غریزی می‌شود.
+</div>
+</section>
+</b></main><b>
+<button class="btn" id="top" onclick="scrollTo(0,0)" aria-label="بالا">↑</button>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const secs=$$('section'),side=$('#side'),map=$('#map');
+side.innerHTML='<a href="#intro">مقدمه</a>'+secs.map(s=>`<a href="#${s.id}">${s.querySelector('h2').textContent}</a>`).join('');
+map.innerHTML=secs.slice(0,7).map(s=>{const t=s.querySelector('h2').textContent.split('. ');return `<a href="#${s.id}"><b>${t[1]||t[0]}</b><small>فصل ${t[0]}</small></a>`}).join('');
+const KW=/\b(class|def|return|if|elif|else|while|for|in|not|and|or|is|None|True|False|import|from|raise|break|try|self|lambda|print)\b/g;
+$$('.code pre').forEach(p=>{const t=p.textContent;
+p.innerHTML=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/(#.*$)|("[^"\n]*"|'[^'\n]*')|(\bdef\s+)(\w+)/gm,(m,c,s,d,n)=>c?`<i class=c>${c}</i>`:s?`<span class=s>${s}</span>`:`${d}<span class=f>${n}</span>`)
+.replace(/(<[^>]*>)|([^<]+)/g,(m,tag,txt)=>tag||txt.replace(KW,'<span class=k>$1</span>'));
+p.parentNode.querySelector('button').onclick=e=>{navigator.clipboard.writeText(t);e.target.textContent='Copied ✓';setTimeout(()=>e.target.textContent='Copy',1500)}});
+const root=document.documentElement,th=$('#th');
+function setT(t){root.dataset.theme=t;th.textContent=t=='dark'?'☀ روشن':'🌙 تاریک';try{localStorage.setItem('t',t)}catch(e){}}
+let saved;try{saved=localStorage.getItem('t')}catch(e){}
+setT(saved||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+th.onclick=()=>setT(root.dataset.theme=='dark'?'light':'dark');
+$('#menu').onclick=()=>side.classList.toggle('open');side.onclick=()=>side.classList.remove('open');
+$('#q').oninput=e=>{const v=e.target.value.trim().toLowerCase();
+secs.forEach(s=>s.classList.toggle('hide',v&&!s.textContent.toLowerCase().includes(v)))};
+const links=$$('#side a');
+addEventListener('scroll',()=>{const h=document.documentElement;$('#bar').style.width=100*h.scrollTop/(h.scrollHeight-h.clientHeight)+'%';
+let cur='intro';[$('#intro'),...secs].forEach(s=>{if(s.getBoundingClientRect().top<120)cur=s.id});
+links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#'+cur))});
+</script>
+
+
+
+
+<script>
+/* ===== Unified Interactive Animations (fixed + autoplay on view) ===== */
+(function(){
+  'use strict';
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const $ = id => document.getElementById(id);
+  const text = (id, t) => { const el = $(id); if (el) el.textContent = t; };
+
+  // prevent concurrent autos
+  const busy = {};
+  function canRun(key){ if(busy[key]) return false; busy[key]=true; return true; }
+  function done(key){ busy[key]=false; }
+
+  /* ---------- Stack ---------- */
+  const stk = [];
+  function renderStk(){
+    const w = $('stk-vis'); if(!w) return;
+    w.innerHTML = '';
+    for (let i = 0; i < stk.length; i++){
+      const d = document.createElement('div');
+      d.className = 'stk-cell' + (i === stk.length - 1 ? ' top' : '');
+      d.textContent = stk[i];
+      w.appendChild(d);
+    }
+    const base = document.createElement('div');
+    base.className = 'stk-base';
+    w.appendChild(base);
+  }
+  window.stkPush = function(){
+    const inp = $('stk-val');
+    const v = (inp && inp.value !== '') ? inp.value : '0';
+    if (stk.length >= 8){ text('stk-msg','پشته پر است (حد نمایش ۸)'); return; }
+    stk.push(v);
+    renderStk();
+    const cells = $('stk-vis').querySelectorAll('.stk-cell');
+    if (cells.length) cells[cells.length-1].classList.add('new');
+    text('stk-msg', 'push('+v+') → TOP = '+v);
+    if (inp) inp.value = String(Number(v) + 1 || 1);
+  };
+  window.stkPop = function(){
+    if (!stk.length){ text('stk-msg','Underflow — پشته خالی!'); return; }
+    const cells = $('stk-vis').querySelectorAll('.stk-cell');
+    const last = cells[cells.length-1];
+    if (last) last.classList.add('gone');
+    setTimeout(function(){
+      const x = stk.pop();
+      renderStk();
+      text('stk-msg', 'pop() → '+x+(stk.length ? ' | TOP = '+stk[stk.length-1] : ' | خالی'));
+    }, 280);
+  };
+  window.stkPeek = function(){
+    if (!stk.length){ text('stk-msg','پشته خالی'); return; }
+    text('stk-msg','peek() → '+stk[stk.length-1]);
+  };
+  window.stkReset = function(){ stk.length=0; renderStk(); text('stk-msg','پشته پاک شد'); };
+  window.stkAuto = async function(){
+    if (!canRun('stk')) return;
+    try {
+      window.stkReset();
+      await sleep(300);
+      for (const v of [10,20,30,40]){
+        if ($('stk-val')) $('stk-val').value = v;
+        window.stkPush();
+        await sleep(650);
+      }
+      await sleep(400);
+      window.stkPop(); await sleep(650);
+      window.stkPop(); await sleep(650);
+      window.stkPeek();
+    } finally { done('stk'); }
+  };
+
+  /* ---------- Queue FIFO ---------- */
+  const que = [];
+  function renderQ(enter){
+    const w = $('q-vis'); if(!w) return;
+    w.innerHTML = '';
+    que.forEach(function(v,i){
+      const d = document.createElement('div');
+      d.className = 'q-cell'
+        + (i===0 ? ' front' : '')
+        + (i===que.length-1 ? ' rear' : '')
+        + (enter && i===que.length-1 ? ' enter' : '');
+      d.textContent = v;
+      w.appendChild(d);
+    });
+  }
+  window.qEnq = function(){
+    const inp = $('q-val');
+    const v = (inp && inp.value !== '') ? inp.value : '0';
+    if (que.length >= 10){ text('q-msg','صف پر (نمایش)'); return; }
+    que.push(v);
+    renderQ(true);
+    text('q-msg','enqueue('+v+')'+(que.length>1 ? ' | front='+que[0]+' rear='+v : ''));
+    if (inp) inp.value = String(Number(v)+1 || 1);
+  };
+  window.qDeq = function(){
+    if (!que.length){ text('q-msg','صف خالی!'); return; }
+    const cells = $('q-vis').querySelectorAll('.q-cell');
+    if (cells[0]) cells[0].classList.add('leave');
+    setTimeout(function(){
+      const x = que.shift();
+      renderQ(false);
+      text('q-msg','dequeue() → '+x+(que.length ? ' | front='+que[0] : ' | خالی'));
+    }, 300);
+  };
+  window.qReset = function(){ que.length=0; renderQ(false); text('q-msg','صف پاک شد'); };
+  window.qAuto = async function(){
+    if (!canRun('q')) return;
+    try {
+      window.qReset(); await sleep(250);
+      for (const v of [1,2,3,4]){
+        if ($('q-val')) $('q-val').value = v;
+        window.qEnq(); await sleep(550);
+      }
+      await sleep(350);
+      window.qDeq(); await sleep(550);
+      window.qDeq();
+    } finally { done('q'); }
+  };
+
+  /* ---------- Circular Queue ---------- */
+  const CQ_N = 4;
+  let cq = Array(CQ_N).fill(null), cqF = -1, cqR = -1;
+  function cqPos(i){
+    const ang = -Math.PI/2 + (i/CQ_N)*2*Math.PI;
+    const r = 78;
+    return { left: (110 + r*Math.cos(ang) - 24)+'px', top: (110 + r*Math.sin(ang) - 20)+'px' };
+  }
+  function renderCQ(){
+    const w = $('cq-vis'); if(!w) return;
+    w.innerHTML = '<div class="cq-center">حلقوی</div>';
+    for (let i=0;i<CQ_N;i++){
+      const d = document.createElement('div');
+      let cls = 'cq-slot';
+      if (cq[i] != null) cls += ' filled';
+      if (cqF !== -1 && i === cqF) cls += ' front';
+      if (cqR !== -1 && i === cqR) cls += ' rear';
+      d.className = cls;
+      d.textContent = cq[i] != null ? cq[i] : String(i);
+      const p = cqPos(i);
+      d.style.left = p.left; d.style.top = p.top;
+      w.appendChild(d);
+    }
+  }
+  window.cqEnq = function(){
+    const inp = $('cq-val');
+    const v = (inp && inp.value !== '') ? inp.value : '0';
+    if (cqF !== -1 && (cqR+1)%CQ_N === cqF){ text('cq-msg','پر است!'); return; }
+    if (cqF === -1){ cqF = cqR = 0; }
+    else cqR = (cqR+1)%CQ_N;
+    cq[cqR] = v;
+    renderCQ();
+    text('cq-msg','insert('+v+') → rear='+cqR+' front='+cqF);
+    if (inp) inp.value = String(Number(v)+1 || 1);
+  };
+  window.cqDeq = function(){
+    if (cqF === -1){ text('cq-msg','خالی!'); return; }
+    const x = cq[cqF];
+    cq[cqF] = null;
+    if (cqF === cqR){ cqF = cqR = -1; }
+    else cqF = (cqF+1)%CQ_N;
+    renderCQ();
+    text('cq-msg','delete() → '+x);
+  };
+  window.cqReset = function(){ cq = Array(CQ_N).fill(null); cqF = cqR = -1; renderCQ(); text('cq-msg','پاک شد'); };
+  window.cqAuto = async function(){
+    if (!canRun('cq')) return;
+    try {
+      window.cqReset(); await sleep(250);
+      for (const v of [1,2,3]){ if($('cq-val'))$('cq-val').value=v; window.cqEnq(); await sleep(550); }
+      window.cqDeq(); await sleep(550);
+      if($('cq-val'))$('cq-val').value=4; window.cqEnq(); await sleep(500);
+      if($('cq-val'))$('cq-val').value=5; window.cqEnq();
+    } finally { done('cq'); }
+  };
+
+  /* ---------- Linked List ---------- */
+  const ll = [];
+  function renderLL(newIdx){
+    const w = $('ll-vis'); if(!w) return;
+    if (!ll.length){ w.innerHTML = '<span class="ll-null">HEAD → None</span>'; return; }
+    w.innerHTML = '<span class="ll-null">HEAD → </span>';
+    ll.forEach(function(v,i){
+      const node = document.createElement('div');
+      node.className = 'll-node' + (i === newIdx ? ' new' : '');
+      node.innerHTML = '<div class="ll-box">'+v+'</div><div class="ll-ptr">•</div>';
+      w.appendChild(node);
+      if (i < ll.length-1){
+        const ar = document.createElement('div');
+        ar.className = 'll-arrow';
+        w.appendChild(ar);
+      }
+    });
+    const n = document.createElement('span');
+    n.className = 'll-null';
+    n.textContent = ' → None';
+    w.appendChild(n);
+  }
+  window.llInsertFirst = function(){
+    const inp = $('ll-val');
+    const v = (inp && inp.value !== '') ? inp.value : '0';
+    ll.unshift(v);
+    renderLL(0);
+    text('ll-msg','insert_first('+v+')');
+    if (inp) inp.value = String(Number(v)+5 || 5);
+  };
+  window.llInsertLast = function(){
+    const inp = $('ll-val');
+    const v = (inp && inp.value !== '') ? inp.value : '0';
+    ll.push(v);
+    renderLL(ll.length-1);
+    text('ll-msg','insert_last('+v+')');
+    if (inp) inp.value = String(Number(v)+5 || 5);
+  };
+  window.llDeleteFirst = function(){
+    if (!ll.length){ text('ll-msg','لیست خالی'); return; }
+    const x = ll.shift();
+    renderLL(-1);
+    text('ll-msg','delete_first() → '+x);
+  };
+  window.llReset = function(){ ll.length=0; renderLL(-1); text('ll-msg','پاک شد'); };
+  window.llAuto = async function(){
+    if (!canRun('ll')) return;
+    try {
+      window.llReset(); await sleep(250);
+      if($('ll-val'))$('ll-val').value=10; window.llInsertLast(); await sleep(500);
+      if($('ll-val'))$('ll-val').value=20; window.llInsertLast(); await sleep(500);
+      if($('ll-val'))$('ll-val').value=5; window.llInsertFirst(); await sleep(500);
+      if($('ll-val'))$('ll-val').value=30; window.llInsertLast(); await sleep(500);
+      window.llDeleteFirst();
+    } finally { done('ll'); }
+  };
+
+  /* ---------- BST ---------- */
+  let bstRoot = null, lastBst = null;
+  function BNode(d){ this.data=d; this.left=null; this.right=null; }
+  function bstInsert(n, x){
+    if (!n) return new BNode(x);
+    if (x < n.data) n.left = bstInsert(n.left, x);
+    else if (x > n.data) n.right = bstInsert(n.right, x);
+    return n;
+  }
+  function bstLayout(n, x, y, gap, nodes, edges){
+    if (!n) return;
+    nodes.push({d:n.data, x:x, y:y});
+    if (n.left){ edges.push([x,y,x-gap,y+50]); bstLayout(n.left, x-gap, y+50, gap*0.55, nodes, edges); }
+    if (n.right){ edges.push([x,y,x+gap,y+50]); bstLayout(n.right, x+gap, y+50, gap*0.55, nodes, edges); }
+  }
+  function renderBST(){
+    const svg = $('bst-svg'); if(!svg) return;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    if (!bstRoot) return;
+    const nodes = [], edges = [];
+    bstLayout(bstRoot, 240, 30, 110, nodes, edges);
+    edges.forEach(function(e){
+      const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+      l.setAttribute('x1', e[0]); l.setAttribute('y1', e[1]+16);
+      l.setAttribute('x2', e[2]); l.setAttribute('y2', e[3]-16);
+      l.setAttribute('class','tree-edge');
+      svg.appendChild(l);
+    });
+    nodes.forEach(function(nd){
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', nd.x); c.setAttribute('cy', nd.y); c.setAttribute('r', 18);
+      c.setAttribute('class', 'tree-node' + (nd.d === lastBst ? ' hl new' : ''));
+      svg.appendChild(c);
+      const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x', nd.x); t.setAttribute('y', nd.y);
+      t.setAttribute('class','tree-label');
+      t.textContent = nd.d;
+      svg.appendChild(t);
+    });
+  }
+  window.bstAdd = function(){
+    const inp = $('bst-val');
+    const v = Number(inp && inp.value !== '' ? inp.value : 0);
+    lastBst = v;
+    bstRoot = bstInsert(bstRoot, v);
+    renderBST();
+    text('bst-msg','درج '+v+' — چپ < پدر < راست');
+    if (inp) inp.value = String(v + 2);
+  };
+  window.bstReset = function(){ bstRoot=null; lastBst=null; renderBST(); text('bst-msg','درخت پاک شد'); };
+  window.bstAuto = async function(){
+    if (!canRun('bst')) return;
+    try {
+      window.bstReset(); await sleep(250);
+      for (const v of [13,11,15,9,12,14,17]){
+        if ($('bst-val')) $('bst-val').value = v;
+        window.bstAdd();
+        await sleep(600);
+      }
+    } finally { done('bst'); }
+  };
+
+  /* ---------- Binary Search ---------- */
+  const bsArr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  function renderBS(low, high, mid, found){
+    const w = $('bs-vis'); if(!w) return;
+    w.innerHTML = '';
+    bsArr.forEach(function(v,i){
+      const d = document.createElement('div');
+      d.className = 'bs-cell';
+      if (found === i) d.classList.add('found');
+      else if (mid === i) d.classList.add('active');
+      else if (i < low || i > high) d.classList.add('discard');
+      d.textContent = v;
+      w.appendChild(d);
+    });
+  }
+  window.bsReset = function(){
+    renderBS(0, bsArr.length-1, -1, -1);
+    text('bs-msg','آماده جست‌وجو');
+  };
+  window.bsStart = async function(){
+    if (!canRun('bs')) return;
+    try {
+      const target = Number(($('bs-target') && $('bs-target').value) || 7);
+      let low = 0, high = bsArr.length - 1, step = 0;
+      while (low <= high){
+        const mid = (low + high) >> 1;
+        step++;
+        renderBS(low, high, mid, -1);
+        text('bs-msg','گام '+step+': mid='+mid+' → '+bsArr[mid]);
+        await sleep(850);
+        if (bsArr[mid] === target){
+          renderBS(low, high, mid, mid);
+          text('bs-msg','پیدا شد! اندیس '+mid+' بعد از '+step+' مقایسه');
+          return;
+        }
+        if (bsArr[mid] < target) low = mid + 1;
+        else high = mid - 1;
+      }
+      renderBS(1, 0, -1, -1);
+      text('bs-msg', target+' پیدا نشد');
+    } finally { done('bs'); }
+  };
+
+  /* ---------- Merge Sort ---------- */
+  let msData = [5,2,9,1,7,3];
+  function renderMS(arr, flags){
+    const w = $('ms-vis'); if(!w) return;
+    w.innerHTML = '';
+    (arr || []).forEach(function(v,i){
+      const d = document.createElement('div');
+      d.className = 'ms-bar' + (flags && flags[i] ? ' '+flags[i] : '');
+      d.style.height = (18 + v * 14) + 'px';
+      d.textContent = v;
+      w.appendChild(d);
+    });
+  }
+  window.msReset = function(){
+    msData = [5,2,9,1,7,3];
+    renderMS(msData, null);
+    text('ms-msg','آرایه اولیه');
+  };
+  window.msStart = async function(){
+    if (!canRun('ms')) return;
+    try {
+      async function sortAnim(arr, depth){
+        if (arr.length <= 1) return arr;
+        const mid = arr.length >> 1;
+        const left = arr.slice(0, mid), right = arr.slice(mid);
+        const flags = arr.map(function(_,i){ return i < mid ? 'left' : 'right'; });
+        renderMS(arr, flags);
+        text('ms-msg','تقسیم — عمق '+depth);
+        await sleep(650);
+        const L = await sortAnim(left, depth+1);
+        const R = await sortAnim(right, depth+1);
+        const out = [];
+        let i = 0, j = 0;
+        while (i < L.length && j < R.length){
+          if (L[i] <= R[j]) out.push(L[i++]); else out.push(R[j++]);
+        }
+        const merged = out.concat(L.slice(i)).concat(R.slice(j));
+        renderMS(merged, merged.map(function(){ return 'merged'; }));
+        text('ms-msg','ادغام: ['+merged.join(', ')+']');
+        await sleep(700);
+        return merged;
+      }
+      msData = await sortAnim(msData.slice(), 0);
+      renderMS(msData, msData.map(function(){ return 'merged'; }));
+      text('ms-msg','مرتب: ['+msData.join(', ')+']');
+    } finally { done('ms'); }
+  };
+
+  /* ---------- Heap ---------- */
+  let heap = [];
+  function heapPos(i){
+    const level = Math.floor(Math.log2(i+1));
+    const nodesInLevel = 1 << level;
+    const indexInLevel = i - ((1 << level) - 1);
+    const x = (360 / (nodesInLevel + 1)) * (indexInLevel + 1) + 20;
+    const y = 28 + level * 48;
+    return {x:x, y:y};
+  }
+  function renderHeap(swapIdx){
+    const arr = $('heap-arr'), svg = $('heap-svg');
+    if (!arr || !svg) return;
+    arr.innerHTML = '';
+    heap.forEach(function(v,i){
+      const d = document.createElement('div');
+      d.className = 'heap-cell' + (i===0 ? ' root' : '') + (swapIdx===i ? ' swap' : '');
+      d.textContent = v;
+      arr.appendChild(d);
+    });
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    if (!heap.length) return;
+    for (let i = 1; i < heap.length; i++){
+      const p = heapPos(i), pp = heapPos(Math.floor((i-1)/2));
+      const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+      l.setAttribute('x1', pp.x); l.setAttribute('y1', pp.y+14);
+      l.setAttribute('x2', p.x); l.setAttribute('y2', p.y-14);
+      l.setAttribute('class','tree-edge');
+      svg.appendChild(l);
+    }
+    for (let i = 0; i < heap.length; i++){
+      const p = heapPos(i);
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', 16);
+      c.setAttribute('class', 'tree-node' + (i===0 || swapIdx===i ? ' hl' : ''));
+      svg.appendChild(c);
+      const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x', p.x); t.setAttribute('y', p.y);
+      t.setAttribute('class','tree-label');
+      t.textContent = heap[i];
+      svg.appendChild(t);
+    }
+  }
+  window.heapIns = async function(){
+    if (!canRun('heapIns')) return;
+    try {
+      const v = Number(($('heap-val') && $('heap-val').value) || 0);
+      heap.push(v);
+      let i = heap.length - 1;
+      renderHeap(i);
+      text('heap-msg','اضافه به انتها: '+v);
+      await sleep(450);
+      while (i > 0){
+        const p = (i - 1) >> 1;
+        if (heap[i] <= heap[p]) break;
+        renderHeap(i); await sleep(350);
+        const tmp = heap[i]; heap[i] = heap[p]; heap[p] = tmp;
+        i = p;
+        renderHeap(i);
+        text('heap-msg','bubble up');
+        await sleep(400);
+      }
+      renderHeap(-1);
+      text('heap-msg','insert('+v+') — ریشه = '+heap[0]);
+      if ($('heap-val')) $('heap-val').value = String(v + 7);
+    } finally { done('heapIns'); }
+  };
+  window.heapDel = async function(){
+    if (!canRun('heapDel')) return;
+    try {
+      if (!heap.length){ text('heap-msg','خالی'); return; }
+      const top = heap[0];
+      const last = heap.pop();
+      if (heap.length){
+        heap[0] = last;
+        let i = 0;
+        renderHeap(0);
+        text('heap-msg','حذف ریشه ('+top+')');
+        await sleep(450);
+        while (true){
+          let big = i, l = 2*i+1, r = 2*i+2;
+          if (l < heap.length && heap[l] > heap[big]) big = l;
+          if (r < heap.length && heap[r] > heap[big]) big = r;
+          if (big === i) break;
+          const tmp = heap[i]; heap[i] = heap[big]; heap[big] = tmp;
+          i = big;
+          renderHeap(i);
+          text('heap-msg','bubble down');
+          await sleep(400);
+        }
+      }
+      renderHeap(-1);
+      text('heap-msg','del_root → '+top);
+    } finally { done('heapDel'); }
+  };
+  window.heapReset = function(){ heap = []; renderHeap(-1); text('heap-msg','پاک شد'); };
+  window.heapAuto = async function(){
+    if (!canRun('heap')) return;
+    try {
+      window.heapReset(); await sleep(250);
+      for (const v of [10,40,15,50,100]){
+        if ($('heap-val')) $('heap-val').value = v;
+        // call internal without double-lock
+        busy['heapIns'] = false;
+        await window.heapIns();
+        await sleep(250);
+      }
+      busy['heapDel'] = false;
+      await window.heapDel();
+    } finally { done('heap'); done('heapIns'); done('heapDel'); }
+  };
+
+  /* ---------- Graph ---------- */
+  const G_POS = [{x:40,y:80},{x:140,y:30},{x:260,y:30},{x:200,y:140},{x:80,y:150}];
+  const G_EDGES = [[0,1],[0,4],[1,2],[1,3],[1,4],[2,3],[3,4]];
+  const G_ADJ = [[1,4],[0,2,3,4],[1,3],[1,2,4],[0,1,3]];
+  function renderGraph(state){
+    const w = $('g-vis'); if(!w) return;
+    w.innerHTML = '';
+    G_EDGES.forEach(function(ab){
+      const a = ab[0], b = ab[1];
+      const x1 = G_POS[a].x+20, y1 = G_POS[a].y+20;
+      const x2 = G_POS[b].x+20, y2 = G_POS[b].y+20;
+      const len = Math.hypot(x2-x1, y2-y1);
+      const ang = Math.atan2(y2-y1, x2-x1) * 180 / Math.PI;
+      const e = document.createElement('div');
+      e.className = 'g-edge';
+      e.style.left = x1+'px'; e.style.top = y1+'px';
+      e.style.width = len+'px';
+      e.style.transform = 'rotate('+ang+'deg)';
+      w.appendChild(e);
+    });
+    G_POS.forEach(function(p,i){
+      const d = document.createElement('div');
+      d.className = 'g-node';
+      if (state && state.visit === i) d.classList.add('visit');
+      if (state && state.done && state.done.has(i)) d.classList.add('done');
+      d.style.left = p.x+'px'; d.style.top = p.y+'px';
+      d.textContent = i;
+      w.appendChild(d);
+    });
+  }
+  window.gReset = function(){ renderGraph(null); text('g-msg','گراف آماده'); };
+  window.gBFS = async function(){
+    if (!canRun('g')) return;
+    try {
+      const seen = new Set([0]), q = [0], order = [];
+      renderGraph({visit:0, done:new Set()});
+      text('g-msg','BFS از ۰');
+      await sleep(450);
+      while (q.length){
+        const u = q.shift();
+        order.push(u);
+        renderGraph({visit:u, done:new Set(order)});
+        text('g-msg','بازدید '+u+' | ترتیب: '+order.join(' → '));
+        await sleep(650);
+        G_ADJ[u].forEach(function(v){
+          if (!seen.has(v)){ seen.add(v); q.push(v); }
+        });
+      }
+      renderGraph({done:new Set(order)});
+      text('g-msg','BFS: '+order.join(' → '));
+    } finally { done('g'); }
+  };
+  window.gDFS = async function(){
+    if (!canRun('g')) return;
+    try {
+      const seen = new Set(), order = [];
+      async function dfs(u){
+        seen.add(u); order.push(u);
+        renderGraph({visit:u, done:new Set(order)});
+        text('g-msg','DFS '+u+' | '+order.join(' → '));
+        await sleep(600);
+        for (let k=0;k<G_ADJ[u].length;k++){
+          const v = G_ADJ[u][k];
+          if (!seen.has(v)) await dfs(v);
+        }
+      }
+      await dfs(0);
+      renderGraph({done:new Set(order)});
+      text('g-msg','DFS: '+order.join(' → '));
+    } finally { done('g'); }
+  };
+
+  /* ---------- Recursion fact ---------- */
+  window.recReset = function(){
+    const w = $('rec-vis'); if(w) w.innerHTML = '';
+    text('rec-msg','آماده');
+  };
+  window.recStart = async function(){
+    if (!canRun('rec')) return;
+    try {
+      const n = Math.min(6, Math.max(1, Number(($('rec-n') && $('rec-n').value) || 4)));
+      const w = $('rec-vis'); if(!w) return;
+      w.innerHTML = '';
+      const frames = [];
+      for (let i = n; i >= 1; i--){
+        const d = document.createElement('div');
+        d.className = 'rec-frame active';
+        d.textContent = i === 1 ? 'fact(1) → 1' : 'fact('+i+') = '+i+' × fact('+(i-1)+')';
+        w.appendChild(d);
+        frames.push(d);
+        text('rec-msg','فراخوانی fact('+i+')');
+        await sleep(500);
+        d.classList.remove('active');
+      }
+      let acc = 1;
+      for (let i = 1; i <= n; i++){
+        acc = i === 1 ? 1 : acc * i;
+        const d = frames[n - i];
+        d.classList.add('return');
+        d.textContent = 'fact('+i+') → '+acc;
+        text('rec-msg','بازگشت fact('+i+') = '+acc);
+        await sleep(550);
+      }
+      text('rec-msg','نتیجه: fact('+n+') = '+acc);
+    } finally { done('rec'); }
+  };
+
+  /* ---------- Parentheses ---------- */
+  window.parenReset = function(){
+    const vis = $('paren-vis'), stkEl = $('paren-stk');
+    if (vis) vis.innerHTML = '';
+    if (stkEl) stkEl.innerHTML = '<div class="stk-base"></div>';
+    text('paren-msg','آماده');
+  };
+  window.parenStart = async function(){
+    if (!canRun('paren')) return;
+    try {
+      const s = ($('paren-str') && $('paren-str').value) || '{[()]}';
+      const vis = $('paren-vis'), stkEl = $('paren-stk');
+      if (!vis || !stkEl) return;
+      vis.innerHTML = '';
+      const chars = [];
+      for (let i = 0; i < s.length; i++){
+        const d = document.createElement('div');
+        d.className = 'paren-ch';
+        d.textContent = s[i];
+        vis.appendChild(d);
+        chars.push(d);
+      }
+      const stack = [];
+      const pairs = {')':'(', ']':'[', '}':'{'};
+      const opens = '([{';
+      function drawStk(){
+        stkEl.innerHTML = '';
+        stack.forEach(function(ch){
+          const d = document.createElement('div');
+          d.className = 'stk-cell top';
+          d.textContent = ch;
+          stkEl.appendChild(d);
+        });
+        const base = document.createElement('div');
+        base.className = 'stk-base';
+        stkEl.appendChild(base);
+      }
+      for (let i = 0; i < s.length; i++){
+        chars.forEach(function(c,j){ c.classList.toggle('cur', j===i); });
+        const ch = s[i];
+        await sleep(400);
+        if (opens.indexOf(ch) !== -1){
+          stack.push(ch); drawStk();
+          chars[i].classList.add('ok');
+          text('paren-msg','باز «'+ch+'» → push');
+        } else if (pairs[ch]){
+          if (!stack.length || stack[stack.length-1] !== pairs[ch]){
+            chars[i].classList.add('bad');
+            text('paren-msg','نامعتبر! «'+ch+'» جفت نیست');
+            return;
+          }
+          stack.pop(); drawStk();
+          chars[i].classList.add('ok');
+          text('paren-msg','بسته «'+ch+'» → pop');
+        }
+        await sleep(300);
+      }
+      chars.forEach(function(c){ c.classList.remove('cur'); });
+      if (stack.length) text('paren-msg','نامعتبر — باز باقی مانده');
+      else {
+        text('paren-msg','معتبر ✓');
+        chars.forEach(function(c){ c.classList.add('ok'); });
+      }
+    } finally { done('paren'); }
+  };
+
+  /* ---------- Init + Autoplay on scroll into view ---------- */
+  function initAll(){
+    renderStk();
+    renderQ(false);
+    renderCQ();
+    renderLL(-1);
+    renderBST();
+    window.bsReset();
+    window.msReset();
+    renderHeap(-1);
+    window.gReset();
+    window.recReset();
+    window.parenReset();
+  }
+
+  // Map demo id -> autoplay function
+  const autoMap = {
+    'demo-stack': function(){ return window.stkAuto(); },
+    'demo-queue': function(){ return window.qAuto(); },
+    'demo-cq': function(){ return window.cqAuto(); },
+    'demo-ll': function(){ return window.llAuto(); },
+    'demo-bst': function(){ return window.bstAuto(); },
+    'demo-bs': function(){ return window.bsStart(); },
+    'demo-ms': function(){ return window.msStart(); },
+    'demo-heap': function(){ return window.heapAuto(); },
+    'demo-graph': function(){ return window.gBFS(); },
+    'demo-rec': function(){ return window.recStart(); },
+    'demo-paren': function(){ return window.parenStart(); }
+  };
+  const played = {};
+
+  function setupObserver(){
+    if (!('IntersectionObserver' in window)) return;
+    const obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        const id = en.target.id;
+        if (!id || played[id] || !autoMap[id]) return;
+        played[id] = true;
+        // slight delay so user sees the panel
+        setTimeout(function(){ autoMap[id](); }, 400);
+      });
+    }, { threshold: 0.45 });
+    Object.keys(autoMap).forEach(function(id){
+      const el = $(id);
+      if (el) obs.observe(el);
+    });
+  }
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ initAll(); setupObserver(); });
+  } else {
+    initAll(); setupObserver();
+  }
+})();
+</script>
+
+
+<footer class="footer-copy">
+  <strong>© ۲۰۲۶ سینا شجاعیان — کلیه حقوق محفوظ است</strong><br>
+  کتابچه آموزش Python ساختمان داده · از صفر تا درخت و گراف<br>
+  تنظیم‌کننده: سینا شجاعیان · استاد: دکتر اسدی · دانشگاه آزاد اسلامی واحد شیراز · مهندسی کامپیوتر · ترم ۱۴۰۵<br>
+  هرگونه کپی، بازنشر، ویرایش یا استفاده تجاری بدون مجوز کتبی ممنوع است.<br>
+  مرجع رسمی: <a href="https://github.com/3INA3">https://github.com/3INA3</a><br>
+  <span dir="ltr" style="font-family:ui-monospace,monospace;font-size:11px">
+    کد سند: SS-F24B-4128-445E-2026-DS2 · Document ID: 3INA3-DS-PYTHON-2026-F24B4128 · Issued: 2026-10-06 · © 3INA3
+  </span>
+</footer>
+
+
+<script>
+(function(){
+  var names = ["3INA3","سینا شجاعیان","github.com/3INA3","SS-F24B-4128-445E-2026-DS2","ساختمان داده","Python","3INA3","سینا شجاعیان"];
+  var layer = document.createElement("div");
+  layer.className = "wm-layer";
+  layer.setAttribute("aria-hidden","true");
+  layer.id = "wm-layer";
+  for (var i = 0; i < 32; i++) {
+    var s = document.createElement("span");
+    s.textContent = names[i % names.length];
+    layer.appendChild(s);
+  }
+  document.body.insertBefore(layer, document.body.firstChild);
+  window.__3INA3_DOC__ = {
+    id: "3INA3-DS-PYTHON-2026-F24B4128",
+    serial: "SS-F24B-4128-445E-2026-DS2",
+    owner: "سینا شجاعیان",
+    professor: "دکتر اسدی",
+    university: "دانشگاه آزاد اسلامی، واحد شیراز",
+    field: "مهندسی کامپیوتر",
+    term: "۱۴۰۵",
+    src: "https://github.com/3INA3",
+    issued: "2026-10-06"
+  };
+  document.addEventListener("contextmenu", function(e){
+    if (!e.target.closest("input,textarea,a,button,pre,code,.code")) e.preventDefault();
+  });
+  setInterval(function(){
+    if (document.title.indexOf("3INA3") < 0 && document.title.indexOf("سینا") < 0) {
+      document.title = "کتابچه ساختمان داده با Python · © سینا شجاعیان · SS-F24B-4128-445E-2026-DS2";
+    }
+  }, 5000);
+  console.info("%c© سینا شجاعیان · Protected","color:#2f4bd8;font-weight:bold", "SS-F24B-4128-445E-2026-DS2");
+})();
+</script>
+
+
+
+</b></body></html>
